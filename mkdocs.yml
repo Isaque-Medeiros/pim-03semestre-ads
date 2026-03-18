@@ -1,4 +1,4 @@
-site_name: Documentação PIM 3
+site_name: Brazilian System of Food Metric 
 site_url: https://seusite.com.br
 
 theme:
@@ -24,6 +24,7 @@ extra_css:
 # Estrutura de páginas para aparecerem no topo (Abas)
 nav:
   - Home: index.md
+  - Start: comecar-aprender.md
   - Guia de Instalação: instalacao.md
   - Configurações: config.md
   - Referência: referencia.md
