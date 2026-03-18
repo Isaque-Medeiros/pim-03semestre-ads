@@ -1,0 +1,20 @@
+/* Cor do cabeçalho (Header) */
+.md-header {
+    background-color: #1D63ED !important; /* Azul Docker */
+}
+
+/* Cor das abas de navegação superior (Tabs) */
+.md-tabs {
+    background-color: #1D63ED !important;
+}
+
+/* Ajuste da cor do texto no cabeçalho para branco */
+.md-header__title, .md-tabs__link {
+    color: rgb(19, 19, 19) !important;
+}
+
+/* Deixar o fundo do site mais escuro como o do Docker */
+[data-md-color-scheme="slate"] {
+    --md-default-bg-color: #0d1117;
+    --md-default-fg-color: #c9d1d9;
+}
