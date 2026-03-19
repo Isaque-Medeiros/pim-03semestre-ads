@@ -1,19 +1,33 @@
 /* Cor do cabeçalho (Header) */
 .md-header {
     background-color: #1e5de6 !important; /* Azul Docker */
+
+    border-bottom: 1px solid #7f9fff !important; 
+    display: inline-block; /* Faz a borda ter o tamanho exato do texto */
+    line-height: 1.2;      /* Ajusta a altura para a linha não ficar colada */
 }
 
 /* Cor das abas de navegação superior (Tabs) */
 .md-tabs {
     background-color: #082e97 !important;
+
+
 }
 
 /* Ajuste da cor do texto no cabeçalho para branco */
 .md-header__title {
-    color: rgba(9, 36, 158, 0.836) !important;
+    color: rgba(15, 45, 181, 0.863) !important;
+    text-shadow: 1px 1px 1px rgb(0, 26, 52); /* Sombra para melhor legibilidade */
+
+    border-bottom: 1px solid #7f9fff !important; 
+    display: inline-block; /* Faz a borda ter o tamanho exato do texto */
+    line-height: 3.5;      /* Ajusta a altura para a linha não ficar colada */
+
 }
 .md-tabs__link{
-   color: rgba(74, 107, 255, 0.719) !important; 
+   color: rgba(131, 153, 251, 0.846) !important; 
+   text-shadow: 2px 2px 3px rgba(1, 25, 49, 0.729); /* Sombra para melhor legibilidade */
+   
 }
 /* Deixar o fundo do site mais escuro como o do Docker */
 [data-md-color-scheme="slate"] {

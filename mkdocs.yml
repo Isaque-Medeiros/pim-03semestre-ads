@@ -4,10 +4,14 @@ site_url: https://seusite.com.br
 theme:
   name: material
   language: pt-BR
+  # O LOGO DEVE FICAR AQUI, COM 2 ESPAÇOS DE RECUO:
+  logo: stylesheets/images/favicon.png 
+  # Se quiser mudar o ícone da aba do navegador também:
+  favicon: stylesheets/images/favicon.png 
   palette:
-      scheme: slate # Força o modo escuro
-      primary: blue
-      accent: blue
+    scheme: slate
+    primary: blue
+    accent: blue
   features:
     - navigation.tabs      # ISSO CRIA O MENU NO TOPO IGUAL AO DOCKER
     - navigation.tabs.sticky
@@ -28,3 +32,4 @@ nav:
   - Guia de Instalação: instalacao.md
   - Configurações: config.md
   - Referência: referencia.md
+  - Planejamento do Projeto: planejamento.md
