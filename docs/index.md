@@ -9,31 +9,19 @@ hide:
 
 <style>
   /* 1. CORREÇÃO DO LAYOUT GLOBAL */
-  /* Removemos o display:flex do body que encurtava o topo */
   body {
-    background-color: #0c1117;
-    color: #e6edf3;
+    background-color: #0d1117; /* Preto Profundo */
+    color: #c9d1d9; /* Cinza claro para leitura */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
   }
 
-  /* Reset de margens do tema Material para permitir Full Width */
-  .md-main__inner {
-    max-width: none !important;
-    margin-top: 0 !important;
-    padding: 0 !important;
-  }
-  .md-content {
-    margin-left: 0 !important;
-  }
-  .md-content__inner {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-  .md-footer {
-    display: none; /* Esconde o footer padrão se quiser usar o seu personalizado abaixo */
-  }
+  /* Reset de margens do tema Material */
+  .md-main__inner { max-width: none !important; margin-top: 0 !important; padding: 0 !important; }
+  .md-content { margin-left: 0 !important; }
+  .md-content__inner { margin: 0 !important; padding: 0 !important; }
+  .md-footer { display: none; }
 
   /* 2. SEUS ESTILOS PERSONALIZADOS */
   .container {
@@ -41,24 +29,23 @@ hide:
     max-width: 1200px;
     padding: 0 20px;
     box-sizing: border-box;
-    margin: 0 auto; /* Centraliza o conteúdo interno */
+    margin: 0 auto;
   }
 
-  /* Hero Section corrigida para ocupar 100% */
   .hero {
     text-align: center;
     padding: 80px 0 60px 0;
-    background-image: radial-gradient(#1f2937 0.5px, transparent 0.5px);
+    background-image: radial-gradient(#40E0D0 0.5px, transparent 0.5px); /* Pontos Turquesa */
     background-size: 20px 20px;
-    background-color: #0c1117;
+    background-color: #0d1117;
     width: 100%;
   }
 
-  h1 { font-size: 40px; margin-bottom: 30px; font-weight: 600; }
+  h1 { font-size: 40px; margin-bottom: 30px; font-weight: 600; color: #fff; }
 
   .search-box {
     background: #161b22;
-    border: 1px solid #30363d;
+    border: 1px solid #40E0D0; /* Borda Turquesa */
     border-radius: 12px;
     padding: 12px 20px;
     max-width: 700px;
@@ -66,19 +53,20 @@ hide:
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: border 0.2s;
+    transition: box-shadow 0.3s;
+    box-shadow: 0 0 10px rgba(64, 224, 208, 0.1);
   }
 
   .search-inner { display: flex; align-items: center; gap: 12px; }
 
   .ai-icon {
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    background: linear-gradient(135deg, #40E0D0, #008B8B); /* Gradiente Turquesa */
     border-radius: 6px;
     padding: 4px;
     display: flex;
   }
 
-  .placeholder { color: #8b949e; font-size: 16px; }
+  .placeholder { color: #40E0D0; font-size: 16px; opacity: 0.6; }
 
   .tags-container {
     margin-top: 30px;
@@ -97,13 +85,15 @@ hide:
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 13px;
-    color: #c9d1d9;
+    color: #40E0D0; /* Texto Turquesa */
     cursor: pointer;
+    transition: background 0.2s;
   }
+  .tag:hover { background: rgba(64, 224, 208, 0.1); border-color: #40E0D0; }
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsivo */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     margin: 40px 0;
   }
@@ -116,15 +106,18 @@ hide:
     display: flex;
     gap: 20px;
     align-items: flex-start;
+    transition: border 0.3s;
   }
+  .card:hover { border-color: #40E0D0; }
 
   .card-icon {
     background: #21262d;
     padding: 8px;
     border-radius: 6px;
+    color: #40E0D0; /* Ícone Turquesa */
   }
 
-  .card-content h3 { margin: 0 0 5px 0; font-size: 16px; color: #fff; }
+  .card-content h3 { margin: 0 0 5px 0; font-size: 16px; color: #40E0D0; } /* Título Turquesa */
   .card-content p { margin: 0; font-size: 13px; color: #8b949e; line-height: 1.4; }
 
   .featured-section { margin-top: 40px; text-align: center; }
@@ -148,7 +141,7 @@ hide:
 
   footer {
     width: 100%;
-    border-top: 1px solid #30363d;
+    border-top: 1px solid #40E0D0; /* Linha Turquesa no Footer */
     padding: 40px 0;
     margin-top: 80px;
     background: #0c1117;
@@ -158,7 +151,7 @@ hide:
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #8b949e;
+    color: #40E0D0;
     font-size: 14px;
     flex-wrap: wrap;
     gap: 20px;
@@ -167,9 +160,8 @@ hide:
   .footer-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
   .copyright { margin-top: 20px; color: #484f58; font-size: 12px; text-align: center;}
   
-  .digite { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #8b949e; }
+  .digite { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #40E0D0; }
 </style>
-
 <!-- Hero - Ocupará toda a largura -->
 <div class="hero">
   <h1>Como podemos te ajudar?</h1>
@@ -246,4 +238,4 @@ hide:
     </div>
     <div class="copyright">Copyright © 2026-2036 Brazilian System of Food Metric | BSFM</div>
   </footer>
-</div>S
+</div>
