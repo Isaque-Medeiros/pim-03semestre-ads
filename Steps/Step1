@@ -37,8 +37,8 @@
 ### 2. Identificação de Envolvidos (Stakeholders)
 
 *   **Usuários Finais:** Pessoas que buscam melhorar a saúde ou têm restrições alimentares.
-*   **Gestores da ONG (Time da Faculdade):** Isaque e equipe, responsáveis pelas decisões de negócio e financeiro.
-*   **Equipe de Desenvolvimento:** Isaque (Back-end C# / LIBRAS) e demais membros (Front-end / IA).
+*   **Gestores da ONG (Time da Faculdade):** Equipe, responsáveis pelas decisões de negócio e financeiro.
+*   **Equipe de Desenvolvimento:** Equipe (Back-end C# / LIBRAS) e demais membros (Front-end / IA).
 *   **Profissionais de Saúde (Parceiros):** Nutricionistas e Médicos que validam os cálculos e fontes das dietas.
 *   **Desenvolvedores das APIs:** Provedores externos (Google Maps API, Bancos de Dados de Alimentos).
 *   **Pessoas Surdas e com Deficiência Auditiva:** O público específico que se beneficiará da integração de LIBRAS.
