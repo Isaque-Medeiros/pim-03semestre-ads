@@ -47,19 +47,29 @@
 
 ### 3. Definição de Termos e Critérios de Aceite
 
-#### **Glossário (Definição de Termos)**
-*   **TMB (Taxa Metabólica Basal):** Quantidade mínima de calorias que o corpo queima para se manter vivo.
-*   **Macros (Macronutrientes):** Carboidratos, proteínas e gorduras que compõem a alimentação.
-*   **Visão Computacional:** Tecnologia de Machine Learning que "ensina" o computador a identificar objetos em fotos.
-*   **Backlog:** Lista de tarefas/funcionalidades que precisam ser desenvolvidas.
+Nesta seção, definimos as "regras do jogo". De um lado, o **Glossário** para nivelar o conhecimento; de outro, os **Critérios de Aceite de Contrato** (o que o usuário concorda) e os **Critérios de Aceite Técnicos** (o que o sistema deve garantir).
 
-#### **Critérios de Aceite**
-*O que determina que uma funcionalidade está pronta (Done).*
+#### **3.1 Glossário (Definição de Termos)**
+*   **TMB (Taxa Metabólica Basal):** Valor calórico mínimo para funções vitais em repouso.
+*   **Visão Computacional:** Algoritmo que interpreta pixels de fotos para identificar alimentos e estados de conservação.
+*   **LGPD (Lei Geral de Proteção de Dados):** Lei brasileira que regula o tratamento de dados pessoais no seu site.
+*   **Fórmula de Harris-Benedict:** Método matemático usado pelo sistema para estimar as calorias necessárias.
 
-1.  **Cálculo de Calorias:** O cálculo será considerado "aceito" se houver uma margem de erro máxima de 5% em relação à fórmula de *Harris-Benedict*.
-2.  **Identificação de Frutas Estragadas:** A funcionalidade deve ser validada após o sistema conseguir distinguir uma banana madura de uma podre em 80% dos testes.
-3.  **Localização Médica:** O sistema deve abrir o mapa nativo do dispositivo apontando corretamente a rota para o centro de saúde mais próximo.
-4.  **Acessibilidade LIBRAS:** Os principais menus do sistema devem possuir suporte para tradução/interpretação em LIBRAS ou interface iconográfica intuitiva.
+#### **3.2 Termos de Contrato (Consentimento do Usuário)**
+*Para que o cadastro seja finalizado, o usuário deve dar o "check" nestes termos:*
+
+1.  **Termo de Isenção de Responsabilidade Médica:** O usuário aceita que o site é uma **ferramenta de apoio** e não substitui uma consulta presencial com um Nutricionista ou Médico. Em casos de patologias graves, a orientação profissional é soberana.
+2.  **Política de Privacidade (LGPD):** O usuário autoriza o armazenamento de seus dados biométricos (Peso, Altura, Alergias) exclusivamente para a personalização das métricas de saúde, garantindo que esses dados não serão vendidos a terceiros.
+3.  **Termo de Uso da Visão Computacional:** O usuário está ciente de que as análises de validade e calorias por foto são **estimativas** baseadas em inteligência artificial e podem sofrer variações dependendo da iluminação e qualidade da imagem.
+4.  **Consentimento de Geolocalização:** O usuário permite o acesso à localização apenas em casos de acionamento do botão de **Emergência de Intoxicação**, para fins de rota para hospitais próximos.
+
+#### **3.3 Critérios de Aceite Técnicos (Funcionalidade de Cadastro)**
+*Para considerar a "Criação de Conta" como **Concluída (Done)** pelo time de desenvolvimento, ela deve cumprir:*
+
+*   **Validação de Biometria:** O sistema não deve permitir o cadastro de idades negativas ou alturas/pesos zerados (Feedback de erro imediato).
+*   **Segurança de Senha:** O cadastro só será concluído se a senha tiver no mínimo 8 caracteres, incluindo uma letra maiúscula e um caractere especial.
+*   **Fluxo de Boas-Vindas:** Após o aceite dos termos, o sistema deve direcionar o usuário para a tela de "Primeira Meta", confirmando que os dados foram salvos com sucesso no Banco de Dados.
+*   **Acessibilidade no Cadastro:** O formulário deve possuir rótulos (Labels) claros para leitores de tela e um ícone de auxílio visual (vídeo em LIBRAS explicativo) para os termos de uso.
 
 ---
 
