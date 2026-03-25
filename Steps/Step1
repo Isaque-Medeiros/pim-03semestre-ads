@@ -1,0 +1,70 @@
+
+---
+
+### Nome escolhido para a ONG: **BSFM | Brazilian System of Food Metric**
+
+---
+
+### 1. Requisitos do Sistema
+
+#### **Requisitos Funcionais (RF)**
+*O que o sistema deve fazer.*
+
+| ID | Requisito | Descrição |
+| :--- | :--- | :--- |
+| **RF01** | Cadastro de Perfil Biométrico | O sistema deve permitir que o usuário cadastre Peso, Altura, Idade, Alergias e Nível de Atividade Física. |
+| **RF02** | Cálculo de TMB e Macronutrientes | O sistema deve calcular automaticamente a Taxa Metabólica Basal e sugerir a divisão de macros (Carbos/Proteínas/Gorduras). |
+| **RF03** | Reconhecimento de Prato (IA) | Através de uma foto, o sistema deve identificar os alimentos e estimar as quantidades nutricionais (Visão Computacional). |
+| **RF04** | Análise de Validade/Frescor | O sistema deve analisar via câmera se frutas/alimentos apresentam padrões de deterioração ou oxidação. |
+| **RF05** | Localizador de Emergência Médica | Em caso de sintomas de intoxicação, o sistema deve exibir no mapa as UPAs ou Hospitais mais próximos via Geolocalização. |
+| **RF06** | Diário Alimentar e Cronograma | Permitir o registro diário de refeições e gerar planos baseados em diretrizes nutricionais seguras. |
+| **RF07** | Acompanhamento de Metas | Gerar gráficos de evolução (perda de peso, ganho de massa, ingestão hídrica) ao longo do tempo. |
+| **RF08** | Módulo de LIBRAS | Disponibilizar vídeos/tutoriais em LIBRAS sobre conceitos básicos de alimentação saudável para acessibilidade. |
+
+#### **Requisitos Não Funcionais (RNF)**
+*Como o sistema deve ser (qualidades).*
+
+| ID | Requisito | Categoria | Descrição |
+| :--- | :--- | :--- | :--- |
+| **RNF01** | Responsividade | Usabilidade | A interface deve se adaptar a Desktops, Tablets e Smartphones (Layout "Mobile First"). |
+| **RNF02** | Tempo de Resposta da IA | Performance | O processamento da imagem do prato não deve exceder 5 segundos. |
+| **RNF03** | Segurança de Dados (LGPD) | Segurança | Dados sensíveis (alergias/saúde) devem ser criptografados conforme a Lei Geral de Proteção de Dados. |
+| **RNF04** | Acessibilidade Digital | Acessibilidade | O site deve seguir as diretrizes da WCAG, incluindo suporte para leitores de tela e comandos simples. |
+| **RNF05** | Disponibilidade | Confiabilidade | O sistema deve estar disponível 99% do tempo. |
+
+---
+
+### 2. Identificação de Envolvidos (Stakeholders)
+
+*   **Usuários Finais:** Pessoas que buscam melhorar a saúde ou têm restrições alimentares.
+*   **Gestores da ONG (Time da Faculdade):** Isaque e equipe, responsáveis pelas decisões de negócio e financeiro.
+*   **Equipe de Desenvolvimento:** Isaque (Back-end C# / LIBRAS) e demais membros (Front-end / IA).
+*   **Profissionais de Saúde (Parceiros):** Nutricionistas e Médicos que validam os cálculos e fontes das dietas.
+*   **Desenvolvedores das APIs:** Provedores externos (Google Maps API, Bancos de Dados de Alimentos).
+*   **Pessoas Surdas e com Deficiência Auditiva:** O público específico que se beneficiará da integração de LIBRAS.
+
+---
+
+### 3. Definição de Termos e Critérios de Aceite
+
+#### **Glossário (Definição de Termos)**
+*   **TMB (Taxa Metabólica Basal):** Quantidade mínima de calorias que o corpo queima para se manter vivo.
+*   **Macros (Macronutrientes):** Carboidratos, proteínas e gorduras que compõem a alimentação.
+*   **Visão Computacional:** Tecnologia de Machine Learning que "ensina" o computador a identificar objetos em fotos.
+*   **Backlog:** Lista de tarefas/funcionalidades que precisam ser desenvolvidas.
+
+#### **Critérios de Aceite**
+*O que determina que uma funcionalidade está pronta (Done).*
+
+1.  **Cálculo de Calorias:** O cálculo será considerado "aceito" se houver uma margem de erro máxima de 5% em relação à fórmula de *Harris-Benedict*.
+2.  **Identificação de Frutas Estragadas:** A funcionalidade deve ser validada após o sistema conseguir distinguir uma banana madura de uma podre em 80% dos testes.
+3.  **Localização Médica:** O sistema deve abrir o mapa nativo do dispositivo apontando corretamente a rota para o centro de saúde mais próximo.
+4.  **Acessibilidade LIBRAS:** Os principais menus do sistema devem possuir suporte para tradução/interpretação em LIBRAS ou interface iconográfica intuitiva.
+
+---
+
+### C# (Back-end)
+
+1.  **Classe `Usuario`:** Com os atributos do cadastro (Peso, Altura, etc).
+2.  **Classe `CalculadoraNutricional`:** Com métodos para TMB.
+3.  **Classe `Alimento`:** Como classe pai, e talvez especializações para `AlimentoProcessado` ou `InNatura`.
