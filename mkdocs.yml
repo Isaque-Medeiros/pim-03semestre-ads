@@ -1,35 +1,80 @@
-site_name: Brazilian System of Food Metric 
-site_url: https://seusite.com.br
+site_name: BSFM - Brazilian System of Food Metric
+site_url: https://bsfm.com.br
+site_description: Plataforma revolucionária de nutrição inteligente com IA para transformar a saúde alimentar dos brasileiros
+site_author: BSFM Team
+copyright: Copyright © 2026-2036 Brazilian System of Food Metric | BSFM
 
 theme:
   name: material
   language: pt-BR
-  # O LOGO DEVE FICAR AQUI, COM 2 ESPAÇOS DE RECUO:
-  logo: stylesheets/images/favicon.png 
-  # Se quiser mudar o ícone da aba do navegador também:
-  favicon: stylesheets/images/favicon.png 
+  logo: stylesheets/images/favicon.png
+  favicon: stylesheets/images/favicon.png
   palette:
-    scheme: slate
-    primary: blue
-    accent: blue
+    # Tema escuro (default) e claro (alternativo)
+    - scheme: slate
+      primary: emerald
+      accent: emerald
+      toggle:
+        icon: material/brightness-4
+        name: Modo escuro
+    - scheme: default
+      primary: emerald
+      accent: emerald
+      toggle:
+        icon: material/brightness-7
+        name: Modo claro
   features:
-    - navigation.tabs      # ISSO CRIA O MENU NO TOPO IGUAL AO DOCKER
+    - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.path
     - search.suggest
     - search.highlight
     - content.code.copy
+    - content.tabs
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+  icon:
+    repo: fontawesome/brands/github
 
-# Importante: registra o arquivo CSS que criamos
+repo_name: BSFM/Brazilian-System-of-Food-Metric
+repo_url: https://github.com/BSFM/Brazilian-System-of-Food-Metric
+
+# Plugins
+plugins:
+  - search
+  - tags
+
+# Extras
+extra:
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/BSFM
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/bsfm_br
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/company/bsfm
+
+# Custom CSS
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/custom.css
 
-# Estrutura de páginas para aparecerem no topo (Abas)
+# Custom JavaScript
+extra_javascript:
+  - javascripts/custom.js
+
+# Navigation structure
 nav:
   - Home: index.md
-  - Start: comecar-aprender.md
-  - Guia de Instalação: instalacao.md
-  - Configurações: config.md
-  - Referência: referencia.md
-  - Planejamento do Projeto: planejamento.md
+  - Sobre o BSFM: sobre/visao-missao.md
+  - Guia do Usuário: guia-usuario/introducao.md
+  - Guia do Desenvolvedor: guia-desenvolvedor/index.md
+  - Casos de Uso: caso-de-uso/index.md
+  - Glossário: glossario/index.md
+  - Roadmap: roadmap/index.md
+  - Changelog: changelog/index.md

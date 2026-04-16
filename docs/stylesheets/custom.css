@@ -1,0 +1,118 @@
+/* BSFM Documentation - Custom CSS - Simplified Version */
+
+:root {
+  --bsfm-emerald-500: #10b981;
+  --bsfm-emerald-600: #059669;
+  --bsfm-emerald-700: #047857;
+  --bsfm-slate-900: #0f172a;
+  --bsfm-slate-800: #1e293b;
+  --bsfm-slate-200: #e2e8f0;
+  --bsfm-slate-400: #94a3b8;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: var(--bsfm-emerald-700);
+  --md-primary-fg-color--light: var(--bsfm-emerald-500);
+  --md-accent-fg-color: var(--bsfm-emerald-500);
+  --md-default-bg-color: var(--bsfm-slate-900);
+  --md-default-fg-color: var(--bsfm-slate-200);
+  --md-typeset-a-color: var(--bsfm-emerald-500);
+}
+
+.bsfm-hero {
+  background: linear-gradient(135deg, var(--bsfm-emerald-700) 0%, var(--bsfm-slate-900) 100%);
+  padding: 3rem 1rem;
+  text-align: center;
+  border-radius: 0 0 1.5rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.bsfm-hero h1 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.bsfm-hero p {
+  color: var(--bsfm-slate-300);
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+.bsfm-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.bsfm-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--bsfm-emerald-500);
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.15);
+}
+
+.bsfm-card h3 {
+  color: var(--bsfm-emerald-400);
+  margin-top: 0;
+}
+
+.bsfm-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--bsfm-emerald-500), var(--bsfm-emerald-700));
+  color: white;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+}
+
+.bsfm-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+  color: white;
+  text-decoration: none;
+}
+
+.bsfm-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.bsfm-feature-item {
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.bsfm-feature-icon {
+  background: linear-gradient(135deg, var(--bsfm-emerald-500), var(--bsfm-emerald-700));
+  width: 50px;
+  height: 50px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .bsfm-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .bsfm-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
