@@ -71,7 +71,7 @@ extra_javascript:
 # Navigation structure
 nav:
   - Home: index.md
-  - Sobre o BSFM: sobre/visao-missao.md
+  - Sobre o BSFM: docs/sobre/visao-missao.md
   - Guia do Usuário: guia-usuario/introducao.md
   - Guia do Desenvolvedor: guia-desenvolvedor/index.md
   - Casos de Uso: caso-de-uso/index.md
