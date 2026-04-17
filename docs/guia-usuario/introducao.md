@@ -23,7 +23,7 @@ O BSFM é uma plataforma completa de análise nutricional que utiliza **intelig�
 
 ### 1. Crie sua Conta
 
-1. Acesse [bsfm.com.br](https://bsfm.com.br)
+1. Acesse [bsfm.com.br](https://bsfm-v2-nutric.up.railway.app/)
 2. Clique em **"Cadastrar"** no canto superior direito
 3. Preencha seus dados:
    - Nome completo
