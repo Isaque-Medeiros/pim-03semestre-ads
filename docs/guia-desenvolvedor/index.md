@@ -4,7 +4,7 @@ Bem-vindo ao Guia do Desenvolvedor do **BSFM (Brazilian System of Food Metric)**
 
 ---
 
-## 🏗️ Arquitetura do Sistema
+## Arquitetura do Sistema
 
 ### Visão Geral da Arquitetura
 
@@ -43,7 +43,7 @@ graph TD
 
 ---
 
-## 🚀 Setup Local
+## Setup Local
 
 ### Pré-requisitos
 
@@ -111,7 +111,7 @@ MobileRepositorio/
 
 ---
 
-## 🧠 Inteligência Artificial
+## Inteligência Artificial
 
 ### Modelo YOLO Customizado
 
@@ -176,7 +176,7 @@ public static readonly Dictionary<string, string> Tradutor = new Dictionary<stri
 
 ---
 
-## 💾 Banco de Dados
+## Banco de Dados
 
 ### Modelo de Dados Principal
 
@@ -244,7 +244,7 @@ public class PonteDB : DbContext
 
 ---
 
-## 🌐 API Reference
+## API Reference
 
 ### Autenticação
 
@@ -348,7 +348,7 @@ Retorna o histórico de análises do usuário.
 
 ---
 
-## 🔐 Segurança
+## Segurança
 
 ### Hash de Senhas com BCrypt
 
@@ -404,7 +404,7 @@ public class UsuarioValidator : AbstractValidator<UsuarioDTO>
 
 ---
 
-## 🚀 Deployment
+## Deployment
 
 ### Plataforma: Railway
 
@@ -483,7 +483,7 @@ public class HealthController : ControllerBase
 
 ---
 
-## 🧪 Testes
+## Testes
 
 ### Estratégia de Testes
 
@@ -544,7 +544,7 @@ reportgenerator -reports:TestResults/**/coverage.cobertura.xml -targetdir:covera
 
 ---
 
-## 🤝 Contribuindo
+## Contribuindo
 
 ### Processo de Contribuição
 
@@ -607,7 +607,7 @@ catch (Exception ex) when (ex is HttpRequestException)
 
 ---
 
-## 📊 Monitoramento e Logs
+## Monitoramento e Logs
 
 ### Configuração de Logs
 

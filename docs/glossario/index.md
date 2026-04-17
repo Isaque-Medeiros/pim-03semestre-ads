@@ -4,7 +4,7 @@ Este glossário define os principais termos, conceitos e siglas utilizados no Br
 
 ---
 
-## 📚 Índice Alfabético
+## Índice Alfabético
 
 **A** • [Alimento Funcional](#alimento-funcional) • [Análise Nutricional](#análise-nutricional) • [API](#api)  
 **B** • [BSFM](#bsfm) • [Banco de Dados Nutricional](#banco-de-dados-nutricional)  
@@ -35,7 +35,7 @@ Este glossário define os principais termos, conceitos e siglas utilizados no Br
 
 ---
 
-## 🔤 Definições Detalhadas
+## Definições Detalhadas
 
 ### A
 
@@ -700,7 +700,7 @@ Medida estatística que indica quantos desvios padrão um valor está da média 
 
 ---
 
-## 📖 Como Usar Este Glossário
+## Como Usar Este Glossário
 
 ### Para Novatos
 1. Comece pelos termos básicos: [Caloria](#caloria), [Macronutriente](#macronutriente)
@@ -719,7 +719,7 @@ Medida estatística que indica quantos desvios padrão um valor está da média 
 
 ---
 
-## 🔄 Atualizações
+## Atualizações
 
 Este glossário é atualizado regularmente com:
 
@@ -733,7 +733,7 @@ Este glossário é atualizado regularmente com:
 
 ---
 
-## 🤝 Contribua
+## Contribua
 
 Encontrou um termo faltando ou uma definição imprecisa?
 
@@ -743,7 +743,7 @@ Encontrou um termo faltando ou uma definição imprecisa?
 
 ---
 
-## 📚 Recursos Relacionados
+## Recursos Relacionados
 
 - [Documentação Completa](../)
 - [Casos de Uso](../caso-de-uso/)
@@ -753,7 +753,7 @@ Encontrou um termo faltando ou uma definição imprecisa?
 
 ---
 
-## 📞 Contato
+## Contato
 
 - **Email**: glossario@bsfm.com.br
 - **GitHub**: [BSFM/Brazilian-System-of-Food-Metric](https://github.com/BSFM/Brazilian-System-of-Food-Metric)

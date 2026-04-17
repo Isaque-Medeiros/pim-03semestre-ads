@@ -6,50 +6,50 @@ Este documento registra todas as mudanças significativas no **BSFM (Brazilian S
 
 ## [1.0.0] - 2026-04-16
 
-### 🎉 Lançamento Oficial
+### Lançamento Oficial
 **Primeira versão estável do BSFM disponível para o público geral!**
 
-### ✨ Novas Funcionalidades
-- **🤖 Análise de Alimentos por IA**
+### Novas Funcionalidades
+- **Análise de Alimentos por IA**
   - Detecção visual de 452 alimentos usando YOLO Object Detection
   - Tradução automática EN → PT para todos os alimentos
   - Análise nutricional completa por 100g e porções
 
-- **📊 Dashboard Personalizado**
+- **Dashboard Personalizado**
   - Cálculo automático de IMC, TMB e Gasto Calórico
   - Gráficos de evolução histórica de peso/altura
   - Metas personalizadas com acompanhamento visual
 
-- **👤 Sistema de Usuários Completo**
+- **Sistema de Usuários Completo**
   - Cadastro com verificação por email via Brevo API
   - Autenticação segura com BCrypt hashing
   - Redefinição de senha protegida
   - Aceitação de termos e políticas
 
-- **🏥 Integração Hospitalar**
+- **Integração Hospitalar**
   - Diretório de hospitais parceiros com informações de contato
   - Mapa interativo com localização dos serviços de saúde
   - Filtros por especialidade e região
 
-- **📅 Cronograma Alimentar**
+- **Cronograma Alimentar**
   - Planos alimentares personalizados por perfil metabólico
   - Refeições diárias programadas com lembretes
   - Acompanhamento nutricional semanal
 
-### 🔧 Melhorias Técnicas
+### Melhorias Técnicas
 - **Arquitetura .NET 8.0** com Entity Framework Core
 - **Banco de dados PostgreSQL** em produção (Railway)
 - **APIs externas integradas:** USDA FoodData Central, Brevo Email
 - **Frontend responsivo** com Tailwind CSS 3.0
 - **Design system** com glassmorphism e gradientes
 
-### 🐛 Correções de Bugs
+### Correções de Bugs
 - Corrigido problema de encoding em nomes de alimentos com acentos
 - Resolvido timeout em análises de imagens grandes
 - Ajustada validação de emails duplicados no cadastro
 - Corrigido cálculo de IMC para alturas em metros
 
-### 📚 Documentação
+### Documentação
 - Documentação técnica completa disponível em MkDocs
 - Guia do usuário com tutoriais passo a passo
 - API reference com exemplos de requests/responses
@@ -59,21 +59,21 @@ Este documento registra todas as mudanças significativas no **BSFM (Brazilian S
 
 ## [0.9.0] - 2026-03-15
 
-### 🚀 Beta Público
+### Beta Público
 **Versão beta aberta para testes com usuários reais.**
 
-### ✨ Novas Funcionalidades
+### Novas Funcionalidades
 - **Sistema de login e cadastro** básico
 - **Análise de alimentos** com modelo YOLO inicial (100 alimentos)
 - **Dashboard simples** com métricas básicas
 - **Integração USDA API** para dados nutricionais
 
-### 🔧 Melhorias
+### Melhorias
 - Otimização do modelo YOLO para melhor performance
 - Implementação de cache para consultas USDA
 - Melhoria na interface do analisador de alimentos
 
-### 🐛 Bugs Conhecidos
+### Bugs Conhecidos
 - Alguns alimentos não sendo reconhecidos corretamente
 - Performance lenta em dispositivos móveis antigos
 - Problemas de timezone em registros de data
@@ -82,16 +82,16 @@ Este documento registra todas as mudanças significativas no **BSFM (Brazilian S
 
 ## [0.8.0] - 2026-02-28
 
-### 🧪 Alpha Técnico
+### Alpha Técnico
 **Versão interna para testes de integração e performance.**
 
-### ✨ Funcionalidades Implementadas
+### Funcionalidades Implementadas
 - **Backend .NET 8.0** com estrutura básica de controllers
 - **Modelo YOLO customizado** treinado com dataset inicial
 - **Integração USDA API** funcionando
 - **Banco de dados SQLite** para desenvolvimento
 
-### 🔧 Infraestrutura
+### Infraestrutura
 - Setup inicial do projeto no Railway
 - Configuração de variáveis de ambiente
 - Pipeline de CI/CD básico
@@ -100,16 +100,16 @@ Este documento registra todas as mudanças significativas no **BSFM (Brazilian S
 
 ## [0.7.0] - 2026-01-20
 
-### 🔬 Protótipo de Pesquisa
+### Protótipo de Pesquisa
 **Versão de pesquisa e desenvolvimento do modelo de IA.**
 
-### ✨ Desenvolvimentos
+### Desenvolvimentos
 - **Treinamento do modelo YOLO** com dataset de 452 alimentos
 - **Sistema de tradução** EN → PT implementado
 - **Prototipação da interface** do analisador de alimentos
 - **Primeiros testes** com dados nutricionais da USDA
 
-### 📊 Resultados de Pesquisa
+### Resultados de Pesquisa
 - **85% de precisão** na detecção de alimentos
 - **<3 segundos** para análise completa
 - **452 alimentos** traduzidos e mapeados
@@ -118,17 +118,17 @@ Este documento registra todas as mudanças significativas no **BSFM (Brazilian S
 
 ## [0.6.0] - 2025-12-10
 
-### 📋 Planejamento e Arquitetura
+### Planejamento e Arquitetura
 **Fase de design e arquitetura do sistema.**
 
-### ✨ Entregáveis
+### Entregáveis
 - **Documentação de arquitetura** completa
 - **Design system** com paleta de cores e componentes
 - **Especificações técnicas** de todas as APIs
 - **Modelo de dados** do banco de dados
 - **Roadmap** de desenvolvimento 2026-2030
 
-### 🎨 Design
+### Design
 - Paleta de cores emerald para saúde/nutrição
 - Interface mobile-first responsiva
 - Componentes com glassmorphism e gradientes
@@ -138,17 +138,17 @@ Este documento registra todas as mudanças significativas no **BSFM (Brazilian S
 
 ## [0.5.0] - 2025-11-05
 
-### 🎯 Definição do Projeto
+### Definição do Projeto
 **Fase inicial de concepção e validação.**
 
-### ✨ Atividades
+### Atividades
 - **Pesquisa de mercado** sobre soluções de nutrição no Brasil
 - **Entrevistas com usuários** potenciais (nutricionistas, pacientes)
 - **Análise de tecnologias** disponíveis para IA e nutrição
 - **Definição da visão e missão** do BSFM
 - **Validação do problema** com profissionais de saúde
 
-### 📈 Insights
+### Insights
 - Grande demanda por soluções acessíveis de análise nutricional
 - Falta de integração entre tecnologia e saúde no Brasil
 - Potencial impacto em saúde pública através do SUS
@@ -168,13 +168,13 @@ O BSFM segue o versionamento semântico `MAJOR.MINOR.PATCH`:
 ### Categorias de Mudanças
 Cada versão é organizada por categorias:
 
-- **✨ Novas Funcionalidades**: Novos recursos para usuários
-- **🔧 Melhorias**: Aprimoramentos em funcionalidades existentes
-- **🐛 Correções de Bugs**: Resolução de problemas reportados
-- **📚 Documentação**: Atualizações na documentação
-- **⚡ Performance**: Otimizações de velocidade e eficiência
-- **🔒 Segurança**: Melhorias na segurança do sistema
-- **🧪 Experimentais**: Funcionalidades em fase de teste
+- **Novas Funcionalidades**: Novos recursos para usuários
+- **Melhorias**: Aprimoramentos em funcionalidades existentes
+- **Correções de Bugs**: Resolução de problemas reportados
+- **Documentação**: Atualizações na documentação
+- **Performance**: Otimizações de velocidade e eficiência
+- **Segurança**: Melhorias na segurança do sistema
+- **Experimentais**: Funcionalidades em fase de teste
 
 ### Ciclo de Lançamentos
 
@@ -224,27 +224,27 @@ Cada versão é organizada por categorias:
 ```markdown
 ## [X.Y.Z] - YYYY-MM-DD
 
-### 🎉 Título do Lançamento
+### Título do Lançamento
 **Breve descrição do que esta versão representa**
 
-### ✨ Novas Funcionalidades
+### Novas Funcionalidades
 - **Nome da Feature:** Descrição detalhada
   - Sub-item com detalhes técnicos ou de UX
   - Benefícios para o usuário final
 
-### 🔧 Melhorias
+### Melhorias
 - Área melhorada: O que foi aprimorado e por quê
 
-### 🐛 Correções de Bugs
+### Correções de Bugs
 - Issue #123: Descrição do bug e como foi resolvido
 
-### 📚 Documentação
+### Documentação
 - Seção atualizada: O que foi adicionado ou melhorado
 
-### ⚡ Performance
+### Performance
 - Endpoint otimizado: Redução de X% no tempo de resposta
 
-### 🔒 Segurança
+### Segurança
 - Vulnerabilidade corrigida: CVE-XXXX-XXXX
 ```
 

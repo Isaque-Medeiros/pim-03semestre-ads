@@ -4,7 +4,7 @@ Esta página documenta os principais casos de uso do Brazilian System of Food Me
 
 ---
 
-## 📋 Índice de Casos de Uso
+## Índice de Casos de Uso
 
 1. [Nutricionista Clínico](#nutricionista-clínico)
 2. [Pesquisador Acadêmico](#pesquisador-acadêmico)
@@ -15,7 +15,7 @@ Esta página documenta os principais casos de uso do Brazilian System of Food Me
 
 ---
 
-## 👩‍⚕️ Nutricionista Clínico
+## Nutricionista Clínico
 
 ### Cenário
 Maria é nutricionista com 50 pacientes ativos. Ela precisa otimizar o tempo de análise nutricional e fornecer recomendações personalizadas.
@@ -70,7 +70,7 @@ meal_plan = client.generate_meal_plan(
 
 ---
 
-## 🎓 Pesquisador Acadêmico
+## Pesquisador Acadêmico
 
 ### Cenário
 Dr. Carlos pesquisa padrões alimentares brasileiros e precisa de dados confiáveis para publicações científicas.
@@ -129,7 +129,7 @@ nutritional_stats = df.groupby('food_category').agg({
 
 ---
 
-## 🏭 Indústria Alimentícia
+## Indústria Alimentícia
 
 ### Cenário
 Alimentos Brasil SA precisa otimizar formulações de produtos e atender a demandas de mercado.
@@ -189,7 +189,7 @@ nutrition_table = client.generate_nutrition_label(
 
 ---
 
-## 💻 Desenvolvedor de Software
+## Desenvolvedor de Software
 
 ### Cenário
 TechSolutions desenvolve um app de fitness que precisa integrar análise nutricional.
@@ -254,7 +254,7 @@ document.getElementById('analyze-btn').addEventListener('click', async () => {
 
 ---
 
-## 🛒 Consumidor Final
+## Consumidor Final
 
 ### Cenário
 João quer melhorar seus hábitos alimentares e precisa de orientação acessível.
@@ -317,7 +317,7 @@ João quer melhorar seus hábitos alimentares e precisa de orientação acessív
 
 ---
 
-## 🏛️ Governo e Saúde Pública
+## Governo e Saúde Pública
 
 ### Cenário
 Secretaria Municipal de Saúde precisa monitorar indicadores nutricionais da população.
@@ -372,7 +372,7 @@ intervention_plan = client.plan_intervention(
 
 ---
 
-## 🔗 Integrações Comuns
+## Integrações Comuns
 
 ### Aplicativos de Fitness
 - MyFitnessPal
@@ -400,20 +400,20 @@ intervention_plan = client.plan_intervention(
 
 ---
 
-## 📈 Métricas de Sucesso por Caso de Uso
+## Métricas de Sucesso por Caso de Uso
 
 | Caso de Uso | Métrica Principal | Meta | Status |
 |-------------|-------------------|------|--------|
-| Nutricionista | Pacientes ativos | 1000 | 🔄 250 |
-| Pesquisador | Publicações | 50 | 🔄 12 |
-| Indústria | Produtos otimizados | 500 | 🔄 120 |
-| Desenvolvedor | Apps integrados | 100 | 🔄 25 |
-| Consumidor | Usuários ativos | 1M | 🔄 10k |
-| Governo | Municípios | 100 | 🔄 15 |
+| Nutricionista | Pacientes ativos | 1000 | 250 |
+| Pesquisador | Publicações | 50 | 12 |
+| Indústria | Produtos otimizados | 500 | 120 |
+| Desenvolvedor | Apps integrados | 100 | 25 |
+| Consumidor | Usuários ativos | 1M | 10k |
+| Governo | Municípios | 100 | 15 |
 
 ---
 
-## 🚀 Próximos Passos
+## Próximos Passos
 
 1. **Escolha seu perfil** acima
 2. **Registre-se** na plataforma
@@ -423,7 +423,7 @@ intervention_plan = client.plan_intervention(
 
 ---
 
-## ❓ Dúvidas Frequentes
+## Dúvidas Frequentes
 
 ### Posso usar múltiplos perfis?
 Sim, você pode ter acesso a diferentes funcionalidades baseado em suas necessidades.
@@ -439,7 +439,7 @@ Absolutamente! Aceitamos contribuições de código, documentação, traduções
 
 ---
 
-## 📞 Suporte
+## Suporte
 
 - **Documentação**: [docs.bsfm.com.br](https://docs.bsfm.com.br)
 - **GitHub**: [github.com/BSFM](https://github.com/BSFM)

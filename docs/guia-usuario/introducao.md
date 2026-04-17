@@ -4,22 +4,22 @@ Bem-vindo ao **BSFM (Brazilian System of Food Metric)**! Este guia irá ajudá-l
 
 ---
 
-## 🎯 O que é o BSFM?
+## O que é o BSFM?
 
 O BSFM é uma plataforma completa de análise nutricional que utiliza **inteligência artificial** para ajudar você a:
 
-- **📸 Analisar alimentos** através de fotos do seu prato
-- **📊 Acompanhar suas métricas de saúde** como IMC, TMB e gasto calórico
-- **🎯 Definir e alcançar metas pessoais** de saúde e nutrição
-- **🏥 Conectar-se com serviços de saúde** e profissionais especializados
-- **📅 Planejar suas refeições** com cronogramas personalizados
+- **Analisar alimentos** através de fotos do seu prato
+- **Acompanhar suas métricas de saúde** como IMC, TMB e gasto calórico
+- **Definir e alcançar metas pessoais** de saúde e nutrição
+- **Conectar-se com serviços de saúde** e profissionais especializados
+- **Planejar suas refeições** com cronogramas personalizados
 
 !!! success "Tecnologia de Ponta"
     Utilizamos **YOLO Object Detection** com 452 alimentos reconhecidos e **tradução automática EN→PT** para fornecer análises precisas em português.
 
 ---
 
-## 🚀 Primeiros Passos
+## Primeiros Passos
 
 ### 1. Crie sua Conta
 
@@ -56,15 +56,15 @@ Informações necessárias:
 
 Seu dashboard pessoal mostra:
 
-- **📈 IMC Atual** e evolução histórica
-- **⚡ Taxa Metabólica Basal (TMB)**
-- **🔥 Gasto Calórico Total**
-- **🎯 Metas definidas**
-- **📊 Gráficos de progresso**
+- **IMC Atual** e evolução histórica
+- **Taxa Metabólica Basal (TMB)**
+- **Gasto Calórico Total**
+- **Metas definidas**
+- **Gráficos de progresso**
 
 ---
 
-## 🤖 Como Funciona a Análise por IA
+## Como Funciona a Análise por IA
 
 ### Passo a Passo para Analisar um Alimento
 
@@ -103,7 +103,7 @@ Nossa IA reconhece **452 alimentos** incluindo:
 
 ---
 
-## 📊 Dashboard e Métricas
+## Dashboard e Métricas
 
 ### Entendendo suas Métricas
 
@@ -167,7 +167,7 @@ Baseado no seu nível de atividade:
 
 ---
 
-## 🏥 Integração Hospitalar
+## Integração Hospitalar
 
 ### Diretório de Hospitais Parceiros
 
@@ -191,7 +191,7 @@ Baseado no seu nível de atividade:
 
 ---
 
-## 📅 Cronograma Alimentar
+## Cronograma Alimentar
 
 ### Criando um Plano Alimentar
 
@@ -225,7 +225,7 @@ Baseado no seu nível de atividade:
 
 ---
 
-## 🔧 Configurações e Personalização
+## Configurações e Personalização
 
 ### Notificações
 
@@ -257,7 +257,7 @@ Recursos disponíveis:
 
 ---
 
-## ❓ FAQ - Perguntas Frequentes
+## FAQ - Perguntas Frequentes
 
 ### Análise por IA
 
@@ -315,7 +315,7 @@ A: Tente recarregar a página (F5) ou limpar o cache do navegador.
 
 ---
 
-## 🆘 Suporte e Contato
+## Suporte e Contato
 
 ### Canais de Suporte
 
@@ -342,7 +342,7 @@ Ao reportar um problema, inclua:
 
 ---
 
-## 📱 App Mobile
+## App Mobile
 
 !!! info "Em breve"
     Nosso app mobile para iOS e Android está em desenvolvimento. Será lançado em **maio de 2026** com:
@@ -355,7 +355,7 @@ Ao reportar um problema, inclua:
 
 ---
 
-## 🔄 Atualizações e Novidades
+## Atualizações e Novidades
 
 ### Como Ficar por Dentro
 
@@ -376,7 +376,7 @@ Tem uma ideia para melhorar o BSFM?
 
 ---
 
-## 📚 Recursos Adicionais
+## Recursos Adicionais
 
 ### Artigos Recomendados
 
@@ -401,7 +401,7 @@ Tem uma ideia para melhorar o BSFM?
 
 ---
 
-## 🏆 Dicas para Melhor Uso
+## Dicas para Melhor Uso
 
 ### Para Melhores Análises
 
@@ -432,4 +432,4 @@ Tem uma ideia para melhorar o BSFM?
 !!! success "Pronto para Começar?"
     **Agora você tem todas as informações para usar o BSFM com eficiência.** Lembre-se: pequenas mudanças diárias levam a grandes transformações na saúde a longo prazo.
 
-    **Equipe BSFM** - Transformando sua saúde, um alimento de cada vez. 🍎
+    **Equipe BSFM** - Transformando sua saúde, um alimento de cada vez.

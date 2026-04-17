@@ -3,39 +3,39 @@
 !!! success "Transformando Saúde Alimentar com Tecnologia"
     O **BSFM (Brazilian System of Food Metric)** é mais do que uma plataforma - é um movimento para democratizar o acesso à nutrição de qualidade no Brasil através da inteligência artificial.
 
-## 🎯 Nossa Visão
+## Nossa Visão
 
 **Ser o sistema de referência em métricas alimentares no Brasil, democratizando o acesso à nutrição de qualidade através da tecnologia e transformando a saúde alimentar de milhões de brasileiros.**
 
 > "Imaginamos um Brasil onde cada cidadão tenha acesso fácil e gratuito a análises nutricionais precisas, onde a tecnologia elimina barreiras e promove hábitos alimentares saudáveis desde a infância até a terceira idade."
 
-## 🚀 Nossa Missão
+## Nossa Missão
 
 **Utilizar inteligência artificial de ponta para fornecer análises nutricionais precisas, acompanhamento personalizado e educação alimentar acessível a todos os brasileiros, independentemente de sua localização ou condição socioeconômica.**
 
 ### Pilares da Nossa Missão:
 
-1. **🤖 Inovação Tecnológica**
+1. **Inovação Tecnológica**
    - Desenvolver soluções de IA que reconheçam e analisem alimentos com precisão
    - Criar interfaces intuitivas que qualquer pessoa possa usar
    - Integrar as mais avançadas pesquisas em nutrição e machine learning
 
-2. **🇧🇷 Contexto Brasileiro**
+2. **Contexto Brasileiro**
    - Adaptar tecnologias globais à realidade alimentar brasileira
    - Incluir alimentos regionais e tradições culinárias locais
    - Considerar fatores socioeconômicos no desenvolvimento de soluções
 
-3. **🏥 Impacto na Saúde Pública**
+3. **Impacto na Saúde Pública**
    - Reduzir índices de obesidade, diabetes e doenças cardiovasculares
    - Apoiar políticas públicas de alimentação saudável
    - Integrar-se ao sistema público de saúde (SUS)
 
-4. **🔓 Acesso Democrático**
+4. **Acesso Democrático**
    - Oferecer serviços gratuitos para a população em geral
    - Garantir acessibilidade para pessoas com deficiência
    - Disponibilizar APIs abertas para desenvolvedores e pesquisadores
 
-## 🌟 Valores Fundamentais
+## Valores Fundamentais
 
 !!! note "Transparência Radical"
     **Acreditamos que dados nutricionais devem ser abertos e acessíveis.** Todas as nossas metodologias, algoritmos e fontes de dados são documentados publicamente.
@@ -52,7 +52,7 @@
 !!! people "Colaboração Aberta"
     **Acreditamos no poder da comunidade.** Convidamos desenvolvedores, pesquisadores e usuários a contribuir com o projeto.
 
-## 📊 Nossa Teoria da Mudança
+## Nossa Teoria da Mudança
 
 ```mermaid
 graph LR
@@ -73,7 +73,7 @@ graph LR
 | **Redução de IMC** | 5% dos usuários | 15% dos usuários | 30% dos usuários |
 | **Publicações Científicas** | 5 papers | 25 papers | 100 papers |
 
-## 🎯 Público-Alvo Prioritário
+## Público-Alvo Prioritário
 
 ### 1. **População em Vulnerabilidade Social**
 !!! warning "Prioridade Máxima"
@@ -99,7 +99,7 @@ graph LR
     - Coordenadores pedagógicos
     - Merendeiras escolares
 
-## 🔬 Base Científica
+## Base Científica
 
 ### Parcerias Acadêmicas
 - **Universidades Brasileiras:** USP, UNICAMP, UFMG, UFRJ
@@ -120,7 +120,7 @@ ia:
   - Transfer Learning: Adaptação contínua
 ```
 
-## 🌍 Contexto Brasileiro
+## Contexto Brasileiro
 
 ### Desafios Específicos do Brasil
 1. **Diversidade Alimentar Regional**
@@ -138,7 +138,7 @@ ia:
    - Adaptação às leis de proteção de dados (LGPD)
    - Integração com sistemas governamentais
 
-## 🤝 Como Contribuir
+## Como Contribuir
 
 ### Para Cidadãos
 1. **Use a plataforma** e forneça feedback honesto
@@ -164,7 +164,7 @@ ia:
 3. **Integre** o BSFM em seus sistemas existentes
 4. **Promova** a educação nutricional entre colaboradores
 
-## 📞 Contato e Transparência
+## Contato e Transparência
 
 ### Canais Oficiais
 - **Email Institucional:** visao@bsfm.com.br
@@ -187,7 +187,7 @@ fontes:
   - Serviços premium para empresas
 ```
 
-## 🏆 Reconhecimentos e Certificações
+## Reconhecimentos e Certificações
 
 ### Certificações Obtidas
 - **ANVISA:** Registro como software de saúde

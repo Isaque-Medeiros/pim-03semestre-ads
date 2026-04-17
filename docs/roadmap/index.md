@@ -4,7 +4,7 @@ Este documento apresenta o plano estratégico de desenvolvimento do **BSFM (Braz
 
 ---
 
-## 🎯 Visão Geral
+## Visão Geral
 
 ```mermaid
 timeline
@@ -25,19 +25,19 @@ timeline
         Pesquisa : Publicações<br>Parcerias Acadêmicas
 ```
 
-## 🚀 Fase 1: Consolidação (2026)
+## Fase 1: Consolidação (2026)
 
 ### Q1 2026 - Lançamento Oficial v1.0 ✅
 **Status:** Concluído em 16/04/2026
 
-#### 🎯 Objetivos Alcançados
+#### Objetivos Alcançados
 - **Plataforma Web Completa**
   - Análise de alimentos por IA (452 alimentos)
   - Dashboard personalizado com métricas de saúde
   - Sistema de usuários com autenticação segura
   - Integração hospitalar e cronograma alimentar
 
-#### 📊 Métricas de Sucesso
+#### Métricas de Sucesso
 - **Usuários ativos:** 50.000
 - **Análises realizadas:** 1.000.000
 - **Precisão da IA:** 85%
@@ -46,20 +46,20 @@ timeline
 ### Q2 2026 - Expansão Mobile
 **Status:** Em desenvolvimento (Previsto: 31/05/2026)
 
-#### ✨ Novas Funcionalidades
-- **📱 App Mobile Nativo**
+#### Novas Funcionalidades
+- **App Mobile Nativo**
   - iOS e Android com React Native
   - Câmera nativa para análise em tempo real
   - Notificações push para lembretes de refeições
   - Sincronização offline/online
 
-- **🥗 Reconhecimento de Porções Automático**
+- **Reconhecimento de Porções Automático**
   - IA que estima tamanho das porções
   - Calibração por objetos de referência (mão, prato)
   - Ajuste automático de valores nutricionais
   - Validação por fotos múltiplas
 
-#### 🎯 Metas do Trimestre
+#### Metas do Trimestre
 - **Downloads do app:** 100.000
 - **Retenção 30 dias:** 40%
 - **Precisão porções:** 75%
@@ -68,20 +68,20 @@ timeline
 ### Q3 2026 - Integração com Wearables
 **Status:** Planejado (Previsto: 31/08/2026)
 
-#### ✨ Novas Funcionalidades
-- **⌚ Integração com Dispositivos**
+#### Novas Funcionalidades
+- **Integração com Dispositivos**
   - Apple HealthKit e Google Fit
   - Apple Watch e Fitbit apps
   - Sincronização automática de atividade física
   - Ajuste de metas baseado em gasto calórico real
 
-- **🔔 Sistema de Notificações Inteligentes**
+- **Sistema de Notificações Inteligentes**
   - Lembretes de hidratação
   - Sugestões de refeições baseadas em horário
   - Alertas de excesso de nutrientes
   - Motivação personalizada
 
-#### 🎯 Metas do Trimestre
+#### Metas do Trimestre
 - **Usuários wearables:** 25.000
 - **Dados sincronizados:** 90% dos usuários
 - **Engajamento notificações:** 60%
@@ -90,20 +90,20 @@ timeline
 ### Q4 2026 - IA Avançada e Personalização
 **Status:** Planejado (Previsto: 30/11/2026)
 
-#### ✨ Novas Funcionalidades
-- **🧠 Planos Alimentares Gerados por IA**
+#### Novas Funcionalidades
+- **Planos Alimentares Gerados por IA**
   - Geração automática de cardápios semanais
   - Consideração de preferências e restrições
   - Adaptação ao orçamento familiar
   - Integração com receitas regionais
 
-- **🎯 Sistema de Recomendações Avançado**
+- **Sistema de Recomendações Avançado**
   - Machine learning para preferências individuais
   - Detecção de padrões alimentares
   - Sugestões de substituições saudáveis
   - Previsão de adesão ao plano
 
-#### 🎯 Metas do Trimestre
+#### Metas do Trimestre
 - **Planos gerados:** 50.000
 - **Satisfação planos:** 4.0/5
 - **Adesão 30 dias:** 35%
@@ -111,25 +111,25 @@ timeline
 
 ---
 
-## 🌟 Fase 2: Expansão (2027)
+## Fase 2: Expansão (2027)
 
 ### Q1 2027 - Plataforma Aberta
 **Status:** Planejado (Previsto: 28/02/2027)
 
-#### ✨ Novas Funcionalidades
-- **🔓 API Pública para Desenvolvedores**
+#### Novas Funcionalidades
+- **API Pública para Desenvolvedores**
   - Documentação completa com Swagger
   - Sandbox para testes
   - Rate limiting e autenticação OAuth2
   - SDKs para Python, JavaScript, Java
 
-- **🏪 Marketplace de Profissionais**
+- **Marketplace de Profissionais**
   - Nutricionistas verificados
   - Sistema de agendamento online
   - Videochamadas integradas
   - Avaliações e recomendações
 
-#### 🎯 Metas do Trimestre
+#### Metas do Trimestre
 - **Desenvolvedores registrados:** 1.000
 - **Apps integrados:** 50
 - **Profissionais no marketplace:** 500
@@ -138,20 +138,20 @@ timeline
 ### Q2 2027 - Integração com Saúde Pública
 **Status:** Planejado (Previsto: 31/05/2027)
 
-#### ✨ Novas Funcionalidades
-- **🏥 Integração com SUS**
+#### Novas Funcionalidades
+- **Integração com SUS**
   - Conectividade com sistemas do Ministério da Saúde
   - Exportação de dados para prontuários eletrônicos
   - Alertas para profissionais de saúde
   - Dashboards para gestores públicos
 
-- **📋 Prontuários Eletrônicos Nutricionais**
+- **Prontuários Eletrônicos Nutricionais**
   - Histórico completo do paciente
   - Evolução de métricas ao longo do tempo
   - Prescrições digitais
   - Compartilhamento seguro com profissionais
 
-#### 🎯 Metas do Trimestre
+#### Metas do Trimestre
 - **Municípios integrados:** 100
 - **Unidades de saúde:** 1.000
 - **Profissionais usando:** 5.000
@@ -160,20 +160,20 @@ timeline
 ### Q3 2027 - Ecossistema Alimentar
 **Status:** Planejado (Previsto: 31/08/2027)
 
-#### ✨ Novas Funcionalidades
-- **🛒 Integração com Supermercados**
+#### Novas Funcionalidades
+- **Integração com Supermercados**
   - Lista de compras automática baseada no plano
   - Comparação de preços entre estabelecimentos
   - Cupons de desconto para alimentos saudáveis
   - Entrega programada
 
-- **🍳 Análise de Receitas Completas**
+- **Análise de Receitas Completas**
   - Upload de receitas com múltiplos ingredientes
   - Cálculo nutricional da receita completa
   - Sugestões de ajustes para tornar mais saudável
   - Compatibilidade com livros de receitas digitais
 
-#### 🎯 Metas do Trimestre
+#### Metas do Trimestre
 - **Parcerias supermercados:** 10 redes
 - **Receitas analisadas:** 100.000
 - **Economia usuários:** 15% em compras
@@ -182,20 +182,20 @@ timeline
 ### Q4 2027 - Acessibilidade Total
 **Status:** Planejado (Previsto: 30/11/2027)
 
-#### ✨ Novas Funcionalidades
-- **📶 Modo Offline Completo**
+#### Novas Funcionalidades
+- **Modo Offline Completo**
   - Funcionalidade completa sem internet
   - Sincronização quando conexão disponível
   - Cache inteligente de dados
   - Otimização para áreas rurais
 
-- **♿ Acessibilidade Avançada**
+- **Acessibilidade Avançada**
   - Suporte completo a leitores de tela
   - Comandos de voz para navegação
   - Interface para baixa visão
   - Tradução para Libras integrada
 
-#### 🎯 Metas do Trimestre
+#### Metas do Trimestre
 - **Usuários áreas rurais:** 100.000
 - **Acessibilidade score:** WCAG 2.1 AAA
 - **Retenção offline:** 70%
@@ -203,17 +203,17 @@ timeline
 
 ---
 
-## 🌍 Fase 3: Impacto Nacional (2028-2030)
+## Fase 3: Impacto Nacional (2028-2030)
 
 ### 2028 - Escala Nacional
 
-#### 🎯 Objetivos Estratégicos
+#### Objetivos Estratégicos
 - **Cobertura Nacional:** Presente em todos os 5.570 municípios
 - **Usuários Ativos:** 2.000.000 brasileiros
 - **Integração SUS:** 50% das UBSs do país
 - **Impacto na Saúde:** Redução de 10% nos índices de obesidade
 
-#### ✨ Iniciativas Principais
+#### Iniciativas Principais
 - **Programa BSFM nas Escolas**
   - Implementação em 10.000 escolas públicas
   - Capacitação de 50.000 professores
@@ -228,13 +228,13 @@ timeline
 
 ### 2029 - Pesquisa e Inovação
 
-#### 🎯 Objetivos Estratégicos
+#### Objetivos Estratégicos
 - **Centro de Pesquisa BSFM:** Instituto dedicado à nutrição e tecnologia
 - **Publicações Científicas:** 50 papers em revistas indexadas
 - **Patentes:** 10 tecnologias patenteadas
 - **Parcerias Acadêmicas:** 100 universidades brasileiras
 
-#### ✨ Iniciativas Principais
+#### Iniciativas Principais
 - **Big Data Nutricional Brasileiro**
   - Maior dataset de hábitos alimentares do país
   - Análises por região, idade, gênero, renda
@@ -249,13 +249,13 @@ timeline
 
 ### 2030 - Liderança e Sustentabilidade
 
-#### 🎯 Objetivos Estratégicos
+#### Objetivos Estratégicos
 - **Auto-sustentabilidade:** Receita suficiente para manter operações
 - **Reconhecimento Internacional:** Referência global em nutrição digital
 - **Impacto Mensurável:** Redução de 20% em doenças relacionadas à alimentação
 - **Legado:** Plataforma que transformou a saúde alimentar do Brasil
 
-#### ✨ Iniciativas Principais
+#### Iniciativas Principais
 - **Fundação BSFM**
   - Entidade sem fins lucrativos para perpetuar a missão
   - Fundo de investimento em startups de nutrição
@@ -270,7 +270,7 @@ timeline
 
 ---
 
-## 📊 Métricas de Sucesso
+## Métricas de Sucesso
 
 ### KPIs Principais 2026-2030
 
@@ -296,7 +296,7 @@ timeline
 
 ---
 
-## 🤝 Como Contribuir para o Roadmap
+## Como Contribuir para o Roadmap
 
 ### Para Usuários
 1. **Use a plataforma** e forneça feedback constante
@@ -330,7 +330,7 @@ timeline
 
 ---
 
-## 🔄 Processo de Atualização do Roadmap
+## Processo de Atualização do Roadmap
 
 ### Ciclo de Revisão
 - **Trimestral:** Revisão detalhada a cada 3 meses
@@ -352,7 +352,7 @@ timeline
 
 ---
 
-## 📞 Contato e Colaboração
+## Contato e Colaboração
 
 ### Canais Oficiais
 - **Email:** roadmap@bsfm.com.br
@@ -375,7 +375,7 @@ timeline
 
 ---
 
-## 🏆 Compromissos com a Comunidade
+## Compromissos com a Comunidade
 
 ### Transparência Total
 - **Código aberto** sempre que possível
