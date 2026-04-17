@@ -1927,14 +1927,14 @@
 <h2 id="arquitetura-do-sistema">🏗️ Arquitetura do Sistema</h2>
 <h3 id="visao-geral-da-arquitetura">Visão Geral da Arquitetura</h3>
 <p>O BSFM segue uma arquitetura moderna baseada em <strong>.NET 8.0</strong> com separação clara de responsabilidades:</p>
-<pre><code class="language-mermaid">graph TD
+<div class="language-text highlight"><pre><span></span><code>graph TD
     A[Frontend Web] --&gt; B[Backend .NET 8.0]
     B --&gt; C[PostgreSQL]
     B --&gt; D[YOLO AI Service]
     B --&gt; E[USDA API]
     B --&gt; F[Brevo Email]
     C --&gt; G[Railway Hosting]
-</code></pre>
+</code></pre></div>
 <h3 id="stack-tecnologico-principal">Stack Tecnológico Principal</h3>
 <h4 id="backend-net-80">Backend (.NET 8.0)</h4>
 <ul>
@@ -1968,27 +1968,27 @@
 <li><strong>Git</strong> para controle de versão</li>
 </ol>
 <h3 id="configuracao-do-ambiente">Configuração do Ambiente</h3>
-<pre><code class="language-bash"># 1. Clone o repositório
-git clone https://github.com/BSFM/Brazilian-System-of-Food-Metric.git
-cd Brazilian-System-of-Food-Metric
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># 1. Clone o repositório</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/BSFM/Brazilian-System-of-Food-Metric.git
+<span class="nb">cd</span><span class="w"> </span>Brazilian-System-of-Food-Metric
 
-# 2. Restaure as dependências
-dotnet restore
+<span class="c1"># 2. Restaure as dependências</span>
+dotnet<span class="w"> </span>restore
 
-# 3. Configure variáveis de ambiente
-# Crie um arquivo .env ou configure no sistema:
-set USDA_API_KEY=sua_chave_aqui
-set BREVO_API_KEY=sua_chave_aqui
-set DATABASE_URL=postgresql://usuario:senha@localhost:5432/bsfm
+<span class="c1"># 3. Configure variáveis de ambiente</span>
+<span class="c1"># Crie um arquivo .env ou configure no sistema:</span>
+<span class="nb">set</span><span class="w"> </span><span class="nv">USDA_API_KEY</span><span class="o">=</span>sua_chave_aqui
+<span class="nb">set</span><span class="w"> </span><span class="nv">BREVO_API_KEY</span><span class="o">=</span>sua_chave_aqui
+<span class="nb">set</span><span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span>postgresql://usuario:senha@localhost:5432/bsfm
 
-# 4. Execute as migrations do banco de dados
-dotnet ef database update
+<span class="c1"># 4. Execute as migrations do banco de dados</span>
+dotnet<span class="w"> </span>ef<span class="w"> </span>database<span class="w"> </span>update
 
-# 5. Execute a aplicação
-dotnet run
-</code></pre>
+<span class="c1"># 5. Execute a aplicação</span>
+dotnet<span class="w"> </span>run
+</code></pre></div>
 <h3 id="estrutura-do-projeto">Estrutura do Projeto</h3>
-<pre><code>MobileRepositorio/
+<div class="language-text highlight"><pre><span></span><code>MobileRepositorio/
 ├── Controllers/
 │   ├── PlanoAlimentarController.cs
 │   ├── UsuarioController.cs
@@ -2017,53 +2017,53 @@ dotnet run
 ├── PonteDB.cs
 ├── Program.cs
 └── MeusApp.csproj
-</code></pre>
+</code></pre></div>
 <hr />
 <h2 id="inteligencia-artificial">🧠 Inteligência Artificial</h2>
 <h3 id="modelo-yolo-customizado">Modelo YOLO Customizado</h3>
 <p>O BSFM utiliza um modelo YOLO (You Only Look Once) customizado para detecção de alimentos:</p>
-<pre><code class="language-csharp">// Configuração do serviço de inferência
-public class YoloInferenceService
-{
-    private readonly Yolo _yolo;
+<div class="language-csharp highlight"><pre><span></span><code><span class="c1">// Configuração do serviço de inferência</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">YoloInferenceService</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Yolo</span><span class="w"> </span><span class="n">_yolo</span><span class="p">;</span>
 
-    public YoloInferenceService()
-    {
-        var modelPath = Path.Combine(&quot;Models&quot;, &quot;bsfmv1_yolo_final.onnx&quot;);
-        _yolo = new Yolo(modelPath);
-    }
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">YoloInferenceService</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">modelPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="p">.</span><span class="n">Combine</span><span class="p">(</span><span class="s">&quot;Models&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bsfmv1_yolo_final.onnx&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_yolo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Yolo</span><span class="p">(</span><span class="n">modelPath</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    public List&lt;DetectionResult&gt; AnalyzeImage(IFormFile image)
-    {
-        using var stream = image.OpenReadStream();
-        var results = _yolo.Predict(stream);
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">DetectionResult</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AnalyzeImage</span><span class="p">(</span><span class="n">IFormFile</span><span class="w"> </span><span class="n">image</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">image</span><span class="p">.</span><span class="n">OpenReadStream</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_yolo</span><span class="p">.</span><span class="n">Predict</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
 
-        return results.Select(r =&gt; new DetectionResult
-        {
-            Label = r.Label,
-            Confidence = r.Confidence,
-            BoundingBox = r.BoundingBox
-        }).ToList();
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">results</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">r</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DetectionResult</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">Label</span><span class="p">,</span>
+<span class="w">            </span><span class="n">Confidence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">Confidence</span><span class="p">,</span>
+<span class="w">            </span><span class="n">BoundingBox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">BoundingBox</span>
+<span class="w">        </span><span class="p">}).</span><span class="n">ToList</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="sistema-de-traducao">Sistema de Tradução</h3>
-<pre><code class="language-csharp">// Dicionário com 452 alimentos traduzidos
-public static readonly Dictionary&lt;string, string&gt; Tradutor = new Dictionary&lt;string, string&gt;
-{
-    { &quot;almond&quot;, &quot;amêndoa&quot; },
-    { &quot;apple&quot;, &quot;maçã&quot; },
-    { &quot;beef&quot;, &quot;carne bovina&quot; },
-    { &quot;bread&quot;, &quot;pão&quot; },
-    { &quot;cheese&quot;, &quot;queijo&quot; },
-    { &quot;chicken&quot;, &quot;frango&quot; },
-    { &quot;egg&quot;, &quot;ovo&quot; },
-    { &quot;fish&quot;, &quot;peixe&quot; },
-    { &quot;milk&quot;, &quot;leite&quot; },
-    { &quot;rice&quot;, &quot;arroz&quot; },
-    // ... 442 alimentos adicionais
-};
-</code></pre>
+<div class="language-csharp highlight"><pre><span></span><code><span class="c1">// Dicionário com 452 alimentos traduzidos</span>
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Tradutor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="o">&gt;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;almond&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;amêndoa&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;maçã&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;beef&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;carne bovina&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;bread&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pão&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;cheese&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;queijo&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;chicken&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;frango&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;egg&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ovo&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;fish&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;peixe&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;milk&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;leite&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="s">&quot;rice&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;arroz&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="c1">// ... 442 alimentos adicionais</span>
+<span class="p">};</span>
+</code></pre></div>
 <h3 id="fluxo-de-analise-nutricional">Fluxo de Análise Nutricional</h3>
 <ol>
 <li><strong>Upload da imagem</strong> do prato pelo usuário</li>
@@ -2078,97 +2078,97 @@ public static readonly Dictionary&lt;string, string&gt; Tradutor = new Dictionar
 <h2 id="banco-de-dados">💾 Banco de Dados</h2>
 <h3 id="modelo-de-dados-principal">Modelo de Dados Principal</h3>
 <h4 id="tabela-usuarios">Tabela Usuarios</h4>
-<pre><code class="language-sql">CREATE TABLE Usuarios (
-    ID SERIAL PRIMARY KEY,
-    Nome VARCHAR(100) NOT NULL,
-    Email VARCHAR(255) UNIQUE NOT NULL,
-    SenhaHash VARCHAR(255) NOT NULL,
-    Peso DECIMAL(5,2),
-    Altura DECIMAL(4,2),
-    IMC DECIMAL(4,2),
-    TMB DECIMAL(7,2),
-    GastoTotal DECIMAL(7,2),
-    PesoMeta DECIMAL(5,2),
-    DataCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UltimoLogin TIMESTAMP,
-    TermosAceitos BOOLEAN DEFAULT FALSE,
-    VersaoTermos VARCHAR(20)
-);
-</code></pre>
+<div class="language-sql highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Usuarios</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Nome</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">SenhaHash</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Peso</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Altura</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">IMC</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">TMB</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">GastoTotal</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">PesoMeta</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">DataCadastro</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+<span class="w">    </span><span class="n">UltimoLogin</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="p">,</span>
+<span class="w">    </span><span class="n">TermosAceitos</span><span class="w"> </span><span class="nb">BOOLEAN</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">FALSE</span><span class="p">,</span>
+<span class="w">    </span><span class="n">VersaoTermos</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
 <h4 id="tabela-analisesia">Tabela AnalisesIA</h4>
-<pre><code class="language-sql">CREATE TABLE AnalisesIA (
-    ID SERIAL PRIMARY KEY,
-    UsuarioID INTEGER REFERENCES Usuarios(ID),
-    Alimento VARCHAR(100) NOT NULL,
-    Calorias DECIMAL(7,2),
-    Proteinas DECIMAL(7,2),
-    Carbos DECIMAL(7,2),
-    Gorduras DECIMAL(7,2),
-    Porcao VARCHAR(20),
-    DataAnalise TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    ImagemURL TEXT
-);
-</code></pre>
+<div class="language-sql highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">AnalisesIA</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">ID</span><span class="w"> </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">UsuarioID</span><span class="w"> </span><span class="nb">INTEGER</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Usuarios</span><span class="p">(</span><span class="n">ID</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Alimento</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Calorias</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Proteinas</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Carbos</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Gorduras</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Porcao</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<span class="w">    </span><span class="n">DataAnalise</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ImagemURL</span><span class="w"> </span><span class="nb">TEXT</span>
+<span class="p">);</span>
+</code></pre></div>
 <h3 id="migrations-com-entity-framework">Migrations com Entity Framework</h3>
-<pre><code class="language-csharp">public class PonteDB : DbContext
-{
-    public PonteDB(DbContextOptions&lt;PonteDB&gt; options) : base(options) { }
+<div class="language-csharp highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PonteDB</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">DbContext</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">PonteDB</span><span class="p">(</span><span class="n">DbContextOptions</span><span class="o">&lt;</span><span class="n">PonteDB</span><span class="o">&gt;</span><span class="w"> </span><span class="n">options</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">base</span><span class="p">(</span><span class="n">options</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
 
-    public DbSet&lt;Usuario&gt; Usuarios { get; set; }
-    public DbSet&lt;AnaliseIA&gt; AnalisesIA { get; set; }
-    public DbSet&lt;Historico&gt; Historicos { get; set; }
-    public DbSet&lt;Hospital&gt; Hospitais { get; set; }
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">DbSet</span><span class="o">&lt;</span><span class="n">Usuario</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Usuarios</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">DbSet</span><span class="o">&lt;</span><span class="n">AnaliseIA</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AnalisesIA</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">DbSet</span><span class="o">&lt;</span><span class="n">Historico</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Historicos</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">DbSet</span><span class="o">&lt;</span><span class="n">Hospital</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Hospitais</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity&lt;Usuario&gt;()
-            .HasIndex(u =&gt; u.Email)
-            .IsUnique();
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnModelCreating</span><span class="p">(</span><span class="n">ModelBuilder</span><span class="w"> </span><span class="n">modelBuilder</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">modelBuilder</span><span class="p">.</span><span class="n">Entity</span><span class="o">&lt;</span><span class="n">Usuario</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="n">HasIndex</span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">Email</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">IsUnique</span><span class="p">();</span>
 
-        modelBuilder.Entity&lt;AnaliseIA&gt;()
-            .HasOne(a =&gt; a.Usuario)
-            .WithMany(u =&gt; u.Analises)
-            .HasForeignKey(a =&gt; a.UsuarioID);
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="n">modelBuilder</span><span class="p">.</span><span class="n">Entity</span><span class="o">&lt;</span><span class="n">AnaliseIA</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="n">HasOne</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">Usuario</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">WithMany</span><span class="p">(</span><span class="n">u</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">u</span><span class="p">.</span><span class="n">Analises</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">HasForeignKey</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">UsuarioID</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <hr />
 <h2 id="api-reference">🌐 API Reference</h2>
 <h3 id="autenticacao">Autenticação</h3>
 <h4 id="post-solicitar-codigo"><code>POST /solicitar-codigo</code></h4>
 <p>Solicita código de verificação para cadastro.</p>
-<p><strong>Request:</strong></p>
-<pre><code class="language-json">{
-  &quot;email&quot;: &quot;usuario@exemplo.com&quot;
-}
-</code></pre>
-<p><strong>Response:</strong></p>
-<pre><code class="language-json">{
-  &quot;sucesso&quot;: true,
-  &quot;mensagem&quot;: &quot;Código enviado para o email&quot;
-}
-</code></pre>
+<p><strong>Request:</strong>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;usuario@exemplo.com&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Response:</strong>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;sucesso&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;mensagem&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Código enviado para o email&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h4 id="post-cadastrar-usuario-final"><code>POST /cadastrar-usuario-final</code></h4>
 <p>Cadastra um novo usuário.</p>
-<p><strong>Request:</strong></p>
-<pre><code class="language-json">{
-  &quot;nome&quot;: &quot;João Silva&quot;,
-  &quot;email&quot;: &quot;joao@exemplo.com&quot;,
-  &quot;senha&quot;: &quot;SenhaSegura123&quot;,
-  &quot;codigo&quot;: &quot;123456&quot;,
-  &quot;aceitaTermos&quot;: true
-}
-</code></pre>
-<p><strong>Response:</strong></p>
-<pre><code class="language-json">{
-  &quot;sucesso&quot;: true,
-  &quot;usuario&quot;: {
-    &quot;id&quot;: 1,
-    &quot;nome&quot;: &quot;João Silva&quot;,
-    &quot;email&quot;: &quot;joao@exemplo.com&quot;
-  }
-}
-</code></pre>
+<p><strong>Request:</strong>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;nome&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;João Silva&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;joao@exemplo.com&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;senha&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SenhaSegura123&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;codigo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;aceitaTermos&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Response:</strong>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;sucesso&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;usuario&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;nome&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;João Silva&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;joao@exemplo.com&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h3 id="analise-nutricional">Análise Nutricional</h3>
 <h4 id="post-analisar-prato"><code>POST /analisar-prato</code></h4>
 <p>Analisa uma imagem de prato usando IA.</p>
@@ -2176,224 +2176,224 @@ public static readonly Dictionary&lt;string, string&gt; Tradutor = new Dictionar
 - <code>foto</code>: Arquivo de imagem (jpg, png)
 - <code>porcao</code>: "pequeno", "medio", "grande"
 - <code>usuarioId</code>: ID do usuário</p>
-<p><strong>Response:</strong></p>
-<pre><code class="language-json">{
-  &quot;sucesso&quot;: true,
-  &quot;analise&quot;: {
-    &quot;id&quot;: 123,
-    &quot;alimentos&quot;: [
-      {
-        &quot;nome&quot;: &quot;arroz&quot;,
-        &quot;quantidade&quot;: &quot;100g&quot;,
-        &quot;calorias&quot;: 130,
-        &quot;proteinas&quot;: 2.7,
-        &quot;carboidratos&quot;: 28.2,
-        &quot;gorduras&quot;: 0.3
-      }
-    ],
-    &quot;total&quot;: {
-      &quot;calorias&quot;: 130,
-      &quot;proteinas&quot;: 2.7,
-      &quot;carboidratos&quot;: 28.2,
-      &quot;gorduras&quot;: 0.3
-    }
-  }
-}
-</code></pre>
+<p><strong>Response:</strong>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;sucesso&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;analise&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;alimentos&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;nome&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;arroz&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;quantidade&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;100g&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;calorias&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;proteinas&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.7</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;carboidratos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">28.2</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;gorduras&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;calorias&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;proteinas&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.7</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;carboidratos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">28.2</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;gorduras&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h4 id="get-historico-analisesusuarioid"><code>GET /historico-analises/{usuarioId}</code></h4>
 <p>Retorna o histórico de análises do usuário.</p>
-<p><strong>Response:</strong></p>
-<pre><code class="language-json">{
-  &quot;sucesso&quot;: true,
-  &quot;historico&quot;: [
-    {
-      &quot;id&quot;: 123,
-      &quot;data&quot;: &quot;2026-04-16T12:30:00Z&quot;,
-      &quot;alimentos&quot;: [&quot;arroz&quot;, &quot;feijão&quot;, &quot;frango&quot;],
-      &quot;caloriasTotais&quot;: 450
-    }
-  ]
-}
-</code></pre>
+<p><strong>Response:</strong>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;sucesso&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;historico&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-16T12:30:00Z&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;alimentos&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;arroz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;feijão&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;frango&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;caloriasTotais&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">450</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <hr />
 <h2 id="seguranca">🔐 Segurança</h2>
 <h3 id="hash-de-senhas-com-bcrypt">Hash de Senhas com BCrypt</h3>
-<pre><code class="language-csharp">public class SegurancaService
-{
-    public string HashSenha(string senha)
-    {
-        return BCrypt.Net.BCrypt.HashPassword(senha);
-    }
+<div class="language-csharp highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SegurancaService</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">HashSenha</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">senha</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">BCrypt</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">BCrypt</span><span class="p">.</span><span class="n">HashPassword</span><span class="p">(</span><span class="n">senha</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-    public bool VerificarSenha(string senha, string hash)
-    {
-        return BCrypt.Net.BCrypt.Verify(senha, hash);
-    }
-}
-</code></pre>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">VerificarSenha</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">senha</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">hash</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">BCrypt</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">BCrypt</span><span class="p">.</span><span class="n">Verify</span><span class="p">(</span><span class="n">senha</span><span class="p">,</span><span class="w"> </span><span class="n">hash</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="configuracao-cors">Configuração CORS</h3>
-<pre><code class="language-csharp">// Program.cs
-builder.Services.AddCors(options =&gt;
-{
-    options.AddPolicy(&quot;PermitirSite&quot;,
-        builder =&gt; builder
-            .WithOrigins(&quot;https://bsfm.com.br&quot;)
-            .AllowAnyMethod()
-            .AllowAnyHeader()
-            .AllowCredentials());
-});
-</code></pre>
+<div class="language-csharp highlight"><pre><span></span><code><span class="c1">// Program.cs</span>
+<span class="n">builder</span><span class="p">.</span><span class="n">Services</span><span class="p">.</span><span class="n">AddCors</span><span class="p">(</span><span class="n">options</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">options</span><span class="p">.</span><span class="n">AddPolicy</span><span class="p">(</span><span class="s">&quot;PermitirSite&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="n">builder</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">builder</span>
+<span class="w">            </span><span class="p">.</span><span class="n">WithOrigins</span><span class="p">(</span><span class="s">&quot;https://bsfm.com.br&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">AllowAnyMethod</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="n">AllowAnyHeader</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="n">AllowCredentials</span><span class="p">());</span>
+<span class="p">});</span>
+</code></pre></div>
 <h3 id="validacao-de-input">Validação de Input</h3>
-<pre><code class="language-csharp">public class UsuarioValidator : AbstractValidator&lt;UsuarioDTO&gt;
-{
-    public UsuarioValidator()
-    {
-        RuleFor(x =&gt; x.Email)
-            .NotEmpty().WithMessage(&quot;Email é obrigatório&quot;)
-            .EmailAddress().WithMessage(&quot;Email inválido&quot;);
+<div class="language-csharp highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UsuarioValidator</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">AbstractValidator</span><span class="o">&lt;</span><span class="n">UsuarioDTO</span><span class="o">&gt;</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">UsuarioValidator</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">RuleFor</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Email</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">NotEmpty</span><span class="p">().</span><span class="n">WithMessage</span><span class="p">(</span><span class="s">&quot;Email é obrigatório&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">EmailAddress</span><span class="p">().</span><span class="n">WithMessage</span><span class="p">(</span><span class="s">&quot;Email inválido&quot;</span><span class="p">);</span>
 
-        RuleFor(x =&gt; x.Senha)
-            .NotEmpty().WithMessage(&quot;Senha é obrigatória&quot;)
-            .MinimumLength(8).WithMessage(&quot;Senha deve ter no mínimo 8 caracteres&quot;)
-            .Matches(&quot;[A-Z]&quot;).WithMessage(&quot;Senha deve conter pelo menos uma letra maiúscula&quot;)
-            .Matches(&quot;[0-9]&quot;).WithMessage(&quot;Senha deve conter pelo menos um número&quot;);
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="n">RuleFor</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Senha</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">NotEmpty</span><span class="p">().</span><span class="n">WithMessage</span><span class="p">(</span><span class="s">&quot;Senha é obrigatória&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">MinimumLength</span><span class="p">(</span><span class="mi">8</span><span class="p">).</span><span class="n">WithMessage</span><span class="p">(</span><span class="s">&quot;Senha deve ter no mínimo 8 caracteres&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Matches</span><span class="p">(</span><span class="s">&quot;[A-Z]&quot;</span><span class="p">).</span><span class="n">WithMessage</span><span class="p">(</span><span class="s">&quot;Senha deve conter pelo menos uma letra maiúscula&quot;</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">Matches</span><span class="p">(</span><span class="s">&quot;[0-9]&quot;</span><span class="p">).</span><span class="n">WithMessage</span><span class="p">(</span><span class="s">&quot;Senha deve conter pelo menos um número&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <hr />
 <h2 id="deployment">🚀 Deployment</h2>
 <h3 id="plataforma-railway">Plataforma: Railway</h3>
 <p>O BSFM é implantado na plataforma Railway com a seguinte configuração:</p>
-<p><strong>railway.json:</strong></p>
-<pre><code class="language-json">{
-  &quot;build&quot;: {
-    &quot;builder&quot;: &quot;NIXPACKS&quot;,
-    &quot;buildCommand&quot;: &quot;dotnet publish -c Release -o output&quot;
-  },
-  &quot;deploy&quot;: {
-    &quot;startCommand&quot;: &quot;dotnet MobileRepositorio.dll&quot;,
-    &quot;healthcheckPath&quot;: &quot;/health&quot;,
-    &quot;port&quot;: 8080
-  }
-}
-</code></pre>
+<p><strong>railway.json:</strong>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;builder&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NIXPACKS&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;buildCommand&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dotnet publish -c Release -o output&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;deploy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;startCommand&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dotnet MobileRepositorio.dll&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;healthcheckPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/health&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8080</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h3 id="variaveis-de-ambiente-necessarias">Variáveis de Ambiente Necessárias</h3>
-<pre><code class="language-bash"># Banco de dados
-DATABASE_URL=postgresql://usuario:senha@servidor:5432/bsfm
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># Banco de dados</span>
+<span class="nv">DATABASE_URL</span><span class="o">=</span>postgresql://usuario:senha@servidor:5432/bsfm
 
-# APIs externas
-USDA_API_KEY=sua_chave_usda
-BREVO_API_KEY=sua_chave_brevo
+<span class="c1"># APIs externas</span>
+<span class="nv">USDA_API_KEY</span><span class="o">=</span>sua_chave_usda
+<span class="nv">BREVO_API_KEY</span><span class="o">=</span>sua_chave_brevo
 
-# Configuração da aplicação
-ASPNETCORE_ENVIRONMENT=Production
-ASPNETCORE_URLS=http://+:8080
-</code></pre>
+<span class="c1"># Configuração da aplicação</span>
+<span class="nv">ASPNETCORE_ENVIRONMENT</span><span class="o">=</span>Production
+<span class="nv">ASPNETCORE_URLS</span><span class="o">=</span>http://+:8080
+</code></pre></div>
 <h3 id="health-check-endpoint">Health Check Endpoint</h3>
-<pre><code class="language-csharp">[ApiController]
-[Route(&quot;health&quot;)]
-public class HealthController : ControllerBase
-{
-    private readonly PonteDB _db;
+<div class="language-csharp highlight"><pre><span></span><code><span class="na">[ApiController]</span>
+<span class="na">[Route(&quot;health&quot;)]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">HealthController</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ControllerBase</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">PonteDB</span><span class="w"> </span><span class="n">_db</span><span class="p">;</span>
 
-    public HealthController(PonteDB db)
-    {
-        _db = db;
-    }
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">HealthController</span><span class="p">(</span><span class="n">PonteDB</span><span class="w"> </span><span class="n">db</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_db</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">db</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 
-    [HttpGet]
-    public async Task&lt;IActionResult&gt; Get()
-    {
-        try
-        {
-            // Verifica conexão com banco
-            await _db.Database.CanConnectAsync();
+<span class="w">    </span><span class="na">[HttpGet]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">IActionResult</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Get</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Verifica conexão com banco</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">_db</span><span class="p">.</span><span class="n">Database</span><span class="p">.</span><span class="n">CanConnectAsync</span><span class="p">();</span>
 
-            return Ok(new 
-            {
-                status = &quot;healthy&quot;,
-                timestamp = DateTime.UtcNow,
-                database = &quot;connected&quot;
-            });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(503, new 
-            {
-                status = &quot;unhealthy&quot;,
-                error = ex.Message
-            });
-        }
-    }
-}
-</code></pre>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nf">Ok</span><span class="p">(</span><span class="k">new</span><span class="w"> </span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;healthy&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">timestamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">UtcNow</span><span class="p">,</span>
+<span class="w">                </span><span class="n">database</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;connected&quot;</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nf">StatusCode</span><span class="p">(</span><span class="mi">503</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;unhealthy&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span>
+<span class="w">            </span><span class="p">});</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <hr />
 <h2 id="testes">🧪 Testes</h2>
 <h3 id="estrategia-de-testes">Estratégia de Testes</h3>
-<pre><code class="language-csharp">// Testes unitários para serviços
-[TestClass]
-public class YoloInferenceServiceTests
-{
-    [TestMethod]
-    public void AnalyzeImage_ValidImage_ReturnsDetections()
-    {
-        // Arrange
-        var service = new YoloInferenceService();
-        var mockImage = new Mock&lt;IFormFile&gt;();
+<div class="language-csharp highlight"><pre><span></span><code><span class="c1">// Testes unitários para serviços</span>
+<span class="na">[TestClass]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">YoloInferenceServiceTests</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[TestMethod]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AnalyzeImage_ValidImage_ReturnsDetections</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Arrange</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">YoloInferenceService</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">mockImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Mock</span><span class="o">&lt;</span><span class="n">IFormFile</span><span class="o">&gt;</span><span class="p">();</span>
 
-        // Act
-        var result = service.AnalyzeImage(mockImage.Object);
+<span class="w">        </span><span class="c1">// Act</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">service</span><span class="p">.</span><span class="n">AnalyzeImage</span><span class="p">(</span><span class="n">mockImage</span><span class="p">.</span><span class="n">Object</span><span class="p">);</span>
 
-        // Assert
-        Assert.IsNotNull(result);
-        Assert.IsTrue(result.Any());
-    }
-}
+<span class="w">        </span><span class="c1">// Assert</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsNotNull</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">Any</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-// Testes de integração para APIs
-[TestClass]
-public class AnaliseIAControllerTests
-{
-    [TestMethod]
-    public async Task AnalisarPrato_ValidRequest_ReturnsAnalysis()
-    {
-        // Arrange
-        var controller = new AnaliseIAController();
-        var request = new AnaliseRequest { /* ... */ };
+<span class="c1">// Testes de integração para APIs</span>
+<span class="na">[TestClass]</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AnaliseIAControllerTests</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="na">[TestMethod]</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">AnalisarPrato_ValidRequest_ReturnsAnalysis</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Arrange</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AnaliseIAController</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AnaliseRequest</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="p">};</span>
 
-        // Act
-        var result = await controller.AnalisarPrato(request);
+<span class="w">        </span><span class="c1">// Act</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">controller</span><span class="p">.</span><span class="n">AnalisarPrato</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
 
-        // Assert
-        Assert.IsTrue(result.Sucesso);
-        Assert.IsNotNull(result.Analise);
-    }
-}
-</code></pre>
+<span class="w">        </span><span class="c1">// Assert</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsTrue</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">Sucesso</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Assert</span><span class="p">.</span><span class="n">IsNotNull</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">Analise</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="cobertura-de-testes">Cobertura de Testes</h3>
-<pre><code class="language-bash"># Executar testes
-dotnet test
+<div class="language-bash highlight"><pre><span></span><code><span class="c1"># Executar testes</span>
+dotnet<span class="w"> </span><span class="nb">test</span>
 
-# Gerar relatório de cobertura
-dotnet test --collect:&quot;XPlat Code Coverage&quot;
+<span class="c1"># Gerar relatório de cobertura</span>
+dotnet<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--collect:<span class="s2">&quot;XPlat Code Coverage&quot;</span>
 
-# Ver cobertura no navegador
-reportgenerator -reports:TestResults/**/coverage.cobertura.xml -targetdir:coveragereport -reporttypes:Html
-</code></pre>
+<span class="c1"># Ver cobertura no navegador</span>
+reportgenerator<span class="w"> </span>-reports:TestResults/**/coverage.cobertura.xml<span class="w"> </span>-targetdir:coveragereport<span class="w"> </span>-reporttypes:Html
+</code></pre></div>
 <hr />
 <h2 id="contribuindo">🤝 Contribuindo</h2>
 <h3 id="processo-de-contribuicao">Processo de Contribuição</h3>
 <ol>
 <li><strong>Fork</strong> o repositório</li>
 <li><strong>Crie uma branch</strong> para sua feature
-   <code>bash
-   git checkout -b feature/nova-funcionalidade</code></li>
+   <div class="language-bash highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/nova-funcionalidade
+</code></pre></div></li>
 <li><strong>Commit</strong> suas mudanças
-   <code>bash
-   git commit -m "feat: adiciona nova funcionalidade"</code></li>
+   <div class="language-bash highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: adiciona nova funcionalidade&quot;</span>
+</code></pre></div></li>
 <li><strong>Push</strong> para a branch
-   <code>bash
-   git push origin feature/nova-funcionalidade</code></li>
+   <div class="language-bash highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/nova-funcionalidade
+</code></pre></div></li>
 <li><strong>Abra um Pull Request</strong></li>
 </ol>
 <h3 id="convencoes-de-codigo">Convenções de Código</h3>
@@ -2408,50 +2408,50 @@ reportgenerator -reports:TestResults/**/coverage.cobertura.xml -targetdir:covera
 <li><code>chore:</code> Tarefas de manutenção</li>
 </ul>
 <h4 id="padroes-de-codigo-c">Padrões de Código C</h4>
-<pre><code class="language-csharp">// Use async/await para operações I/O
-public async Task&lt;Usuario&gt; GetUsuarioAsync(int id)
-{
-    return await _db.Usuarios.FindAsync(id);
-}
+<div class="language-csharp highlight"><pre><span></span><code><span class="c1">// Use async/await para operações I/O</span>
+<span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="n">Usuario</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetUsuarioAsync</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">_db</span><span class="p">.</span><span class="n">Usuarios</span><span class="p">.</span><span class="n">FindAsync</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="p">}</span>
 
-// Use Dependency Injection
-public class MeuService : IMeuService
-{
-    private readonly IOutroService _outroService;
+<span class="c1">// Use Dependency Injection</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MeuService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IMeuService</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">IOutroService</span><span class="w"> </span><span class="n">_outroService</span><span class="p">;</span>
 
-    public MeuService(IOutroService outroService)
-    {
-        _outroService = outroService;
-    }
-}
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">MeuService</span><span class="p">(</span><span class="n">IOutroService</span><span class="w"> </span><span class="n">outroService</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_outroService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">outroService</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-// Tratamento de erros apropriado
-try
-{
-    await ProcessarAnaliseAsync();
-}
-catch (Exception ex) when (ex is HttpRequestException)
-{
-    _logger.LogError(ex, &quot;Erro na requisição HTTP&quot;);
-    throw new AnaliseException(&quot;Falha na análise&quot;, ex);
-}
-</code></pre>
+<span class="c1">// Tratamento de erros apropriado</span>
+<span class="k">try</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nf">ProcessarAnaliseAsync</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">ex</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">HttpRequestException</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">_logger</span><span class="p">.</span><span class="n">LogError</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Erro na requisição HTTP&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">AnaliseException</span><span class="p">(</span><span class="s">&quot;Falha na análise&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 <hr />
 <h2 id="monitoramento-e-logs">📊 Monitoramento e Logs</h2>
 <h3 id="configuracao-de-logs">Configuração de Logs</h3>
-<pre><code class="language-csharp">// Program.cs
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
-builder.Logging.AddDebug();
-builder.Logging.AddEventLog();
+<div class="language-csharp highlight"><pre><span></span><code><span class="c1">// Program.cs</span>
+<span class="n">builder</span><span class="p">.</span><span class="n">Logging</span><span class="p">.</span><span class="n">ClearProviders</span><span class="p">();</span>
+<span class="n">builder</span><span class="p">.</span><span class="n">Logging</span><span class="p">.</span><span class="n">AddConsole</span><span class="p">();</span>
+<span class="n">builder</span><span class="p">.</span><span class="n">Logging</span><span class="p">.</span><span class="n">AddDebug</span><span class="p">();</span>
+<span class="n">builder</span><span class="p">.</span><span class="n">Logging</span><span class="p">.</span><span class="n">AddEventLog</span><span class="p">();</span>
 
-// Configuração Serilog para produção
-Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Information()
-    .WriteTo.Console()
-    .WriteTo.File(&quot;logs/bsfm-.txt&quot;, rollingInterval: RollingInterval.Day)
-    .CreateLogger();
-</code></pre>
+<span class="c1">// Configuração Serilog para produção</span>
+<span class="n">Log</span><span class="p">.</span><span class="n">Logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LoggerConfiguration</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="n">MinimumLevel</span><span class="p">.</span><span class="n">Information</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="n">WriteTo</span><span class="p">.</span><span class="n">Console</span><span class="p">()</span>
+<span class="w">    </span><span class="p">.</span><span class="n">WriteTo</span><span class="p">.</span><span class="n">File</span><span class="p">(</span><span class="s">&quot;logs/bsfm-.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rollingInterval</span><span class="p">:</span><span class="w"> </span><span class="n">RollingInterval</span><span class="p">.</span><span class="n">Day</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">CreateLogger</span><span class="p">();</span>
+</code></pre></div>
 <h3 id="metricas-de-performance">Métricas de Performance</h3>
 <p>```csharp
 public class PerformanceMiddleware

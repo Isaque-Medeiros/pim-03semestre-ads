@@ -46,6 +46,13 @@ plugins:
   - search
   - tags
 
+# Markdown extensions (syntax highlight com Pygments para gerar tokens de cor)
+markdown_extensions:
+  - pymdownx.highlight:
+      use_pygments: true
+      pygments_lang_class: true
+  - pymdownx.superfences
+
 # Extras
 extra:
   analytics:

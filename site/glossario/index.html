@@ -3102,14 +3102,14 @@
 <h3 id="a">A</h3>
 <h4 id="alimento-funcional"><strong>Alimento Funcional</strong></h4>
 <p>Alimento que além de funções nutricionais básicas, produz efeitos metabólicos e/ou fisiológicos benéficos à saúde. No BSFM, alimentos funcionais são categorizados e analisados quanto aos seus compostos bioativos.</p>
-<p><strong>Exemplo no BSFM:</strong></p>
-<pre><code class="language-json">{
-  &quot;food_type&quot;: &quot;functional&quot;,
-  &quot;bioactive_compounds&quot;: [&quot;curcumin&quot;, &quot;piperine&quot;],
-  &quot;health_benefits&quot;: [&quot;anti-inflammatory&quot;, &quot;antioxidant&quot;],
-  &quot;recommended_daily&quot;: &quot;1-3g&quot;
-}
-</code></pre>
+<p><strong>Exemplo no BSFM:</strong>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;food_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;functional&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;bioactive_compounds&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;curcumin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;piperine&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;health_benefits&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;anti-inflammatory&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;antioxidant&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;recommended_daily&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1-3g&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h4 id="analise-nutricional"><strong>Análise Nutricional</strong></h4>
 <p>Processo de avaliação quantitativa e qualitativa do valor nutricional de alimentos, refeições ou dietas. No BSFM, a análise é automatizada usando IA e bancos de dados científicos.</p>
 <p><strong>Componentes:</strong>
@@ -3134,21 +3134,21 @@
 - Comunidade aberta</p>
 <h4 id="banco-de-dados-nutricional"><strong>Banco de Dados Nutricional</strong></h4>
 <p>Repositório estruturado de informações sobre composição nutricional de alimentos. O BSFM mantém um banco com +10.000 alimentos brasileiros.</p>
-<p><strong>Estrutura:</strong></p>
-<pre><code class="language-sql">CREATE TABLE foods (
-  id UUID PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  scientific_name VARCHAR(255),
-  category VARCHAR(100),
-  calories DECIMAL(10,2),
-  protein DECIMAL(10,2),
-  carbs DECIMAL(10,2),
-  fat DECIMAL(10,2),
-  region VARCHAR(50),
-  seasonality JSONB,
-  data_source VARCHAR(100)
-);
-</code></pre>
+<p><strong>Estrutura:</strong>
+<div class="language-sql highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">foods</span><span class="w"> </span><span class="p">(</span>
+<span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="n">UUID</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<span class="w">  </span><span class="n">scientific_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span>
+<span class="w">  </span><span class="n">category</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="w">  </span><span class="n">calories</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">  </span><span class="n">protein</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">  </span><span class="n">carbs</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">  </span><span class="n">fat</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<span class="w">  </span><span class="n">region</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="w">  </span><span class="n">seasonality</span><span class="w"> </span><span class="n">JSONB</span><span class="p">,</span>
+<span class="w">  </span><span class="n">data_source</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></p>
 <hr />
 <h3 id="c">C</h3>
 <h4 id="caloria"><strong>Caloria</strong></h4>
@@ -3180,36 +3180,36 @@
 - <strong>EAR</strong>: Necessidade média estimada</p>
 <h4 id="dieta-personalizada"><strong>Dieta Personalizada</strong></h4>
 <p>Plano alimentar adaptado às características individuais: idade, sexo, peso, altura, nível de atividade, objetivos e preferências.</p>
-<p><strong>Algoritmo do BSFM:</strong></p>
-<pre><code class="language-python">def personalize_diet(profile, goals, constraints):
-    base_calories = calculate_bmr(profile)
-    activity_adjustment = get_activity_factor(profile.activity_level)
-    goal_adjustment = get_goal_adjustment(goals.target)
+<p><strong>Algoritmo do BSFM:</strong>
+<div class="language-python highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">personalize_diet</span><span class="p">(</span><span class="n">profile</span><span class="p">,</span> <span class="n">goals</span><span class="p">,</span> <span class="n">constraints</span><span class="p">):</span>
+    <span class="n">base_calories</span> <span class="o">=</span> <span class="n">calculate_bmr</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+    <span class="n">activity_adjustment</span> <span class="o">=</span> <span class="n">get_activity_factor</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">activity_level</span><span class="p">)</span>
+    <span class="n">goal_adjustment</span> <span class="o">=</span> <span class="n">get_goal_adjustment</span><span class="p">(</span><span class="n">goals</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
 
-    total_calories = base_calories * activity_adjustment * goal_adjustment
+    <span class="n">total_calories</span> <span class="o">=</span> <span class="n">base_calories</span> <span class="o">*</span> <span class="n">activity_adjustment</span> <span class="o">*</span> <span class="n">goal_adjustment</span>
 
-    macronutrient_split = optimize_macronutrients(
-        profile, 
-        goals, 
-        constraints
-    )
+    <span class="n">macronutrient_split</span> <span class="o">=</span> <span class="n">optimize_macronutrients</span><span class="p">(</span>
+        <span class="n">profile</span><span class="p">,</span> 
+        <span class="n">goals</span><span class="p">,</span> 
+        <span class="n">constraints</span>
+    <span class="p">)</span>
 
-    return DietPlan(total_calories, macronutrient_split)
-</code></pre>
+    <span class="k">return</span> <span class="n">DietPlan</span><span class="p">(</span><span class="n">total_calories</span><span class="p">,</span> <span class="n">macronutrient_split</span><span class="p">)</span>
+</code></pre></div></p>
 <h4 id="dataset"><strong>Dataset</strong></h4>
 <p>Conjunto de dados estruturados para análise. O BSFM disponibiliza datasets para pesquisa, incluindo dados anonimizados de consumo alimentar.</p>
-<p><strong>Formato padrão:</strong></p>
-<pre><code class="language-csv">food_id,consumption_date,user_age,user_gender,region,quantity_g,calories
+<p><strong>Formato padrão:</strong>
+<div class="language-text highlight"><pre><span></span><code>food_id,consumption_date,user_age,user_gender,region,quantity_g,calories
 12345,2025-01-15,35,M,Southeast,150,225.5
 12346,2025-01-15,35,M,Southeast,200,310.0
-</code></pre>
+</code></pre></div></p>
 <hr />
 <h3 id="e">E</h3>
 <h4 id="endpoint"><strong>Endpoint</strong></h4>
 <p>URL específica em uma API que aceita requisições e retorna respostas. Cada endpoint do BSFM tem documentação detalhada.</p>
-<p><strong>Exemplo:</strong></p>
-<pre><code>GET https://api.bsfm.com.br/v1/foods/12345/nutrition
-</code></pre>
+<p><strong>Exemplo:</strong>
+<div class="language-text highlight"><pre><span></span><code>GET https://api.bsfm.com.br/v1/foods/12345/nutrition
+</code></pre></div></p>
 <h4 id="escala-de-medicao"><strong>Escala de Medição</strong></h4>
 <p>Sistema padronizado para quantificar alimentos. O BSFM suporta múltiplas escalas com conversão automática.</p>
 <p><strong>Escalas suportadas:</strong>
@@ -3229,10 +3229,10 @@
 - Sustentabilidade ambiental</p>
 <h4 id="formula-nutricional"><strong>Fórmula Nutricional</strong></h4>
 <p>Equação matemática para calcular valores nutricionais com base em ingredientes e quantidades.</p>
-<p><strong>Exemplo:</strong></p>
-<pre><code>Calorias_totais = Σ(quantidade_ingrediente × calorias_por_100g ÷ 100)
+<p><strong>Exemplo:</strong>
+<div class="language-text highlight"><pre><span></span><code>Calorias_totais = Σ(quantidade_ingrediente × calorias_por_100g ÷ 100)
 Proteína_total = Σ(quantidade_ingrediente × proteína_por_100g ÷ 100)
-</code></pre>
+</code></pre></div></p>
 <hr />
 <h3 id="g">G</h3>
 <h4 id="glicemia"><strong>Glicemia</strong></h4>
@@ -3279,27 +3279,27 @@ Proteína_total = Σ(quantidade_ingrediente × proteína_por_100g ÷ 100)
 <h3 id="j">J</h3>
 <h4 id="json-javascript-object-notation"><strong>JSON</strong> (JavaScript Object Notation)</h4>
 <p>Formato leve de intercâmbio de dados. Usado extensivamente nas APIs do BSFM.</p>
-<p><strong>Exemplo de resposta:</strong></p>
-<pre><code class="language-json">{
-  &quot;status&quot;: &quot;success&quot;,
-  &quot;data&quot;: {
-    &quot;food_id&quot;: &quot;12345&quot;,
-    &quot;name&quot;: &quot;Arroz branco cozido&quot;,
-    &quot;nutrition&quot;: {
-      &quot;calories&quot;: 130,
-      &quot;protein&quot;: 2.7,
-      &quot;carbs&quot;: 28.2,
-      &quot;fat&quot;: 0.3
-    }
-  },
-  &quot;timestamp&quot;: &quot;2026-04-16T17:50:30Z&quot;
-}
-</code></pre>
+<p><strong>Exemplo de resposta:</strong>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;food_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12345&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Arroz branco cozido&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;nutrition&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;calories&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">130</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;protein&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.7</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;carbs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">28.2</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;fat&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-16T17:50:30Z&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <h4 id="jwt-json-web-token"><strong>JWT</strong> (JSON Web Token)</h4>
 <p>Padrão para tokens de autenticação. Usado para segurança nas APIs do BSFM.</p>
-<p><strong>Estrutura:</strong></p>
-<pre><code>header.payload.signature
-</code></pre>
+<p><strong>Estrutura:</strong>
+<div class="language-text highlight"><pre><span></span><code>header.payload.signature
+</code></pre></div></p>
 <hr />
 <h3 id="k">K</h3>
 <h4 id="kcal-quilocaloria"><strong>Kcal</strong> (Quilocaloria)</h4>
@@ -3324,20 +3324,20 @@ Proteína_total = Σ(quantidade_ingrediente × proteína_por_100g ÷ 100)
 - <strong>Trans</strong>: ácidos graxos trans</p>
 <h4 id="log-de-alimentacao"><strong>Log de Alimentação</strong></h4>
 <p>Registro cronológico de consumo alimentar. Base para análise e recomendações personalizadas.</p>
-<p><strong>Estrutura:</strong></p>
-<pre><code class="language-yaml">meal_log:
-  date: 2026-04-16
-  meals:
-    - type: breakfast
-      time: &quot;08:00&quot;
-      foods:
-        - name: &quot;Ovos mexidos&quot;
-          quantity: 2
-          unit: &quot;units&quot;
-        - name: &quot;Pão integral&quot;
-          quantity: 2
-          unit: &quot;slices&quot;
-</code></pre>
+<p><strong>Estrutura:</strong>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">meal_log</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2026-04-16</span>
+<span class="w">  </span><span class="nt">meals</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">breakfast</span>
+<span class="w">      </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;08:00&quot;</span>
+<span class="w">      </span><span class="nt">foods</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Ovos</span><span class="nv"> </span><span class="s">mexidos&quot;</span>
+<span class="w">          </span><span class="nt">quantity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">          </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;units&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Pão</span><span class="nv"> </span><span class="s">integral&quot;</span>
+<span class="w">          </span><span class="nt">quantity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">          </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;slices&quot;</span>
+</code></pre></div></p>
 <hr />
 <h3 id="m">M</h3>
 <h4 id="macronutriente"><strong>Macronutriente</strong></h4>
@@ -3400,13 +3400,13 @@ Proteína_total = Σ(quantidade_ingrediente × proteína_por_100g ÷ 100)
 - <strong>Suplementos</strong>: whey, caseína, vegetais</p>
 <h4 id="plataforma"><strong>Plataforma</strong></h4>
 <p>Conjunto integrado de tecnologias que formam o BSFM. Inclui frontend, backend, APIs, banco de dados e ferramentas.</p>
-<p><strong>Arquitetura:</strong></p>
-<pre><code>Frontend (React) → API Gateway → Microservices → Databases
+<p><strong>Arquitetura:</strong>
+<div class="language-text highlight"><pre><span></span><code>Frontend (React) → API Gateway → Microservices → Databases
                          ↑
                   Authentication
                          ↑
                   Monitoring &amp; Logging
-</code></pre>
+</code></pre></div></p>
 <h4 id="pir-padrao-de-ingestao-recomendada"><strong>PIR</strong> (Padrão de Ingestão Recomendada)</h4>
 <p>Valores de referência para ingestão de nutrientes estabelecidos para a população brasileira.</p>
 <p><strong>Base científica:</strong>
@@ -3417,9 +3417,9 @@ Proteína_total = Σ(quantidade_ingrediente × proteína_por_100g ÷ 100)
 <h3 id="q">Q</h3>
 <h4 id="qualidade-nutricional"><strong>Qualidade Nutricional</strong></h4>
 <p>Medida abrangente do valor nutricional de um alimento, considerando densidade nutricional, processamento e benefícios à saúde.</p>
-<p><strong>Índice de Qualidade Nutricional (BSFM):</strong></p>
-<pre><code>IQN = (nutrientes_essenciais × biodisponibilidade) ÷ (calorias + componentes_negativos)
-</code></pre>
+<p><strong>Índice de Qualidade Nutricional (BSFM):</strong>
+<div class="language-text highlight"><pre><span></span><code>IQN = (nutrientes_essenciais × biodisponibilidade) ÷ (calorias + componentes_negativos)
+</code></pre></div></p>
 <h4 id="quantificacao"><strong>Quantificação</strong></h4>
 <p>Processo de medição precisa de quantidades alimentares. O BSFM oferece ferramentas para quantificação padronizada.</p>
 <p><strong>Métodos suportados:</strong>
@@ -3463,8 +3463,8 @@ Proteína_total = Σ(quantidade_ingrediente × proteína_por_100g ÷ 100)
 <h3 id="t">T</h3>
 <h4 id="tabela-nutricional"><strong>Tabela Nutricional</strong></h4>
 <p>Representação padronizada da composição nutricional de alimentos. Gerada automaticamente pelo BSFM.</p>
-<p><strong>Formato brasileiro:</strong></p>
-<pre><code>Informação Nutricional
+<p><strong>Formato brasileiro:</strong>
+<div class="language-text highlight"><pre><span></span><code>Informação Nutricional
 Porção de 100g
 
 Valor Energético: 150 kcal = 630 kJ
@@ -3475,7 +3475,7 @@ Gorduras Totais: 2g
  Gorduras Trans: 0g
 Fibra Alimentar: 3g
 Sódio: 200mg
-</code></pre>
+</code></pre></div></p>
 <h4 id="taxonomia-alimentar"><strong>Taxonomia Alimentar</strong></h4>
 <p>Sistema de classificação hierárquica de alimentos usado no BSFM.</p>
 <p><strong>Níveis:</strong>
@@ -3503,9 +3503,9 @@ Sódio: 200mg
 <h3 id="v">V</h3>
 <h4 id="valor-diario-vd"><strong>Valor Diário</strong> (%VD)</h4>
 <p>Percentual de nutrientes que uma porção do alimento contribui para uma dieta de 2000 kcal.</p>
-<p><strong>Cálculo:</strong></p>
-<pre><code>%VD = (quantidade_nutriente ÷ valor_diário_referência) × 100
-</code></pre>
+<p><strong>Cálculo:</strong>
+<div class="language-text highlight"><pre><span></span><code>%VD = (quantidade_nutriente ÷ valor_diário_referência) × 100
+</code></pre></div></p>
 <h4 id="validacao-de-dados"><strong>Validação de Dados</strong></h4>
 <p>Processo de verificação da qualidade e precisão dos dados nutricionais no BSFM.</p>
 <p><strong>Etapas:</strong>
@@ -3533,48 +3533,48 @@ Sódio: 200mg
 <h3 id="x">X</h3>
 <h4 id="xml-extensible-markup-language"><strong>XML</strong> (eXtensible Markup Language)</h4>
 <p>Formato de marcação para estruturação de dados. Alternativa ao JSON em algumas APIs do BSFM.</p>
-<p><strong>Exemplo:</strong></p>
-<pre><code class="language-xml">&lt;nutrition&gt;
-  &lt;food&gt;
-    &lt;name&gt;Arroz branco cozido&lt;/name&gt;
-    &lt;calories&gt;130&lt;/calories&gt;
-    &lt;protein&gt;2.7&lt;/protein&gt;
-    &lt;carbs&gt;28.2&lt;/carbs&gt;
-    &lt;fat&gt;0.3&lt;/fat&gt;
-  &lt;/food&gt;
-&lt;/nutrition&gt;
-</code></pre>
+<p><strong>Exemplo:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span class="nt">&lt;nutrition&gt;</span>
+<span class="w">  </span><span class="nt">&lt;food&gt;</span>
+<span class="w">    </span><span class="nt">&lt;name&gt;</span>Arroz<span class="w"> </span>branco<span class="w"> </span>cozido<span class="nt">&lt;/name&gt;</span>
+<span class="w">    </span><span class="nt">&lt;calories&gt;</span>130<span class="nt">&lt;/calories&gt;</span>
+<span class="w">    </span><span class="nt">&lt;protein&gt;</span>2.7<span class="nt">&lt;/protein&gt;</span>
+<span class="w">    </span><span class="nt">&lt;carbs&gt;</span>28.2<span class="nt">&lt;/carbs&gt;</span>
+<span class="w">    </span><span class="nt">&lt;fat&gt;</span>0.3<span class="nt">&lt;/fat&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/food&gt;</span>
+<span class="nt">&lt;/nutrition&gt;</span>
+</code></pre></div></p>
 <h4 id="xapi-experience-api"><strong>XAPI</strong> (Experience API)</h4>
 <p>Padrão para rastreamento de experiências de aprendizagem. Usado no módulo educativo do BSFM.</p>
-<p><strong>Statement exemplo:</strong></p>
-<pre><code class="language-json">{
-  &quot;actor&quot;: {&quot;id&quot;: &quot;user_123&quot;},
-  &quot;verb&quot;: {&quot;id&quot;: &quot;http://bsfm.com.br/verbs/completed&quot;},
-  &quot;object&quot;: {&quot;id&quot;: &quot;course_nutrition_basics&quot;},
-  &quot;timestamp&quot;: &quot;2026-04-16T17:52:23Z&quot;
-}
-</code></pre>
+<p><strong>Statement exemplo:</strong>
+<div class="language-json highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;actor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_123&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;verb&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://bsfm.com.br/verbs/completed&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;course_nutrition_basics&quot;</span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-16T17:52:23Z&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
 <hr />
 <h3 id="y">Y</h3>
 <h4 id="yaml-yaml-aint-markup-language"><strong>YAML</strong> (YAML Ain't Markup Language)</h4>
 <p>Formato de serialização de dados legível por humanos. Usado para configurações no BSFM.</p>
-<p><strong>Exemplo de configuração:</strong></p>
-<pre><code class="language-yaml">bsfm:
-  api:
-    version: &quot;v1&quot;
-    timeout: 30
-    retries: 3
+<p><strong>Exemplo de configuração:</strong>
+<div class="language-yaml highlight"><pre><span></span><code><span class="nt">bsfm</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">api</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;v1&quot;</span>
+<span class="w">    </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">    </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
 
-  nutrition:
-    default_region: &quot;BR&quot;
-    language: &quot;pt-BR&quot;
-    units: &quot;metric&quot;
+<span class="w">  </span><span class="nt">nutrition</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">default_region</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;BR&quot;</span>
+<span class="w">    </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;pt-BR&quot;</span>
+<span class="w">    </span><span class="nt">units</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;metric&quot;</span>
 
-  features:
-    ai_recommendations: true
-    meal_planning: true
-    community: true
-</code></pre>
+<span class="w">  </span><span class="nt">features</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">ai_recommendations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">meal_planning</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div></p>
 <hr />
 <h3 id="z">Z</h3>
 <h4 id="z-score-nutricional"><strong>Z-score Nutricional</strong></h4>

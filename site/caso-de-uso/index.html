@@ -1865,25 +1865,25 @@
 <li><strong>Melhoria de 25%</strong> nos resultados clínicos</li>
 </ul>
 <h3 id="codigo-de-exemplo">Código de Exemplo</h3>
-<pre><code class="language-python"># Exemplo de integração para nutricionistas
-from bsfm import NutritionistClient
+<div class="language-python highlight"><pre><span></span><code><span class="c1"># Exemplo de integração para nutricionistas</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bsfm</span><span class="w"> </span><span class="kn">import</span> <span class="n">NutritionistClient</span>
 
-client = NutritionistClient(api_key=&quot;sua_chave_aqui&quot;)
+<span class="n">client</span> <span class="o">=</span> <span class="n">NutritionistClient</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;sua_chave_aqui&quot;</span><span class="p">)</span>
 
-# Analisar perfil do paciente
-analysis = client.analyze_patient_profile(
-    patient_id=&quot;123&quot;,
-    dietary_restrictions=[&quot;lactose&quot;, &quot;gluten&quot;],
-    goals=[&quot;weight_loss&quot;, &quot;muscle_gain&quot;]
-)
+<span class="c1"># Analisar perfil do paciente</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">analyze_patient_profile</span><span class="p">(</span>
+    <span class="n">patient_id</span><span class="o">=</span><span class="s2">&quot;123&quot;</span><span class="p">,</span>
+    <span class="n">dietary_restrictions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;lactose&quot;</span><span class="p">,</span> <span class="s2">&quot;gluten&quot;</span><span class="p">],</span>
+    <span class="n">goals</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;weight_loss&quot;</span><span class="p">,</span> <span class="s2">&quot;muscle_gain&quot;</span><span class="p">]</span>
+<span class="p">)</span>
 
-# Gerar plano alimentar
-meal_plan = client.generate_meal_plan(
-    analysis_id=analysis.id,
-    budget=500.00,  # R$ por mês
-    preferences=[&quot;vegetarian&quot;, &quot;low_carb&quot;]
-)
-</code></pre>
+<span class="c1"># Gerar plano alimentar</span>
+<span class="n">meal_plan</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">generate_meal_plan</span><span class="p">(</span>
+    <span class="n">analysis_id</span><span class="o">=</span><span class="n">analysis</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+    <span class="n">budget</span><span class="o">=</span><span class="mf">500.00</span><span class="p">,</span>  <span class="c1"># R$ por mês</span>
+    <span class="n">preferences</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;vegetarian&quot;</span><span class="p">,</span> <span class="s2">&quot;low_carb&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
 <hr />
 <h2 id="pesquisador-academico">🎓 Pesquisador Acadêmico</h2>
 <h3 id="cenario_1">Cenário</h3>
@@ -1926,29 +1926,29 @@ meal_plan = client.generate_meal_plan(
 <li><strong>Aumento de 60%</strong> na qualidade das publicações</li>
 </ul>
 <h3 id="codigo-de-exemplo_1">Código de Exemplo</h3>
-<pre><code class="language-python"># Exemplo para pesquisadores
-from bsfm import ResearchClient
-import pandas as pd
+<div class="language-python highlight"><pre><span></span><code><span class="c1"># Exemplo para pesquisadores</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bsfm</span><span class="w"> </span><span class="kn">import</span> <span class="n">ResearchClient</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-client = ResearchClient(api_key=&quot;sua_chave_aqui&quot;)
+<span class="n">client</span> <span class="o">=</span> <span class="n">ResearchClient</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;sua_chave_aqui&quot;</span><span class="p">)</span>
 
-# Buscar dados por região
-data = client.get_research_data(
-    region=&quot;southeast&quot;,
-    age_range=(20, 60),
-    time_period=&quot;2025-01-01:2025-12-31&quot;
-)
+<span class="c1"># Buscar dados por região</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_research_data</span><span class="p">(</span>
+    <span class="n">region</span><span class="o">=</span><span class="s2">&quot;southeast&quot;</span><span class="p">,</span>
+    <span class="n">age_range</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span>
+    <span class="n">time_period</span><span class="o">=</span><span class="s2">&quot;2025-01-01:2025-12-31&quot;</span>
+<span class="p">)</span>
 
-# Converter para DataFrame
-df = pd.DataFrame(data.records)
+<span class="c1"># Converter para DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">records</span><span class="p">)</span>
 
-# Análise básica
-nutritional_stats = df.groupby('food_category').agg({
-    'calories': 'mean',
-    'protein': 'mean',
-    'carbs': 'mean'
-})
-</code></pre>
+<span class="c1"># Análise básica</span>
+<span class="n">nutritional_stats</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;food_category&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+    <span class="s1">&#39;calories&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;protein&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;carbs&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span>
+<span class="p">})</span>
+</code></pre></div>
 <hr />
 <h2 id="industria-alimenticia">🏭 Indústria Alimentícia</h2>
 <h3 id="cenario_2">Cenário</h3>
@@ -1991,30 +1991,30 @@ nutritional_stats = df.groupby('food_category').agg({
 <li><strong>Conformidade 100%</strong> com regulamentações</li>
 </ul>
 <h3 id="codigo-de-exemplo_2">Código de Exemplo</h3>
-<pre><code class="language-python"># Exemplo para indústria alimentícia
-from bsfm import IndustryClient
+<div class="language-python highlight"><pre><span></span><code><span class="c1"># Exemplo para indústria alimentícia</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bsfm</span><span class="w"> </span><span class="kn">import</span> <span class="n">IndustryClient</span>
 
-client = IndustryClient(api_key=&quot;sua_chave_aqui&quot;)
+<span class="n">client</span> <span class="o">=</span> <span class="n">IndustryClient</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;sua_chave_aqui&quot;</span><span class="p">)</span>
 
-# Otimizar fórmula de produto
-optimization = client.optimize_product_formula(
-    target_nutrition={
-        &quot;calories&quot;: 150,
-        &quot;protein&quot;: 10,
-        &quot;carbs&quot;: 20,
-        &quot;fat&quot;: 5
-    },
-    available_ingredients=[&quot;soy&quot;, &quot;wheat&quot;, &quot;corn&quot;],
-    max_cost=2.50  # R$ por porção
-)
+<span class="c1"># Otimizar fórmula de produto</span>
+<span class="n">optimization</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">optimize_product_formula</span><span class="p">(</span>
+    <span class="n">target_nutrition</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;calories&quot;</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+        <span class="s2">&quot;protein&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;carbs&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+        <span class="s2">&quot;fat&quot;</span><span class="p">:</span> <span class="mi">5</span>
+    <span class="p">},</span>
+    <span class="n">available_ingredients</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;soy&quot;</span><span class="p">,</span> <span class="s2">&quot;wheat&quot;</span><span class="p">,</span> <span class="s2">&quot;corn&quot;</span><span class="p">],</span>
+    <span class="n">max_cost</span><span class="o">=</span><span class="mf">2.50</span>  <span class="c1"># R$ por porção</span>
+<span class="p">)</span>
 
-# Gerar tabela nutricional
-nutrition_table = client.generate_nutrition_label(
-    formula_id=optimization.formula_id,
-    serving_size=100,  # gramas
-    language=&quot;pt-BR&quot;
-)
-</code></pre>
+<span class="c1"># Gerar tabela nutricional</span>
+<span class="n">nutrition_table</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">generate_nutrition_label</span><span class="p">(</span>
+    <span class="n">formula_id</span><span class="o">=</span><span class="n">optimization</span><span class="o">.</span><span class="n">formula_id</span><span class="p">,</span>
+    <span class="n">serving_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>  <span class="c1"># gramas</span>
+    <span class="n">language</span><span class="o">=</span><span class="s2">&quot;pt-BR&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
 <hr />
 <h2 id="desenvolvedor-de-software">💻 Desenvolvedor de Software</h2>
 <h3 id="cenario_3">Cenário</h3>
@@ -2057,35 +2057,35 @@ nutrition_table = client.generate_nutrition_label(
 <li><strong>Acesso a atualizações</strong> contínuas</li>
 </ul>
 <h3 id="codigo-de-exemplo_3">Código de Exemplo</h3>
-<pre><code class="language-javascript">// Exemplo para desenvolvedores web
-import { BSFMClient } from '@bsfm/sdk';
+<div class="language-javascript highlight"><pre><span></span><code><span class="c1">// Exemplo para desenvolvedores web</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">BSFMClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@bsfm/sdk&#39;</span><span class="p">;</span>
 
-const client = new BSFMClient({
-  apiKey: 'sua_chave_aqui',
-  environment: 'sandbox' // ou 'production'
-});
+<span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">BSFMClient</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">apiKey</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sua_chave_aqui&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">environment</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;sandbox&#39;</span><span class="w"> </span><span class="c1">// ou &#39;production&#39;</span>
+<span class="p">});</span>
 
-// Analisar refeição
-async function analyzeMeal(mealData) {
-  const analysis = await client.nutrition.analyze({
-    foods: mealData.foods,
-    portionSizes: mealData.portions
-  });
+<span class="c1">// Analisar refeição</span>
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">analyzeMeal</span><span class="p">(</span><span class="nx">mealData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">analysis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">nutrition</span><span class="p">.</span><span class="nx">analyze</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">foods</span><span class="o">:</span><span class="w"> </span><span class="nx">mealData</span><span class="p">.</span><span class="nx">foods</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">portionSizes</span><span class="o">:</span><span class="w"> </span><span class="nx">mealData</span><span class="p">.</span><span class="nx">portions</span>
+<span class="w">  </span><span class="p">});</span>
 
-  return {
-    calories: analysis.total.calories,
-    nutrients: analysis.breakdown,
-    recommendations: analysis.recommendations
-  };
-}
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">calories</span><span class="o">:</span><span class="w"> </span><span class="nx">analysis</span><span class="p">.</span><span class="nx">total</span><span class="p">.</span><span class="nx">calories</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">nutrients</span><span class="o">:</span><span class="w"> </span><span class="nx">analysis</span><span class="p">.</span><span class="nx">breakdown</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">recommendations</span><span class="o">:</span><span class="w"> </span><span class="nx">analysis</span><span class="p">.</span><span class="nx">recommendations</span>
+<span class="w">  </span><span class="p">};</span>
+<span class="p">}</span>
 
-// Integrar com app existente
-document.getElementById('analyze-btn').addEventListener('click', async () =&gt; {
-  const mealData = getMealFromUI();
-  const result = await analyzeMeal(mealData);
-  displayResults(result);
-});
-</code></pre>
+<span class="c1">// Integrar com app existente</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;analyze-btn&#39;</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">mealData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getMealFromUI</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">analyzeMeal</span><span class="p">(</span><span class="nx">mealData</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">displayResults</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
 <hr />
 <h2 id="consumidor-final">🛒 Consumidor Final</h2>
 <h3 id="cenario_4">Cenário</h3>
@@ -2128,33 +2128,33 @@ document.getElementById('analyze-btn').addEventListener('click', async () =&gt; 
 <li><strong>Aumento de 50%</strong> na motivação</li>
 </ul>
 <h3 id="interface-do-usuario">Interface do Usuário</h3>
-<pre><code class="language-html">&lt;!-- Exemplo de interface simplificada --&gt;
-&lt;div class=&quot;meal-tracker&quot;&gt;
-  &lt;h3&gt;Registrar Refeição&lt;/h3&gt;
+<div class="language-html highlight"><pre><span></span><code><span class="cm">&lt;!-- Exemplo de interface simplificada --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;meal-tracker&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Registrar Refeição<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
 
-  &lt;div class=&quot;food-search&quot;&gt;
-    &lt;input type=&quot;text&quot; placeholder=&quot;Buscar alimento...&quot; 
-           data-bsfm-autocomplete=&quot;foods&quot;&gt;
-    &lt;button data-action=&quot;add-food&quot;&gt;Adicionar&lt;/button&gt;
-  &lt;/div&gt;
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;food-search&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Buscar alimento...&quot;</span> 
+           <span class="na">data-bsfm-autocomplete</span><span class="o">=</span><span class="s">&quot;foods&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">data-action</span><span class="o">=</span><span class="s">&quot;add-food&quot;</span><span class="p">&gt;</span>Adicionar<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-  &lt;div class=&quot;meal-summary&quot; data-bsfm-summary&gt;
-    &lt;!-- Atualizado automaticamente --&gt;
-  &lt;/div&gt;
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;meal-summary&quot;</span> <span class="na">data-bsfm-summary</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- Atualizado automaticamente --&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-  &lt;div class=&quot;recommendations&quot; data-bsfm-recommendations&gt;
-    &lt;!-- Recomendações personalizadas --&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;recommendations&quot;</span> <span class="na">data-bsfm-recommendations</span><span class="p">&gt;</span>
+    <span class="cm">&lt;!-- Recomendações personalizadas --&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-&lt;script&gt;
-  // Integração simplificada
-  BSFM.init({
-    userId: 'usuario_123',
-    language: 'pt-BR'
-  });
-&lt;/script&gt;
-</code></pre>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="c1">// Integração simplificada</span>
+<span class="w">  </span><span class="nx">BSFM</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">userId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;usuario_123&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">language</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;pt-BR&#39;</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
 <hr />
 <h2 id="governo-e-saude-publica">🏛️ Governo e Saúde Pública</h2>
 <h3 id="cenario_5">Cenário</h3>
@@ -2197,25 +2197,25 @@ document.getElementById('analyze-btn').addEventListener('click', async () =&gt; 
 <li><strong>Transparência e accountability</strong></li>
 </ul>
 <h3 id="codigo-de-exemplo_4">Código de Exemplo</h3>
-<pre><code class="language-python"># Exemplo para órgãos governamentais
-from bsfm import GovernmentClient
+<div class="language-python highlight"><pre><span></span><code><span class="c1"># Exemplo para órgãos governamentais</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bsfm</span><span class="w"> </span><span class="kn">import</span> <span class="n">GovernmentClient</span>
 
-client = GovernmentClient(api_key=&quot;sua_chave_aqui&quot;)
+<span class="n">client</span> <span class="o">=</span> <span class="n">GovernmentClient</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;sua_chave_aqui&quot;</span><span class="p">)</span>
 
-# Análise de indicadores municipais
-indicators = client.get_public_health_indicators(
-    municipality=&quot;São Paulo&quot;,
-    indicators=[&quot;malnutrition&quot;, &quot;obesity&quot;, &quot;food_insecurity&quot;],
-    time_range=&quot;last_5_years&quot;
-)
+<span class="c1"># Análise de indicadores municipais</span>
+<span class="n">indicators</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_public_health_indicators</span><span class="p">(</span>
+    <span class="n">municipality</span><span class="o">=</span><span class="s2">&quot;São Paulo&quot;</span><span class="p">,</span>
+    <span class="n">indicators</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;malnutrition&quot;</span><span class="p">,</span> <span class="s2">&quot;obesity&quot;</span><span class="p">,</span> <span class="s2">&quot;food_insecurity&quot;</span><span class="p">],</span>
+    <span class="n">time_range</span><span class="o">=</span><span class="s2">&quot;last_5_years&quot;</span>
+<span class="p">)</span>
 
-# Planejar intervenção
-intervention_plan = client.plan_intervention(
-    target_population=&quot;school_children&quot;,
-    available_budget=1000000.00,
-    priority_areas=indicators.high_risk_areas
-)
-</code></pre>
+<span class="c1"># Planejar intervenção</span>
+<span class="n">intervention_plan</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">plan_intervention</span><span class="p">(</span>
+    <span class="n">target_population</span><span class="o">=</span><span class="s2">&quot;school_children&quot;</span><span class="p">,</span>
+    <span class="n">available_budget</span><span class="o">=</span><span class="mf">1000000.00</span><span class="p">,</span>
+    <span class="n">priority_areas</span><span class="o">=</span><span class="n">indicators</span><span class="o">.</span><span class="n">high_risk_areas</span>
+<span class="p">)</span>
+</code></pre></div>
 <hr />
 <h2 id="integracoes-comuns">🔗 Integrações Comuns</h2>
 <h3 id="aplicativos-de-fitness">Aplicativos de Fitness</h3>
