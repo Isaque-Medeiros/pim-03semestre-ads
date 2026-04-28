@@ -99,6 +99,7 @@ nav:
     - Comecar a Aprender: bsfm/comecar-aprender.md
   - Referencia:
     - Referencia Tecnica: bsfm/referencia.md
+    - Database Schema: bsfm/database-schema.md
     - Casos de Uso: caso-de-uso/index.md
     - Glossario: glossario/index.md
 

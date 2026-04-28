@@ -1,40 +1,40 @@
-# Instalacao do BSFM
+# Instalação do BSFM
 
-Este guia mostra como executar o projeto localmente e como publicar em ambiente de producao.
+Este guia mostra como executar o projeto localmente e como fazer deploy em produção.
 
-## Visao rapida
+## Visão Rápida
 
-- Backend principal em `.NET 8`
-- Frontend web servido com a aplicacao
-- Banco de dados PostgreSQL
-- Planejamento inicial de deploy no Railway
-- Hospedagem definitiva no Vercel para a camada web/documentacao
+- **Backend**: .NET 8 (ASP.NET Core)
+- **Frontend**: HTML/CSS/JS servido estaticamente pelo backend
+- **Banco de dados**: PostgreSQL (produção) / SQLite (desenvolvimento)
+- **Deploy**: Render (produção)
+- **Documentação**: Vercel (MkDocs)
 
-## Pre-requisitos
+## Pré-requisitos
 
 - .NET SDK 8+
 - Git
-- PostgreSQL 15+ (ou SQLite em desenvolvimento)
-- Node.js 18+ (opcional, para assets)
+- PostgreSQL 15+ (ou SQLite para desenvolvimento)
+- Visual Studio 2022 ou VS Code
 
-## Instalacao local
+## Instalação Local
 
-### 1. Clonar repositorio
+### 1. Clonar Repositório
 
 ```bash
 git clone <url-do-repositorio>
 cd pim-03semestre-ads
 ```
 
-### 2. Restaurar dependencias
+### 2. Restaurar Dependências
 
 ```bash
 dotnet restore
 ```
 
-### 3. Configurar banco de dados PostgreSQL
+### 3. Configurar Banco de Dados
 
-#### Opção A - Usando Docker (Recomendado)
+#### Opção A - PostgreSQL (Recomendado para produção)
 ```bash
 # Criar container PostgreSQL
 docker run -d --name bsfm-postgres \
@@ -46,78 +46,135 @@ docker run -d --name bsfm-postgres \
   postgres:15-alpine
 ```
 
-#### Opção B - Instalação Manual
-1. Instalar PostgreSQL 15+
-2. Criar database e usuário:
-```sql
-CREATE DATABASE bsfm_dev;
-CREATE USER bsfm_user WITH PASSWORD 'senha_segura';
-GRANT ALL PRIVILEGES ON DATABASE bsfm_dev TO bsfm_user;
+#### Opção B - SQLite (Desenvolvimento rápido)
+O projeto já está configurado para usar SQLite como fallback. Basta configurar a variável de ambiente:
+```bash
+set DATABASE_URL=Data Source=bsfm.db
 ```
 
-### 4. Configurar variaveis de ambiente
+### 4. Configurar Variáveis de Ambiente
 
-Crie um arquivo `.env` na raiz do projeto:
-```ini
-DATABASE_URL=Host=localhost;Database=bsfm_dev;Username=bsfm_user;Password=senha_segura
-USDA_API_KEY=sua-chave-usda-aqui
-BREVO_API_KEY=sua-chave-brevo-aqui
-ASPNETCORE_ENVIRONMENT=Development
-```
-
-Ou configure via PowerShell:
-```powershell
-$env:DATABASE_URL = "Host=localhost;Database=bsfm_dev;Username=bsfm_user;Password=senha_segura"
-$env:USDA_API_KEY = "sua-chave-usda"
-$env:BREVO_API_KEY = "sua-chave-brevo"
-$env:ASPNETCORE_ENVIRONMENT = "Development"
-```
-
-### 5. Aplicar migrações do banco
+Crie um arquivo `.env` na raiz do projeto ou configure no sistema:
 
 ```bash
-# Criar migração (se necessário)
-dotnet ef migrations add InitialCreate
+# Banco de dados (PostgreSQL)
+DATABASE_URL=Host=localhost;Database=bsfm_dev;Username=bsfm_user;Password=senha_segura
 
-# Aplicar migração ao banco
-dotnet ef database update
+# APIs Externas
+USDA_API_KEY=sua-chave-usda-aqui
+BREVO_API_KEY=sua-chave-brevo-aqui
 
-# Ou executar script SQL manualmente (ver database-schema.md)
-psql -U bsfm_user -d bsfm_dev -f scripts/schema.sql
+# Ambiente
+ASPNETCORE_ENVIRONMENT=Development
+ASPNETCORE_URLS=http://localhost:5000
 ```
 
-### 6. Executar aplicação
+### 5. Executar a Aplicação
 
 ```bash
 dotnet run
 ```
 
-A aplicação estará disponível em: http://localhost:5000
+A aplicação estará disponível em: **http://localhost:5000**
 
-### 5. Rodar projeto
-
+Para desenvolvimento com hot reload:
 ```bash
 dotnet watch run
 ```
 
-## Deploy
+## Deploy no Render
 
-### Historico de infraestrutura
+### Pré-requisitos para Deploy
 
-- Railway foi usado no planejamento inicial e provas de conceito.
-- Vercel e o destino definitivo para a publicacao da camada web/documentacao.
+1. Conta no [Render](https://render.com)
+2. Repositório no GitHub conectado ao Render
+3. Banco PostgreSQL (Render oferece PostgreSQL gratuito)
 
-### Publicacao no Vercel (resumo)
+### Passo a Passo
 
-1. Conectar repositorio ao Vercel.
-2. Configurar variaveis de ambiente no painel.
-3. Definir comando de build da parte web/documentacao.
-4. Publicar em branch principal.
+#### 1. Criar Banco PostgreSQL no Render
+1. Acesse o Dashboard do Render
+2. Clique em **New +** > **PostgreSQL**
+3. Configure:
+   - **Name**: `bsfm-db`
+   - **Database**: `bsfm_prod`
+   - **User**: `bsfm_user`
+   - **Region**: `São Paulo (South America)`
+4. Após criar, copie a **Internal Database URL**
 
-## Checklist
+#### 2. Criar Web Service no Render
+1. Clique em **New +** > **Web Service**
+2. Conecte seu repositório GitHub
+3. Configure:
+   - **Name**: `bsfm-api`
+   - **Runtime**: `Docker` (ou `.NET 8` se disponível)
+   - **Build Command**: `dotnet publish -c Release -o output`
+   - **Start Command**: `dotnet output/MobileRepositorio.dll`
+   - **Plan**: Free
 
-- [ ] Dependencias instaladas
-- [ ] Banco conectado
-- [ ] Variaveis configuradas
-- [ ] Aplicacao local iniciando
-- [ ] Pipeline de deploy validada no Vercel
+#### 3. Configurar Variáveis de Ambiente no Render
+
+No painel do Web Service, vá em **Environment** e adicione:
+
+| Variável | Valor |
+|----------|-------|
+| `ASPNETCORE_ENVIRONMENT` | `Production` |
+| `DATABASE_URL` | `Host=...;Database=bsfm_prod;Username=bsfm_user;Password=...` |
+| `USDA_API_KEY` | Sua chave da API USDA |
+| `BREVO_API_KEY` | Sua chave da API Brevo |
+
+#### 4. Deploy Automático
+- O Render faz deploy automático a cada push na branch principal
+- Para deploy manual: clique em **Manual Deploy** > **Deploy latest commit**
+
+### Arquivos de Configuração para Deploy
+
+O projeto inclui:
+
+- **render.yaml**: Configuração Infrastructure as Code para o Render
+- **Dockerfile**: Containerização da aplicação
+- **Program.cs**: Configurado para ler PORT, DATABASE_URL e outras variáveis
+
+### Health Check
+
+Após o deploy, acesse: `https://seu-app.onrender.com/health`
+
+Retorno esperado:
+```json
+{
+  "status": "healthy",
+  "timestamp": "2026-04-28T...",
+  "database": "connected"
+}
+```
+
+## Checklist de Deploy
+
+- [ ] Repositório no GitHub
+- [ ] Conta no Render criada
+- [ ] Banco PostgreSQL criado no Render
+- [ ] Variáveis de ambiente configuradas
+- [ ] Build passando no Render
+- [ ] Health check respondendo
+- [ ] Funcionalidades testadas em produção
+
+## Solução de Problemas
+
+### Erro de Conexão com Banco
+```bash
+# Verifique se a DATABASE_URL está correta
+# O sistema tenta reconectar automaticamente até 3 vezes
+```
+
+### Porta em Uso
+```bash
+# Mude a porta no Render ou localmente
+ASPNETCORE_URLS=http://localhost:5001
+```
+
+### Build Falhando
+```bash
+# Verifique se o .NET SDK 8 está instalado
+dotnet --version
+# Deve retornar 8.x.x
+```

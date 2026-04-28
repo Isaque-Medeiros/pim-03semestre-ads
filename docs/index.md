@@ -1,6 +1,6 @@
 ---
 title: "BSFM - Brazilian System of Food Metric"
-description: "Documentação oficial da plataforma revolucionária de nutrição inteligente com IA"
+description: "Documentação oficial do protótipo BSFM - Projeto acadêmico UNIP"
 layout: default
 hide:
   - navigation
@@ -9,36 +9,36 @@ hide:
 
 <div class="bsfm-hero">
   <h1>BSFM - Brazilian System of Food Metric</h1>
-  <p>Plataforma revolucionária de nutrição inteligente que combina inteligência artificial, análise nutricional em tempo real e acompanhamento personalizado para transformar a saúde alimentar dos brasileiros.</p>
+  <p>Projeto acadêmico de plataforma de nutrição inteligente desenvolvido por estudantes da UNIP. Este é um <strong>protótipo em desenvolvimento</strong> que utiliza inteligência artificial para análise nutricional de alimentos.</p>
   
   <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
     <a href="guia-usuario/introducao.md" class="bsfm-btn">
       <svg style="margin-right: 0.5rem;" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12,2L14.85,8.15L21,11L14.85,13.85L12,20L9.15,13.85L3,11L9.15,8.15L12,2M12,17.27L13.1,14.9L15.47,13.8L13.1,12.7L12,10.33L10.9,12.7L8.53,13.8L10.9,14.9L12,17.27Z"/>
       </svg>
-      Começar a Usar
+      Guia do Usuário
     </a>
-    <a href="guia-desenvolvedor/introducao.md" class="bsfm-btn bsfm-btn-secondary">
+    <a href="guia-desenvolvedor/index.md" class="bsfm-btn bsfm-btn-secondary">
       <svg style="margin-right: 0.5rem;" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
         <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M13,9V3.5L18.5,9H13Z"/>
       </svg>
-      Documentação Técnica
+      Guia do Desenvolvedor
     </a>
   </div>
 </div>
 
 <div class="bsfm-stats">
   <div class="bsfm-stat-card">
-    <div class="bsfm-stat-number">452</div>
-    <div class="bsfm-stat-label">Alimentos Reconhecidos</div>
+    <div class="bsfm-stat-number">Protótipo</div>
+    <div class="bsfm-stat-label">Status do Projeto</div>
   </div>
   <div class="bsfm-stat-card">
-    <div class="bsfm-stat-number">85%</div>
-    <div class="bsfm-stat-label">Precisão da IA</div>
+    <div class="bsfm-stat-number">UNIP</div>
+    <div class="bsfm-stat-label">Instituição de Ensino</div>
   </div>
   <div class="bsfm-stat-card">
-    <div class="bsfm-stat-number"><3s</div>
-    <div class="bsfm-stat-label">Análise Completa</div>
+    <div class="bsfm-stat-number">4</div>
+    <div class="bsfm-stat-label">Integrantes do Grupo</div>
   </div>
   <div class="bsfm-stat-card">
     <div class="bsfm-stat-number">.NET 8</div>
@@ -54,7 +54,7 @@ hide:
       </svg>
     </div>
     <h3>Análise por IA</h3>
-    <p>Detecção visual de alimentos em tempo real usando YOLO Object Detection com 452 alimentos reconhecidos e tradução automática EN→PT.</p>
+    <p>Detecção visual de alimentos usando YOLO Object Detection com modelo ONNX. A IA identifica alimentos em fotos e consulta dados nutricionais da API USDA.</p>
   </div>
   
   <div class="bsfm-feature-item">
@@ -64,7 +64,7 @@ hide:
       </svg>
     </div>
     <h3>Dashboard Personalizado</h3>
-    <p>Acompanhe métricas de saúde (IMC, TMB, Gasto Calórico) com gráficos de progresso e evolução histórica.</p>
+    <p>Acompanhe métricas de saúde (IMC, TMB, Gasto Calórico) com gráficos de progresso e evolução histórica de peso.</p>
   </div>
   
   <div class="bsfm-feature-item">
@@ -74,7 +74,7 @@ hide:
       </svg>
     </div>
     <h3>Sistema de Usuários</h3>
-    <p>Cadastro seguro com verificação por email, autenticação BCrypt e redefinição de senha protegida.</p>
+    <p>Cadastro com verificação por email via Brevo API, autenticação com BCrypt e redefinição de senha.</p>
   </div>
   
   <div class="bsfm-feature-item">
@@ -83,74 +83,24 @@ hide:
         <path d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5C10.62,11.5 9.5,10.38 9.5,9C9.5,7.62 10.62,6.5 12,6.5C13.38,6.5 14.5,7.62 14.5,9C14.5,10.38 13.38,11.5 12,11.5Z"/>
       </svg>
     </div>
-    <h3>Integração Hospitalar</h3>
-    <p>Diretório de hospitais parceiros com informações de contato e acesso rápido a serviços de saúde.</p>
+    <h3>Mapa SOS Saúde</h3>
+    <p>Localize UPAs e hospitais próximos usando Leaflet. Funcionalidade de emergência para encontrar atendimento médico.</p>
   </div>
 </div>
 
 <div class="bsfm-card">
-  <h2>Comece Agora</h2>
-  <p>Explore nossa documentação completa para começar a usar o BSFM:</p>
+  <h2>Sobre o Projeto</h2>
+  <p>O <strong>BSFM (Brazilian System of Food Metric)</strong> é um projeto acadêmico desenvolvido por alunos do curso de Análise e Desenvolvimento de Sistemas da <strong>UNIP (Universidade Paulista)</strong>.</p>
   
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-    <div>
-      <h3>Para Usuários</h3>
-      <ul>
-        <li><a href="guia-usuario/introducao.md">Introdução ao BSFM</a></li>
-        <li><a href="guia-usuario/primeiros-passos.md">Primeiros Passos</a></li>
-        <li><a href="guia-usuario/analise-alimentos.md">Análise de Alimentos</a></li>
-        <li><a href="guia-usuario/dashboard.md">Dashboard e Métricas</a></li>
-        <li><a href="guia-usuario/faq.md">FAQ e Suporte</a></li>
-      </ul>
-    </div>
-    
-    <div>
-      <h3>Para Desenvolvedores</h3>
-      <ul>
-        <li><a href="guia-desenvolvedor/setup-local.md">Setup Local</a></li>
-        <li><a href="guia-desenvolvedor/arquitetura.md">Arquitetura do Sistema</a></li>
-        <li><a href="guia-desenvolvedor/api-reference.md">API Reference</a></li>
-        <li><a href="guia-desenvolvedor/deployment.md">Deploy em Produção</a></li>
-        <li><a href="guia-desenvolvedor/contribuindo.md">Contribuindo</a></li>
-      </ul>
-    </div>
-    
-    <div>
-      <h3>Tecnologia</h3>
-      <ul>
-        <li><a href="tecnologia/ia-ml.md">IA e Machine Learning</a></li>
-        <li><a href="tecnologia/backend.md">Backend (.NET 8)</a></li>
-        <li><a href="tecnologia/frontend.md">Frontend e UI/UX</a></li>
-        <li><a href="tecnologia/seguranca.md">Segurança</a></li>
-        <li><a href="tecnologia/apis-externas.md">APIs Externas</a></li>
-      </ul>
-    </div>
+  <p>Este é um <strong>protótipo</strong> de uma plataforma que simula uma ONG de nutrição, ainda em estágio inicial de desenvolvimento. O projeto vem sendo construído desde <strong>29 de fevereiro de 2026</strong> e tem como objetivo demonstrar conceitos de engenharia de software, desenvolvimento web e inteligência artificial aplicados à saúde alimentar.</p>
+
+  <div class="bsfm-alert bsfm-alert-warning">
+    <strong>⚠️ Projeto Acadêmico:</strong> Este é um protótipo educacional. Não possui parcerias reais, dados de usuários reais ou certificações. As funcionalidades são demonstrações conceituais.
   </div>
 </div>
 
 <div class="bsfm-card">
-  <h2>Impacto e Resultados</h2>
-  <p>O BSFM está transformando a saúde alimentar no Brasil com resultados comprovados:</p>
-  
-  <div class="bsfm-alert bsfm-alert-success">
-    <strong>85% de precisão</strong> na detecção de alimentos com IA
-  </div>
-  
-  <div class="bsfm-alert bsfm-alert-info">
-    <strong>452 alimentos</strong> traduzidos e reconhecidos automaticamente
-  </div>
-  
-  <div class="bsfm-alert bsfm-alert-success">
-    <strong>+40% de adesão</strong> a tratamentos nutricionais
-  </div>
-  
-  <div class="bsfm-alert bsfm-alert-info">
-    <strong><3 segundos</strong> para análise nutricional completa
-  </div>
-</div>
-
-<div class="bsfm-card">
-  <h2>Links Rápidos</h2>
+  <h2>Navegação Rápida</h2>
   <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
     <a href="about/visao-missao.md" class="bsfm-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Visão e Missão</a>
     <a href="roadmap/index.md" class="bsfm-btn bsfm-btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Roadmap</a>

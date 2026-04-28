@@ -1,11 +1,11 @@
-# Configuracao do Projeto
+# Configuração do Projeto
 
-Esta pagina centraliza os parametros basicos para executar e manter o BSFM.
+Esta página centraliza os parâmetros básicos para executar e manter o BSFM.
 
-## 🗄️ Configuracao do Banco de Dados
+## 🗄️ Configuração do Banco de Dados
 
 ### Estrutura do Banco
-O BSFM utiliza PostgreSQL com 7 tabelas principais:
+O BSFM utiliza PostgreSQL (produção) ou SQLite (desenvolvimento) com as seguintes tabelas principais:
 - **Usuarios**: Dados dos usuários e métricas nutricionais
 - **Refeicoes**: Catálogo de refeições completas
 - **Comidas**: Alimentos individuais e seus valores nutricionais
@@ -13,8 +13,9 @@ O BSFM utiliza PostgreSQL com 7 tabelas principais:
 - **Hospitais**: Instituições de saúde parceiras
 - **AnaliseIA**: Análises de alimentos realizadas por IA
 - **HistoricoProgresso**: Evolução temporal dos usuários
+- **ConsumoAgua**: Registro de hidratação diária
 
-### Configuracao de Desenvolvimento
+### Configuração de Desenvolvimento
 
 Crie `appsettings.Development.json`:
 ```json
@@ -42,7 +43,7 @@ Crie `appsettings.Development.json`:
 }
 ```
 
-### Variaveis de Ambiente Recomendadas
+### Variáveis de Ambiente Recomendadas
 
 ```bash
 # Banco de dados
@@ -63,36 +64,42 @@ LOG_LEVEL=Information
 DB_LOG_LEVEL=Warning
 ```
 
-### Configuracao de Producao
+### Configuração de Produção (Render)
 
-Para produção, utilize variáveis de ambiente no Vercel/Railway:
-- `DATABASE_URL`: Connection string do PostgreSQL
-- `USDA_API_KEY`: Chave da API USDA FoodData Central
-- `BREVO_API_KEY`: Chave da API Brevo (Sendinblue)
-- `ASPNETCORE_ENVIRONMENT`: Production
+Para produção no Render, utilize variáveis de ambiente no painel do Web Service:
 
-## Configuracao de tema/documentacao
+| Variável | Descrição |
+|----------|-----------|
+| `DATABASE_URL` | Connection string do PostgreSQL (fornecido pelo Render) |
+| `USDA_API_KEY` | Chave da API USDA FoodData Central |
+| `BREVO_API_KEY` | Chave da API Brevo (Sendinblue) |
+| `ASPNETCORE_ENVIRONMENT` | `Production` |
+| `PORT` | Porta atribuída pelo Render (automático) |
 
-A documentacao MkDocs esta com:
+## Configuração de Tema/Documentação
 
-- Tema escuro como padrao
+A documentação MkDocs está com:
+
+- Tema escuro como padrão
 - Tema claro opcional via toggle
 - Paleta personalizada em vermelho, verde e laranja
 - CSS principal em `docs/stylesheets/custom.css`
 - Script de tema em `docs/js/custom.js`
 
-## Configuracao de deploy
+## Configuração de Deploy
 
-### Planejado inicialmente
+### Produção
+- **Render**: Hospedagem principal da aplicação (backend + frontend)
+- **Vercel**: Hospedagem da documentação MkDocs
 
-- Railway para experimentos de infraestrutura.
+### Arquivos de Configuração
+- `render.yaml`: Configuração Infrastructure as Code
+- `Dockerfile`: Containerização da aplicação .NET
+- `mkdocs.yml`: Configuração da documentação
 
-### Definido como oficial
+## Boas Práticas
 
-- Vercel para hospedagem final da camada web/documentacao.
-
-## Boas praticas
-
-- Nao commitar chaves reais.
-- Usar `.env`/secrets no ambiente de deploy.
-- Revisar configuracoes antes de cada release.
+- Não commitar chaves reais no repositório
+- Usar variáveis de ambiente/secrets no deploy
+- Revisar configurações antes de cada release
+- Manter o `appsettings.json` com valores padrão seguros

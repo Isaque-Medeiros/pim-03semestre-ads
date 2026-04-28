@@ -1,43 +1,44 @@
 # Guia do Desenvolvedor BSFM
 
-Bem-vindo ao Guia do Desenvolvedor do **BSFM (Brazilian System of Food Metric)**. Esta documentação fornece informações técnicas detalhadas sobre a arquitetura, tecnologias, APIs e processos de desenvolvimento da plataforma.
+Bem-vindo ao Guia do Desenvolvedor do **BSFM (Brazilian System of Food Metric)**. Esta documentação fornece informações técnicas sobre a arquitetura, tecnologias, APIs e processos de desenvolvimento do protótipo.
 
 ---
 
 ## Arquitetura do Sistema
 
-### Visão Geral da Arquitetura
+### Visão Geral
 
-O BSFM segue uma arquitetura moderna baseada em **.NET 8.0** com separação clara de responsabilidades:
+O BSFM segue uma arquitetura monolítica baseada em **.NET 8.0** com frontend servido estaticamente:
 
 ```mermaid
 graph TD
-    A[Frontend Web] --> B[Backend .NET 8.0]
-    B --> C[PostgreSQL]
+    A[Frontend HTML/CSS/JS] --> B[Backend .NET 8.0]
+    B --> C[PostgreSQL / SQLite]
     B --> D[YOLO AI Service]
     B --> E[USDA API]
     B --> F[Brevo Email]
-    C --> G[Railway Hosting]
+    C --> G[Render Hosting]
 ```
 
-### Stack Tecnológico Principal
+### Stack Tecnológico
 
 #### Backend (.NET 8.0)
 - **Framework:** ASP.NET Core 8.0
-- **Banco de Dados:** PostgreSQL 15+ (Produção/Desenvolvimento)
-- **Schema:** 7 tabelas principais (Usuarios, Refeicoes, Comidas, CronogramaAlimentar, Hospitais, AnaliseIA, HistoricoProgresso)
-- **ORM:** Entity Framework Core 8.0 com Code-First Migrations
+- **Banco de Dados:** PostgreSQL (produção) / SQLite (desenvolvimento)
+- **ORM:** Entity Framework Core 8.0 com Code-First
 - **Autenticação:** BCrypt.Net-Next para hash de senhas + tokens de verificação
 - **Email:** MailKit + MimeKit + Brevo API
 - **IA:** YoloDotNet + ONNX Runtime para análise de alimentos
 
 #### Frontend
-- **Framework CSS:** Tailwind CSS 3.0
+- **Framework CSS:** Tailwind CSS 3.0 (via CDN)
 - **Fontes:** Google Fonts (Inter + Outfit)
 - **Ícones:** Font Awesome 6.4.0
-- **Design System:** Glassmorphism + Gradients
+- **Gráficos:** Chart.js
+- **Mapas:** Leaflet.js
+- **Design System:** Glassmorphism + Gradientes
 
-#### APIs Externas Integradas
+#### APIs Externas
 - **USDA FoodData Central API** - Dados nutricionais
 - **Brevo API** - Serviços de email transacional
 - **YOLO Object Detection** - Reconhecimento de alimentos
@@ -57,22 +58,18 @@ graph TD
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/BSFM/Brazilian-System-of-Food-Metric.git
-cd Brazilian-System-of-Food-Metric
+git clone <url-do-repositorio>
+cd pim-03semestre-ads
 
 # 2. Restaure as dependências
 dotnet restore
 
 # 3. Configure variáveis de ambiente
-# Crie um arquivo .env ou configure no sistema:
 set USDA_API_KEY=sua_chave_aqui
 set BREVO_API_KEY=sua_chave_aqui
-set DATABASE_URL=postgresql://usuario:senha@localhost:5432/bsfm
+set DATABASE_URL=Host=localhost;Database=bsfm_dev;Username=bsfm_user;Password=senha
 
-# 4. Execute as migrations do banco de dados
-dotnet ef database update
-
-# 5. Execute a aplicação
+# 4. Execute a aplicação
 dotnet run
 ```
 
@@ -114,12 +111,11 @@ MobileRepositorio/
 
 ## Inteligência Artificial
 
-### Modelo YOLO Customizado
+### Modelo YOLO
 
-O BSFM utiliza um modelo YOLO (You Only Look Once) customizado para detecção de alimentos:
+O BSFM utiliza um modelo YOLO (You Only Look Once) para detecção de alimentos:
 
 ```csharp
-// Configuração do serviço de inferência
 public class YoloInferenceService
 {
     private readonly Yolo _yolo;
@@ -145,26 +141,6 @@ public class YoloInferenceService
 }
 ```
 
-### Sistema de Tradução
-
-```csharp
-// Dicionário com 452 alimentos traduzidos
-public static readonly Dictionary<string, string> Tradutor = new Dictionary<string, string>
-{
-    { "almond", "amêndoa" },
-    { "apple", "maçã" },
-    { "beef", "carne bovina" },
-    { "bread", "pão" },
-    { "cheese", "queijo" },
-    { "chicken", "frango" },
-    { "egg", "ovo" },
-    { "fish", "peixe" },
-    { "milk", "leite" },
-    { "rice", "arroz" },
-    // ... 442 alimentos adicionais
-};
-```
-
 ### Fluxo de Análise Nutricional
 
 1. **Upload da imagem** do prato pelo usuário
@@ -172,182 +148,8 @@ public static readonly Dictionary<string, string> Tradutor = new Dictionary<stri
 3. **Tradução EN → PT** dos alimentos identificados
 4. **Consulta USDA API** para dados nutricionais
 5. **Cálculo por porção** baseado no tamanho selecionado
-6. **Persistência** no banco de dados PostgreSQL
+6. **Persistência** no banco de dados
 7. **Retorno dos resultados** ao usuário
-
----
-
-## 🗄️ Banco de Dados PostgreSQL
-
-### Schema Completo do BSFM
-
-O banco de dados do BSFM foi projetado para gerenciar todas as informações nutricionais, usuários, análises de IA e histórico de progresso. O schema completo está documentado em [Database Schema](../bsfm/database-schema.md).
-
-#### Principais Características
-- **7 Tabelas Principais** com relacionamentos bem definidos
-- **Índices otimizados** para consultas frequentes
-- **Chaves estrangeiras** para integridade referencial
-- **Campos calculados** (IMC, TMB, Gasto Total)
-- **Histórico temporal** de progresso dos usuários
-- **Suporte a análise de IA** com persistência de resultados
-
-#### Estrutura das Tabelas
-
-```mermaid
-erDiagram
-    Usuarios ||--o{ CronogramaAlimentar : "possui"
-    Usuarios ||--o{ AnaliseIA : "realiza"
-    Usuarios ||--o{ HistoricoProgresso : "registra"
-    
-    Usuarios {
-        serial ID PK
-        varchar Nome
-        varchar Email UK
-        double Peso
-        double Altura
-        double IMC
-        double TMB
-        double GastoTotal
-        timestamp CriadoEm
-    }
-    
-    Refeicoes {
-        serial ID PK
-        varchar NomeRefeicao
-        varchar Categoria
-        double Calorias
-        double Proteinas
-    }
-    
-    Comidas {
-        serial ID PK
-        varchar NomeComida
-        varchar Categoria
-        double Calorias
-        double Proteinas
-    }
-    
-    AnaliseIA {
-        serial ID PK
-        integer UsuarioID FK
-        varchar Alimento
-        double Calorias
-        timestamp DataAnalise
-    }
-```
-
-### Entity Framework Core - Code First
-
-O sistema utiliza Entity Framework Core com abordagem Code-First:
-
-```csharp
-// Exemplo de DbContext
-public class BsfmDbContext : DbContext
-{
-    public DbSet<Usuario> Usuarios { get; set; }
-    public DbSet<Refeicao> Refeicoes { get; set; }
-    public DbSet<Comida> Comidas { get; set; }
-    public DbSet<CronogramaAlimentar> CronogramasAlimentares { get; set; }
-    public DbSet<Hospital> Hospitais { get; set; }
-    public DbSet<AnaliseIA> AnalisesIA { get; set; }
-    public DbSet<HistoricoProgresso> HistoricosProgresso { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        // Configurações de modelo
-        modelBuilder.Entity<Usuario>()
-            .HasIndex(u => u.Email)
-            .IsUnique();
-            
-        modelBuilder.Entity<AnaliseIA>()
-            .HasOne(a => a.Usuario)
-            .WithMany(u => u.AnalisesIA)
-            .HasForeignKey(a => a.UsuarioID);
-    }
-}
-```
-
-### Migrações e Versionamento
-
-```bash
-# Criar nova migração
-dotnet ef migrations add NomeDaMigracao
-
-# Aplicar migrações ao banco
-dotnet ef database update
-
-# Reverter migração específica
-dotnet ef database update NomeDaMigracaoAnterior
-
-# Gerar script SQL
-dotnet ef migrations script
-```
-
-### Performance e Otimização
-
-- **Índices** em campos de busca frequente (email, categorias, datas)
-- **Queries otimizadas** com Include() para eager loading
-- **Pagination** em listagens grandes
-- **Connection pooling** habilitado
-- **Timeout** configurável por operação
-
-### Backup e Recuperação
-
-```bash
-# Backup completo
-pg_dump -U bsfm_user -d bsfm_dev -F c -f backup_bsfm.dump
-
-# Restaurar backup
-pg_restore -U bsfm_user -d bsfm_dev backup_bsfm.dump
-
-# Backup incremental (WAL)
-pg_basebackup -D /backup/bsfm -U bsfm_user
-```
-    VersaoTermos VARCHAR(20)
-);
-```
-
-#### Tabela AnalisesIA
-```sql
-CREATE TABLE AnalisesIA (
-    ID SERIAL PRIMARY KEY,
-    UsuarioID INTEGER REFERENCES Usuarios(ID),
-    Alimento VARCHAR(100) NOT NULL,
-    Calorias DECIMAL(7,2),
-    Proteinas DECIMAL(7,2),
-    Carbos DECIMAL(7,2),
-    Gorduras DECIMAL(7,2),
-    Porcao VARCHAR(20),
-    DataAnalise TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    ImagemURL TEXT
-);
-```
-
-### Migrations com Entity Framework
-
-```csharp
-public class PonteDB : DbContext
-{
-    public PonteDB(DbContextOptions<PonteDB> options) : base(options) { }
-    
-    public DbSet<Usuario> Usuarios { get; set; }
-    public DbSet<AnaliseIA> AnalisesIA { get; set; }
-    public DbSet<Historico> Historicos { get; set; }
-    public DbSet<Hospital> Hospitais { get; set; }
-    
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Usuario>()
-            .HasIndex(u => u.Email)
-            .IsUnique();
-            
-        modelBuilder.Entity<AnaliseIA>()
-            .HasOne(a => a.Usuario)
-            .WithMany(u => u.Analises)
-            .HasForeignKey(a => a.UsuarioID);
-    }
-}
-```
 
 ---
 
@@ -387,18 +189,6 @@ Cadastra um novo usuário.
 }
 ```
 
-**Response:**
-```json
-{
-  "sucesso": true,
-  "usuario": {
-    "id": 1,
-    "nome": "João Silva",
-    "email": "joao@exemplo.com"
-  }
-}
-```
-
 ### Análise Nutricional
 
 #### `POST /analisar-prato`
@@ -424,32 +214,73 @@ Analisa uma imagem de prato usando IA.
         "carboidratos": 28.2,
         "gorduras": 0.3
       }
-    ],
-    "total": {
-      "calorias": 130,
-      "proteinas": 2.7,
-      "carboidratos": 28.2,
-      "gorduras": 0.3
-    }
+    ]
   }
 }
 ```
 
-#### `GET /historico-analises/{usuarioId}`
-Retorna o histórico de análises do usuário.
+---
 
-**Response:**
-```json
+## Deploy no Render
+
+### Arquivos de Configuração
+
+O projeto inclui:
+
+- **render.yaml**: Configuração Infrastructure as Code
+- **Dockerfile**: Containerização da aplicação
+- **Program.cs**: Configurado para ambiente de produção
+
+### Variáveis de Ambiente Necessárias
+
+```bash
+# Banco de dados
+DATABASE_URL=Host=...;Database=bsfm_prod;Username=bsfm_user;Password=...
+
+# APIs externas
+USDA_API_KEY=sua_chave_usda
+BREVO_API_KEY=sua_chave_brevo
+
+# Configuração da aplicação
+ASPNETCORE_ENVIRONMENT=Production
+```
+
+### Health Check Endpoint
+
+```csharp
+[ApiController]
+[Route("health")]
+public class HealthController : ControllerBase
 {
-  "sucesso": true,
-  "historico": [
+    private readonly PonteDB _db;
+    
+    public HealthController(PonteDB db)
     {
-      "id": 123,
-      "data": "2026-04-16T12:30:00Z",
-      "alimentos": ["arroz", "feijão", "frango"],
-      "caloriasTotais": 450
+        _db = db;
     }
-  ]
+    
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+        try
+        {
+            await _db.Database.CanConnectAsync();
+            return Ok(new 
+            {
+                status = "healthy",
+                timestamp = DateTime.UtcNow,
+                database = "connected"
+            });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(503, new 
+            {
+                status = "unhealthy",
+                error = ex.Message
+            });
+        }
+    }
 }
 ```
 
@@ -480,173 +311,12 @@ public class SegurancaService
 // Program.cs
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("PermitirSite",
+    options.AddPolicy("AllowAll",
         builder => builder
-            .WithOrigins("https://bsfm.com.br")
+            .AllowAnyOrigin()
             .AllowAnyMethod()
-            .AllowAnyHeader()
-            .AllowCredentials());
+            .AllowAnyHeader());
 });
-```
-
-### Validação de Input
-
-```csharp
-public class UsuarioValidator : AbstractValidator<UsuarioDTO>
-{
-    public UsuarioValidator()
-    {
-        RuleFor(x => x.Email)
-            .NotEmpty().WithMessage("Email é obrigatório")
-            .EmailAddress().WithMessage("Email inválido");
-            
-        RuleFor(x => x.Senha)
-            .NotEmpty().WithMessage("Senha é obrigatória")
-            .MinimumLength(8).WithMessage("Senha deve ter no mínimo 8 caracteres")
-            .Matches("[A-Z]").WithMessage("Senha deve conter pelo menos uma letra maiúscula")
-            .Matches("[0-9]").WithMessage("Senha deve conter pelo menos um número");
-    }
-}
-```
-
----
-
-## Deployment
-
-### Plataforma: Railway
-
-O BSFM é implantado na plataforma Railway com a seguinte configuração:
-
-**railway.json:**
-```json
-{
-  "build": {
-    "builder": "NIXPACKS",
-    "buildCommand": "dotnet publish -c Release -o output"
-  },
-  "deploy": {
-    "startCommand": "dotnet MobileRepositorio.dll",
-    "healthcheckPath": "/health",
-    "port": 8080
-  }
-}
-```
-
-### Variáveis de Ambiente Necessárias
-
-```bash
-# Banco de dados
-DATABASE_URL=postgresql://usuario:senha@servidor:5432/bsfm
-
-# APIs externas
-USDA_API_KEY=sua_chave_usda
-BREVO_API_KEY=sua_chave_brevo
-
-# Configuração da aplicação
-ASPNETCORE_ENVIRONMENT=Production
-ASPNETCORE_URLS=http://+:8080
-```
-
-### Health Check Endpoint
-
-```csharp
-[ApiController]
-[Route("health")]
-public class HealthController : ControllerBase
-{
-    private readonly PonteDB _db;
-    
-    public HealthController(PonteDB db)
-    {
-        _db = db;
-    }
-    
-    [HttpGet]
-    public async Task<IActionResult> Get()
-    {
-        try
-        {
-            // Verifica conexão com banco
-            await _db.Database.CanConnectAsync();
-            
-            return Ok(new 
-            {
-                status = "healthy",
-                timestamp = DateTime.UtcNow,
-                database = "connected"
-            });
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(503, new 
-            {
-                status = "unhealthy",
-                error = ex.Message
-            });
-        }
-    }
-}
-```
-
----
-
-## Testes
-
-### Estratégia de Testes
-
-```csharp
-// Testes unitários para serviços
-[TestClass]
-public class YoloInferenceServiceTests
-{
-    [TestMethod]
-    public void AnalyzeImage_ValidImage_ReturnsDetections()
-    {
-        // Arrange
-        var service = new YoloInferenceService();
-        var mockImage = new Mock<IFormFile>();
-        
-        // Act
-        var result = service.AnalyzeImage(mockImage.Object);
-        
-        // Assert
-        Assert.IsNotNull(result);
-        Assert.IsTrue(result.Any());
-    }
-}
-
-// Testes de integração para APIs
-[TestClass]
-public class AnaliseIAControllerTests
-{
-    [TestMethod]
-    public async Task AnalisarPrato_ValidRequest_ReturnsAnalysis()
-    {
-        // Arrange
-        var controller = new AnaliseIAController();
-        var request = new AnaliseRequest { /* ... */ };
-        
-        // Act
-        var result = await controller.AnalisarPrato(request);
-        
-        // Assert
-        Assert.IsTrue(result.Sucesso);
-        Assert.IsNotNull(result.Analise);
-    }
-}
-```
-
-### Cobertura de Testes
-
-```bash
-# Executar testes
-dotnet test
-
-# Gerar relatório de cobertura
-dotnet test --collect:"XPlat Code Coverage"
-
-# Ver cobertura no navegador
-reportgenerator -reports:TestResults/**/coverage.cobertura.xml -targetdir:coveragereport -reporttypes:Html
 ```
 
 ---
@@ -677,68 +347,11 @@ reportgenerator -reports:TestResults/**/coverage.cobertura.xml -targetdir:covera
 - `fix:` Correção de bug
 - `docs:` Documentação
 - `style:` Formatação de código
-- `refactor:` Refatoração de código
+- `refactor:` Refatoração
 - `test:` Testes
-- `chore:` Tarefas de manutenção
-
-#### Padrões de Código C#
-```csharp
-// Use async/await para operações I/O
-public async Task<Usuario> GetUsuarioAsync(int id)
-{
-    return await _db.Usuarios.FindAsync(id);
-}
-
-// Use Dependency Injection
-public class MeuService : IMeuService
-{
-    private readonly IOutroService _outroService;
-    
-    public MeuService(IOutroService outroService)
-    {
-        _outroService = outroService;
-    }
-}
-
-// Tratamento de erros apropriado
-try
-{
-    await ProcessarAnaliseAsync();
-}
-catch (Exception ex) when (ex is HttpRequestException)
-{
-    _logger.LogError(ex, "Erro na requisição HTTP");
-    throw new AnaliseException("Falha na análise", ex);
-}
-```
+- `chore:` Manutenção
 
 ---
 
-## Monitoramento e Logs
-
-### Configuração de Logs
-
-```csharp
-// Program.cs
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
-builder.Logging.AddDebug();
-builder.Logging.AddEventLog();
-
-// Configuração Serilog para produção
-Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Information()
-    .WriteTo.Console()
-    .WriteTo.File("logs/bsfm-.txt", rollingInterval: RollingInterval.Day)
-    .CreateLogger();
-```
-
-### Métricas de Performance
-
-```csharp
-public class PerformanceMiddleware
-{
-    private readonly RequestDelegate _next;
-    private readonly ILogger<PerformanceMiddleware> _logger;
-    
-   
+**Última atualização:** 28 de Abril de 2026  
+**Mantido por:** Equipe BSFM - UNIP

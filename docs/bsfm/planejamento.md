@@ -1,64 +1,51 @@
 ---
-title: "Planejamento de gerênciamento do projeto"
+title: "Planejamento de Gerenciamento do Projeto"
 date: 2026
-layout: defaut
-custom_css: |
-
-    .body{
-        background-color: black;
-    }
-
+layout: default
 ---
-<style>
-  footer {
-    width: 100%;
-    border-top: 1px solid #40E0D0; /* Linha Turquesa no Footer */
-    padding: 40px 0;
-    margin-top: 80px;
-    background: #0c1117;
-  }
 
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #40E0D0;
-    font-size: 14px;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
+# Planejamento de Gerenciamento do Projeto
 
-  .footer-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-  .copyright { margin-top: 20px; color: #484f58; font-size: 12px; text-align: center;}
-  
-  .digite { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #40E0D0; }
-</style>
+## Organização das Atividades
 
-## Organização das atividades
+**Analisando** o documento de guia do trabalho semestral do 3° semestre, decidimos o tema da nossa ONG, qual área ela irá abordar, qual dificuldade e o impacto que gerará.
 
-**Análisando** o <a href="https://drive.google.com/file/d/1_wRbp-vZgjXjJA1QRn4PEFb16tEgbC1P/view?usp=drivesdk">documento de guia</a> do trabalho semestral do 3° semestre, decidimos o tema da nossa ONG, qual área ela irá abordar, qual dificuldade e o impacto que gerará.
-Após isso, foi criado um grupo no *WhatsApp* para realizar a divisão das atividades e ter facil comunicação entre todos os integrantes do grupo. 
+Após isso, foi criado um grupo no *WhatsApp* para realizar a divisão das atividades e ter fácil comunicação entre todos os integrantes do grupo.
 
-### Divisão das tarefas
+### Divisão das Tarefas
 
-A divisão das tarefas ficou assim: 
+A divisão das tarefas ficou assim:
 
-- **Todos** Ficaram responsáveis por planejar os *RF e RNF*, indentificar os *Stakeholders* e definir os *termos de contrato* com o sistema e o cliente final.
-- **Isaque de Medeiros** ficou responsável por desenvolver as Funcionálidades em <b style="color: #512bd4;">C#</b> 
+- **Todos** ficaram responsáveis por planejar os *RF e RNF*, identificar os *Stakeholders* e definir os *termos de contrato* com o sistema e o cliente final.
+- **Isaque de Medeiros** ficou responsável por desenvolver as Funcionalidades em <b style="color: #512bd4;">C#</b>
 
+### Cronograma de Desenvolvimento
 
+| Período | Atividade | Responsável |
+|---------|-----------|-------------|
+| 29/02 - 07/03 | Planejamento e definição do tema | Todos |
+| 08/03 - 20/03 | Desenvolvimento v1.0 (backend + frontend) | Isaque |
+| 21/03 - 08/04 | Remasterização SDD | Isaque |
+| 09/04 - 28/04 | Remasterização final e deploy | Isaque |
 
-  <!-- Footer Interno -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-        <span>Offerings</span>
-        <span>Pricing</span>
-        <span>About us</span>
-      </div>
-      <div class="footer-links">
-        <span>Privacy</span> | <span>Terms</span> | <span>Status</span>
-      </div>
-    </div>
-    <div class="copyright">Copyright © 2026-2036 Brazilian System of Food Metric | BSFM</div>
-  </footer>
+### Tecnologias Utilizadas
+
+- **Backend**: C# com ASP.NET Core 8.0
+- **Frontend**: HTML, CSS, JavaScript (Tailwind CSS)
+- **Banco de Dados**: PostgreSQL / SQLite
+- **IA**: YOLO Object Detection (ONNX)
+- **Deploy**: Render
+- **Documentação**: MkDocs (Vercel)
+
+### Funcionalidades Implementadas
+
+1. ✅ Cadastro e login de usuários
+2. ✅ Dashboard com métricas (IMC, TMB, TDEE)
+3. ✅ Análise de alimentos por IA (YOLO + USDA)
+4. ✅ Diário alimentar
+5. ✅ Plano de refeições semanal
+6. ✅ Consumo de água
+7. ✅ Mapa SOS Saúde (Leaflet)
+8. ✅ Central LIBRAS
+9. ✅ Perfil do usuário
+10. ✅ Gráficos de evolução (Chart.js)

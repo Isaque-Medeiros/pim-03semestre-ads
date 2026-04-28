@@ -11,7 +11,6 @@ O sistema BSFM utiliza PostgreSQL como banco de dados principal, com as seguinte
 - **Database**: `bsfm_dev` (desenvolvimento) / `bsfm_prod` (produção)
 - **Usuário**: `bsfm_user`
 - **Encoding**: UTF-8
-- **Collation**: pt_BR.UTF-8
 
 ## 🗃️ Tabelas do Sistema
 
@@ -155,6 +154,24 @@ CREATE INDEX idx_historicoprogresso_usuario ON HistoricoProgresso(UsuarioID);
 CREATE INDEX idx_historicoprogresso_data ON HistoricoProgresso(DataRegistro);
 ```
 
+### 8. ConsumoAgua - Registro de Hidratação
+```sql
+CREATE TABLE ConsumoAgua (
+    ID SERIAL PRIMARY KEY,
+    UsuarioID INTEGER NOT NULL,
+    QuantidadeML DOUBLE PRECISION NOT NULL DEFAULT 0,
+    DataRegistro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    
+    CONSTRAINT fk_consumoagua_usuario 
+        FOREIGN KEY (UsuarioID) 
+        REFERENCES Usuarios(ID) 
+        ON DELETE CASCADE
+);
+
+CREATE INDEX idx_consumoagua_usuario ON ConsumoAgua(UsuarioID);
+CREATE INDEX idx_consumoagua_data ON ConsumoAgua(DataRegistro);
+```
+
 ## 🔗 Relacionamentos entre Tabelas
 
 ```mermaid
@@ -162,6 +179,7 @@ erDiagram
     Usuarios ||--o{ CronogramaAlimentar : possui
     Usuarios ||--o{ AnaliseIA : realiza
     Usuarios ||--o{ HistoricoProgresso : registra
+    Usuarios ||--o{ ConsumoAgua : hidrata
     
     Usuarios {
         serial ID PK
@@ -192,46 +210,14 @@ erDiagram
         double IMC
         timestamp DataRegistro
     }
+    
+    ConsumoAgua {
+        serial ID PK
+        integer UsuarioID FK
+        double QuantidadeML
+        timestamp DataRegistro
+    }
 ```
-
-## 📋 Script de Criação Completo
-
-```sql
--- Script completo de criação do banco BSFM
-CREATE DATABASE bsfm_dev 
-    WITH 
-    OWNER = postgres
-    ENCODING = 'UTF8'
-    LC_COLLATE = 'pt_BR.UTF-8'
-    LC_CTYPE = 'pt_BR.UTF-8'
-    CONNECTION LIMIT = -1;
-
-\c bsfm_dev
-
--- Criar usuário específico para a aplicação
-CREATE USER bsfm_user WITH PASSWORD 'senha_segura_alterar_em_producao';
-GRANT ALL PRIVILEGES ON DATABASE bsfm_dev TO bsfm_user;
-
--- Conceder permissões nas tabelas
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO bsfm_user;
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO bsfm_user;
-
--- Executar os CREATE TABLE acima nesta ordem
--- 1. Usuarios
--- 2. Refeicoes  
--- 3. Comidas
--- 4. Hospitais
--- 5. CronogramaAlimentar (depende de Usuarios)
--- 6. AnaliseIA (depende de Usuarios)
--- 7. HistoricoProgresso (depende de Usuarios)
-```
-
-## 🚀 Considerações de Performance
-
-- Todas as tabelas possuem índices nas chaves estrangeiras e campos de busca frequente
-- Campos de data/hora são indexados para consultas temporais
-- Textos longos usam tipo TEXT com indexação apropriada
-- Chaves únicas garantem integridade dos dados (ex: email único)
 
 ## 🔧 Manutenção do Banco
 
@@ -244,13 +230,4 @@ pg_restore -U postgres -d bsfm_dev backup_bsfm.dump
 
 -- Monitorar performance
 SELECT * FROM pg_stat_user_tables WHERE schemaname = 'public';
-
--- Estatísticas de uso
-SELECT 
-    relname AS table_name,
-    n_live_tup AS live_rows,
-    n_dead_tup AS dead_rows,
-    last_autovacuum,
-    last_autoanalyze
-FROM pg_stat_user_tables;
 ```
