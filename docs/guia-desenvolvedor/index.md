@@ -24,11 +24,12 @@ graph TD
 
 #### Backend (.NET 8.0)
 - **Framework:** ASP.NET Core 8.0
-- **Banco de Dados:** PostgreSQL (Produção) + SQLite (Desenvolvimento)
-- **ORM:** Entity Framework Core 8.0
-- **Autenticação:** BCrypt.Net-Next para hash de senhas
+- **Banco de Dados:** PostgreSQL 15+ (Produção/Desenvolvimento)
+- **Schema:** 7 tabelas principais (Usuarios, Refeicoes, Comidas, CronogramaAlimentar, Hospitais, AnaliseIA, HistoricoProgresso)
+- **ORM:** Entity Framework Core 8.0 com Code-First Migrations
+- **Autenticação:** BCrypt.Net-Next para hash de senhas + tokens de verificação
 - **Email:** MailKit + MimeKit + Brevo API
-- **IA:** YoloDotNet + ONNX Runtime
+- **IA:** YoloDotNet + ONNX Runtime para análise de alimentos
 
 #### Frontend
 - **Framework CSS:** Tailwind CSS 3.0
@@ -176,26 +177,132 @@ public static readonly Dictionary<string, string> Tradutor = new Dictionary<stri
 
 ---
 
-## Banco de Dados
+## 🗄️ Banco de Dados PostgreSQL
 
-### Modelo de Dados Principal
+### Schema Completo do BSFM
 
-#### Tabela Usuarios
-```sql
-CREATE TABLE Usuarios (
-    ID SERIAL PRIMARY KEY,
-    Nome VARCHAR(100) NOT NULL,
-    Email VARCHAR(255) UNIQUE NOT NULL,
-    SenhaHash VARCHAR(255) NOT NULL,
-    Peso DECIMAL(5,2),
-    Altura DECIMAL(4,2),
-    IMC DECIMAL(4,2),
-    TMB DECIMAL(7,2),
-    GastoTotal DECIMAL(7,2),
-    PesoMeta DECIMAL(5,2),
-    DataCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UltimoLogin TIMESTAMP,
-    TermosAceitos BOOLEAN DEFAULT FALSE,
+O banco de dados do BSFM foi projetado para gerenciar todas as informações nutricionais, usuários, análises de IA e histórico de progresso. O schema completo está documentado em [Database Schema](../bsfm/database-schema.md).
+
+#### Principais Características
+- **7 Tabelas Principais** com relacionamentos bem definidos
+- **Índices otimizados** para consultas frequentes
+- **Chaves estrangeiras** para integridade referencial
+- **Campos calculados** (IMC, TMB, Gasto Total)
+- **Histórico temporal** de progresso dos usuários
+- **Suporte a análise de IA** com persistência de resultados
+
+#### Estrutura das Tabelas
+
+```mermaid
+erDiagram
+    Usuarios ||--o{ CronogramaAlimentar : "possui"
+    Usuarios ||--o{ AnaliseIA : "realiza"
+    Usuarios ||--o{ HistoricoProgresso : "registra"
+    
+    Usuarios {
+        serial ID PK
+        varchar Nome
+        varchar Email UK
+        double Peso
+        double Altura
+        double IMC
+        double TMB
+        double GastoTotal
+        timestamp CriadoEm
+    }
+    
+    Refeicoes {
+        serial ID PK
+        varchar NomeRefeicao
+        varchar Categoria
+        double Calorias
+        double Proteinas
+    }
+    
+    Comidas {
+        serial ID PK
+        varchar NomeComida
+        varchar Categoria
+        double Calorias
+        double Proteinas
+    }
+    
+    AnaliseIA {
+        serial ID PK
+        integer UsuarioID FK
+        varchar Alimento
+        double Calorias
+        timestamp DataAnalise
+    }
+```
+
+### Entity Framework Core - Code First
+
+O sistema utiliza Entity Framework Core com abordagem Code-First:
+
+```csharp
+// Exemplo de DbContext
+public class BsfmDbContext : DbContext
+{
+    public DbSet<Usuario> Usuarios { get; set; }
+    public DbSet<Refeicao> Refeicoes { get; set; }
+    public DbSet<Comida> Comidas { get; set; }
+    public DbSet<CronogramaAlimentar> CronogramasAlimentares { get; set; }
+    public DbSet<Hospital> Hospitais { get; set; }
+    public DbSet<AnaliseIA> AnalisesIA { get; set; }
+    public DbSet<HistoricoProgresso> HistoricosProgresso { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        // Configurações de modelo
+        modelBuilder.Entity<Usuario>()
+            .HasIndex(u => u.Email)
+            .IsUnique();
+            
+        modelBuilder.Entity<AnaliseIA>()
+            .HasOne(a => a.Usuario)
+            .WithMany(u => u.AnalisesIA)
+            .HasForeignKey(a => a.UsuarioID);
+    }
+}
+```
+
+### Migrações e Versionamento
+
+```bash
+# Criar nova migração
+dotnet ef migrations add NomeDaMigracao
+
+# Aplicar migrações ao banco
+dotnet ef database update
+
+# Reverter migração específica
+dotnet ef database update NomeDaMigracaoAnterior
+
+# Gerar script SQL
+dotnet ef migrations script
+```
+
+### Performance e Otimização
+
+- **Índices** em campos de busca frequente (email, categorias, datas)
+- **Queries otimizadas** com Include() para eager loading
+- **Pagination** em listagens grandes
+- **Connection pooling** habilitado
+- **Timeout** configurável por operação
+
+### Backup e Recuperação
+
+```bash
+# Backup completo
+pg_dump -U bsfm_user -d bsfm_dev -F c -f backup_bsfm.dump
+
+# Restaurar backup
+pg_restore -U bsfm_user -d bsfm_dev backup_bsfm.dump
+
+# Backup incremental (WAL)
+pg_basebackup -D /backup/bsfm -U bsfm_user
+```
     VersaoTermos VARCHAR(20)
 );
 ```
