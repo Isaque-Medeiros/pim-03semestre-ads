@@ -25,7 +25,7 @@
   --md-primary-fg-color--light: var(--bsfm-red-500);
   --md-accent-fg-color: var(--bsfm-orange-500);
   --md-accent-fg-color--transparent: rgba(249, 115, 22, 0.12);
-  --md-default-bg-color: #000000;
+  --md-default-bg-color: #000000 !important;
   --md-default-fg-color: #e5e7eb;
   --md-default-fg-color--light: #94a3b8;
   --md-default-fg-color--lightest: #1f2937;
