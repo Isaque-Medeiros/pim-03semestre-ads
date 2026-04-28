@@ -25,12 +25,12 @@
   --md-primary-fg-color--light: var(--bsfm-red-500);
   --md-accent-fg-color: var(--bsfm-orange-500);
   --md-accent-fg-color--transparent: rgba(249, 115, 22, 0.12);
-  --md-default-bg-color: #0b1220;
+  --md-default-bg-color: #000000;
   --md-default-fg-color: #e5e7eb;
   --md-default-fg-color--light: #94a3b8;
-  --md-default-fg-color--lightest: #334155;
+  --md-default-fg-color--lightest: #1f2937;
   --md-typeset-a-color: #fb923c;
-  --md-code-bg-color: #111827;
+  --md-code-bg-color: #0a0a0a;
   --md-code-fg-color: #f9fafb;
 }
 
@@ -54,7 +54,15 @@
 }
 
 .md-header {
+  background-color: #000000;
   border-bottom: 2px solid var(--bsfm-orange-500);
+}
+
+.md-main,
+.md-main__inner,
+.md-content,
+.md-content__inner {
+  background-color: var(--md-default-bg-color);
 }
 
 .md-tabs__link--active {

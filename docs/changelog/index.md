@@ -4,7 +4,35 @@ Este documento registra todas as mudanças significativas no **BSFM (Brazilian S
 
 ---
 
-## [1.0.0] - 2026-04-16
+## [1.1.0] - 2026-04-08
+
+### Versao Remasterizada (metodologia SDD)
+**Refatoracao estrutural e melhoria do processo de desenvolvimento.**
+
+### Novas Funcionalidades
+- Organizacao da documentacao por secoes e navegacao revisada
+- Padronizacao de fluxo de trabalho com metodologia SDD
+- Evolucao do design system para tema claro/escuro
+
+### Infraestrutura
+- Railway mantido como referencia de planejamento inicial
+- Vercel definido como hospedagem definitiva da camada web/documentacao
+
+---
+
+## [1.0.0] - 2026-03-20
+
+### Lancamento da v1
+**Primeira versao funcional publicada para validacao do projeto.**
+
+### Base entregue
+- Primeira experiencia de analise de alimentos por IA
+- Estrutura inicial de dashboard e autenticacao
+- Primeira publicacao tecnica da documentacao
+
+---
+
+## [1.0.1] - 2026-04-16
 
 ### Lançamento Oficial
 **Primeira versão estável do BSFM disponível para o público geral!**
@@ -38,7 +66,8 @@ Este documento registra todas as mudanças significativas no **BSFM (Brazilian S
 
 ### Melhorias Técnicas
 - **Arquitetura .NET 8.0** com Entity Framework Core
-- **Banco de dados PostgreSQL** em produção (Railway)
+- **Banco de dados PostgreSQL** com infraestrutura inicialmente planejada no Railway
+- **Camada web/documentacao** direcionada para hospedagem definitiva no Vercel
 - **APIs externas integradas:** USDA FoodData Central, Brevo Email
 - **Frontend responsivo** com Tailwind CSS 3.0
 - **Design system** com glassmorphism e gradientes

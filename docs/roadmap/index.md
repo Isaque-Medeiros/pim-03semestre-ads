@@ -10,7 +10,10 @@ Este documento apresenta o plano estratégico de desenvolvimento do **BSFM (Braz
 timeline
     title Linha do Tempo BSFM 2026-2030
     section 2026
-        Q1 : Lançamento v1.0<br>Plataforma Web Completa
+        Fev : Inicio do desenvolvimento<br>Planejamento funcional e tecnico
+        Mar : Lancamento v1.0<br>Primeira versao funcional
+        Abr : Versao remaster SDD<br>Arquitetura e processo refinados
+        Abr (atual) : Correcao de bugs visuais<br>Treinamento da IA e integracao de conteudos
         Q2 : App Mobile<br>Reconhecimento de Porções
         Q3 : Wearables<br>Notificações Push
         Q4 : IA Avançada<br>Planos Personalizados
@@ -27,8 +30,8 @@ timeline
 
 ## Fase 1: Consolidação (2026)
 
-### Q1 2026 - Lançamento Oficial v1.0 ✅
-**Status:** Concluído em 16/04/2026
+### Q1 2026 - Inicio e Lancamento v1.0 ✅
+**Status:** Concluido entre fev/2026 e mar/2026
 
 #### Objetivos Alcançados
 - **Plataforma Web Completa**
@@ -42,6 +45,23 @@ timeline
 - **Análises realizadas:** 1.000.000
 - **Precisão da IA:** 85%
 - **Satisfação do usuário:** 4.5/5
+
+### Inicio de Abril/2026 - Versao Remasterizada com metodologia SDD ✅
+**Status:** Concluido
+
+#### Entregas da remasterizacao
+- Revisao de arquitetura e padrao de documentacao
+- Refinamento de fluxos de desenvolvimento guiados por SDD
+- Reorganizacao de conteudo para navegacao mais clara
+
+### Estado Atual (fim de abril/2026) 🔧
+**Status:** Em andamento
+
+#### Frentes ativas
+- Correcao de bugs visuais e consistencia de tema
+- Treinamento incremental dos modelos de IA
+- Integracao e consolidacao de conteudo na plataforma
+- Ajuste de infraestrutura para hospedagem final no Vercel
 
 ### Q2 2026 - Expansão Mobile
 **Status:** Em desenvolvimento (Previsto: 31/05/2026)
