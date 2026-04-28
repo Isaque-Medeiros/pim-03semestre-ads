@@ -1,8 +1,8 @@
 site_name: BSFM - Brazilian System of Food Metric
 site_url: https://bsfm.com.br
-site_description: Plataforma revolucionária de nutrição inteligente com IA para transformar a saúde alimentar dos brasileiros
+site_description: Plataforma revolucionaria de nutricao inteligente com IA para transformar a saude alimentar dos brasileiros
 site_author: BSFM Team
-copyright: Copyright © 2026-2036 Brazilian System of Food Metric | BSFM
+use_directory_urls: false
 
 theme:
   name: material
@@ -10,78 +10,97 @@ theme:
   logo: stylesheets/images/favicon.png
   favicon: stylesheets/images/favicon.png
   palette:
-    # Tema escuro (default) e claro (alternativo)
     - scheme: slate
-      primary: emerald
-      accent: emerald
+      primary: red
+      accent: orange
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-night
         name: Modo escuro
     - scheme: default
-      primary: emerald
-      accent: emerald
+      primary: red
+      accent: green
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-sunny
         name: Modo claro
   features:
-    - navigation.tabs
-    - navigation.tabs.sticky
+    - content.code.copy
+    - content.code.annotate
     - navigation.sections
-    - navigation.path
+    - navigation.tabs
+    - navigation.top
+    - navigation.footer
     - search.suggest
     - search.highlight
-    - content.code.copy
-    - content.tabs
-    - navigation.expand
-    - navigation.indexes
-    - navigation.top
+    - search.share
+  font:
+    text: Inter
+    code: Fira Code
   icon:
     repo: fontawesome/brands/github
 
 repo_name: BSFM/Brazilian-System-of-Food-Metric
 repo_url: https://github.com/BSFM/Brazilian-System-of-Food-Metric
 
-# Plugins
 plugins:
   - search
   - tags
 
-# Markdown extensions (syntax highlight com Pygments para gerar tokens de cor)
 markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - toc:
+      permalink: true
   - pymdownx.highlight:
-      use_pygments: true
+      anchor_linenums: true
+      line_spans: __span
       pygments_lang_class: true
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.details
 
-# Extras
 extra:
-  analytics:
-    provider: google
-    property: G-XXXXXXXXXX
+  generator: false
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/BSFM
+      name: GitHub
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/bsfm_br
+      name: Twitter
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/company/bsfm
+      name: LinkedIn
 
-# Custom CSS
 extra_css:
   - stylesheets/extra.css
   - stylesheets/custom.css
 
-# Custom JavaScript
 extra_javascript:
-  - javascripts/custom.js
+  - js/custom.js
 
-# Navigation structure
 nav:
   - Home: index.md
-  - Sobre o BSFM: sobre/visao-missao.md
-  - Guia do Usuário: guia-usuario/introducao.md
-  - Guia do Desenvolvedor: guia-desenvolvedor/index.md
-  - Casos de Uso: caso-de-uso/index.md
-  - Glossário: glossario/index.md
-  - Roadmap: roadmap/index.md
-  - Changelog: changelog/index.md
+  - Visao Geral:
+    - Sobre o BSFM: about/visao-missao.md
+    - Planejamento: bsfm/planejamento.md
+    - Roadmap: roadmap/index.md
+    - Changelog: changelog/index.md
+  - Guias:
+    - Guia do Usuario: guia-usuario/introducao.md
+    - Guia do Desenvolvedor: guia-desenvolvedor/index.md
+    - Instalacao: bsfm/instalacao.md
+    - Configuracao: bsfm/config.md
+    - Comecar a Aprender: bsfm/comecar-aprender.md
+  - Referencia:
+    - Referencia Tecnica: bsfm/referencia.md
+    - Casos de Uso: caso-de-uso/index.md
+    - Glossario: glossario/index.md
+
+copyright: |
+  Copyright (c) 2026-2036 Brazilian System of Food Metric | BSFM

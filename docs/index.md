@@ -152,7 +152,7 @@ hide:
 <div class="bsfm-card">
   <h2>Links Rápidos</h2>
   <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-    <a href="sobre/visao-missao.md" class="bsfm-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Visão e Missão</a>
+    <a href="about/visao-missao.md" class="bsfm-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Visão e Missão</a>
     <a href="roadmap/index.md" class="bsfm-btn bsfm-btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Roadmap</a>
     <a href="changelog/index.md" class="bsfm-btn bsfm-btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Changelog</a>
     <a href="caso-de-uso/index.md" class="bsfm-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Casos de Uso</a>
