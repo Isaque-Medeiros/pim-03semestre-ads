@@ -23,10 +23,11 @@ A divisão das tarefas ficou assim:
 
 | Período | Atividade | Responsável |
 |---------|-----------|-------------|
-| 29/02 - 07/03 | Planejamento e definição do tema | Todos |
-| 08/03 - 20/03 | Desenvolvimento v1.0 (backend + frontend) | Isaque |
-| 21/03 - 08/04 | Remasterização SDD | Isaque |
-| 09/04 - 28/04 | Remasterização final e deploy | Isaque |
+| 29/02 - 07/03 | Planejamento e definição do tema | Equipe planejamento |
+| 08/03 - 20/03 | Desenvolvimento v1.0 (backend + frontend) | Equipe Desenvolvimento |
+| 21/03 - 08/04 | Remasterização SDD | Equipe Design e Desenvolvimento |
+| 09/04 - 28/04 | Remasterização final e deploy | Equipe BSFM |
+| 28/04 - 29/04 | Projeto pré-definido e correção de bugs e deploy | Equipe BSFM |
 
 ### Tecnologias Utilizadas
 
