@@ -100,6 +100,49 @@ hide:
 </div>
 
 <div class="bsfm-card">
+  <h2>Nossa Visão</h2>
+  <p>Acreditamos que a tecnologia pode democratizar o acesso à informação nutricional de qualidade. Nosso objetivo é construir uma ferramenta que ajude as pessoas a entenderem melhor sua alimentação de forma simples e acessível.</p>
+  
+  <p>Como projeto acadêmico, buscamos aplicar conceitos de:</p>
+  <ul>
+    <li><strong>Inteligência Artificial</strong> — Reconhecimento de alimentos por imagem</li>
+    <li><strong>Engenharia de Software</strong> — Arquitetura limpa e boas práticas de desenvolvimento</li>
+    <li><strong>UX/UI Design</strong> — Interfaces intuitivas e acessíveis</li>
+    <li><strong>Banco de Dados</strong> — Modelagem e persistência de dados</li>
+  </ul>
+</div>
+
+<div class="bsfm-card">
+  <h2>Funcionalidades Implementadas</h2>
+  <p>Atualmente, o protótipo conta com as seguintes funcionalidades em desenvolvimento:</p>
+  
+  <ul>
+    <li>✅ <strong>Cadastro e Login</strong> — Autenticação com verificação por email</li>
+    <li>✅ <strong>Dashboard</strong> — Métricas de IMC, TMB e gasto calórico com gráficos</li>
+    <li>✅ <strong>Analisador IA</strong> — Detecção de alimentos por foto com dados nutricionais</li>
+    <li>✅ <strong>Diário Alimentar</strong> — Registro de refeições analisadas</li>
+    <li>✅ <strong>Plano de Refeições</strong> — Agendamento semanal de refeições</li>
+    <li>✅ <strong>Consumo de Água</strong> — Registro e acompanhamento de hidratação</li>
+    <li>✅ <strong>Mapa SOS Saúde</strong> — Localização de UPAs e hospitais</li>
+    <li>✅ <strong>Central LIBRAS</strong> — Conteúdo em Língua Brasileira de Sinais</li>
+    <li>✅ <strong>PWA</strong> — Aplicação instalável em dispositivos móveis</li>
+  </ul>
+</div>
+
+<div class="bsfm-card">
+  <h2>Metas e Próximos Passos</h2>
+  <p>Como projeto em desenvolvimento, temos as seguintes metas para o futuro:</p>
+  
+  <ul>
+    <li>⬜ <strong>Melhorar precisão da IA</strong> — Treinar modelo com mais alimentos brasileiros</li>
+    <li>⬜ <strong>Modo escuro completo</strong> — Tema escuro consistente em todas as páginas</li>
+    <li>⬜ <strong>Notificações</strong> — Lembretes de refeições e hidratação</li>
+    <li>⬜ <strong>Exportação de dados</strong> — Gerar relatórios em PDF</li>
+    <li>⬜ <strong>App mobile nativo</strong> — Versão para iOS e Android</li>
+  </ul>
+</div>
+
+<div class="bsfm-card">
   <h2>Navegação Rápida</h2>
   <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
     <a href="about/visao-missao.md" class="bsfm-btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Visão e Missão</a>
@@ -109,54 +152,3 @@ hide:
     <a href="glossario/index.md" class="bsfm-btn bsfm-btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Glossário</a>
   </div>
 </div>
-
-<style>
-  .bsfm-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-  
-  .bsfm-stat-card {
-    text-align: center;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .bsfm-stat-number {
-    font-size: 2rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #10b981, #0ea5e9);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 0.5rem;
-  }
-  
-  .bsfm-stat-label {
-    color: #94a3b8;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  
-  ul {
-    padding-left: 1.5rem;
-  }
-  
-  li {
-    margin-bottom: 0.5rem;
-  }
-  
-  a {
-    color: #10b981;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-</style>

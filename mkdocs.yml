@@ -11,13 +11,13 @@ theme:
   favicon: stylesheets/images/favicon.png
   palette:
     - scheme: slate
-      primary: red
+      primary: black
       accent: orange
       toggle:
         icon: material/weather-night
         name: Modo escuro
     - scheme: default
-      primary: red
+      primary: black
       accent: green
       toggle:
         icon: material/weather-sunny

@@ -14,6 +14,7 @@ timeline
         Mar (20) : Lançamento v1.0<br>Primeira versão funcional
         Abr (08) : Versão remaster SDD<br>Arquitetura e processo refinados
         Abr (28) : Remasterização final<br>Entrega acadêmica PIM 3º semestre
+        Abr (29) : Atualização pré-definitiva<br>PWA e correções finais
 ```
 
 ## Fase Atual: Protótipo Acadêmico (2026)
@@ -54,6 +55,18 @@ timeline
 - Configuração de deploy no Render
 - Documentação revisada e transparente
 
+### Abril/2026 - Atualização Pré-Definitiva ✅
+**Status:** Concluído em 29/04/2026
+
+#### Entregas da Atualização
+- **PWA (Progressive Web App)**: Aplicação instalável em dispositivos móveis
+- **Service Worker**: Cache offline com estratégia network-first
+- **Ícone SVG do BSFM**: Logotipo otimizado para PWA
+- **Meta tags PWA**: Adicionadas em todas as páginas HTML
+- **Documentação MkDocs atualizada**: Conteúdo realista de protótipo
+- **Correção de navegação**: Links rápidos da home page corrigidos
+- **Paleta de cores ajustada**: Barra de navegação preta com detalhes em laranja
+
 ---
 
 ## Metas Futuras (Timeline de Desenvolvimento)
@@ -65,7 +78,7 @@ As metas abaixo representam os **objetivos almejados** para o futuro do projeto,
 - [ ] **Modo escuro (dark mode)**: Implementar toggle de tema
 - [ ] **Notificações toast**: Substituir alerts por notificações elegantes
 - [ ] **Exportação de dados**: Gerar PDF/CSV do plano alimentar
-- [ ] **PWA**: Tornar a plataforma instalável em dispositivos móveis
+- [x] **PWA**: Tornar a plataforma instalável em dispositivos móveis
 - [ ] **Gráficos de macros**: Evolução de proteínas, carboidratos e gorduras
 - [ ] **Sistema de conquistas**: Badges de progresso para motivar usuários
 
@@ -114,5 +127,5 @@ As metas abaixo representam os **objetivos almejados** para o futuro do projeto,
 
 ---
 
-**Última atualização:** 28 de Abril de 2026  
+**Última atualização:** 29 de Abril de 2026  
 **Mantido por:** Equipe BSFM - UNIP

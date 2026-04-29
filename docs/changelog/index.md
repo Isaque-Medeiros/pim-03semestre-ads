@@ -4,6 +4,29 @@ Este documento registra todas as mudanças significativas no **BSFM (Brazilian S
 
 ---
 
+## [1.3.0] - 2026-04-29
+
+### 🚀 Atualização Pré-Definitiva - PWA e Correções Finais
+**Versão de aprimoramento final antes da entrega acadêmica.**
+
+### Novas Funcionalidades
+- **PWA (Progressive Web App)**: Aplicação instalável em dispositivos móveis com manifest.json e service worker
+- **Ícone SVG do BSFM**: Logotipo otimizado para PWA com folha verde gradiente
+- **Seção "Baixe o App"**: Opção de download na landing page com QR Code e APK
+
+### Melhorias Técnicas
+- **Meta tags PWA**: Adicionadas em todas as páginas HTML (index, login, dashboard, diario, analisador-ia, metas, planos, hospitais, libras)
+- **Service Worker**: Cache offline com estratégia network-first para melhor performance
+- **Documentação MkDocs atualizada**: Conteúdo revisado com informações realistas de protótipo
+- **Correção de navegação**: Links rápidos da home page corrigidos para caminhos corretos
+- **Paleta de cores ajustada**: Barra de navegação da documentação alterada de vermelho para preto com detalhes em laranja, combinando com o tema escuro
+
+### Correções
+- Links quebrados na página inicial da documentação corrigidos
+- Conteúdo exagerado substituído por informações transparentes sobre o status de protótipo acadêmico
+
+---
+
 ## [1.2.0] - 2026-04-28
 
 ### 🎯 Remasterização Final - Versão de Entrega Acadêmica
@@ -113,5 +136,5 @@ Cada versão é organizada por categorias:
 
 ---
 
-**Última atualização:** 28 de Abril de 2026  
+**Última atualização:** 29 de Abril de 2026  
 **Mantido por:** Equipe Técnica BSFM - UNIP
