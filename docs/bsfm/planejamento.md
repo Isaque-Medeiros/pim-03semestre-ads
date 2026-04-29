@@ -18,15 +18,22 @@ A divisão das tarefas ficou assim:
 
 - **Todos** ficaram responsáveis por planejar os *RF e RNF*, identificar os *Stakeholders* e definir os *termos de contrato* com o sistema e o cliente final.
 - **Isaque de Medeiros** ficou responsável por desenvolver as Funcionalidades em <b style="color: #512bd4;">C#</b>
+- **Gustavo** responsável pelo banco de Dados
+- **Yuri** responsável pela documentação do Projeto
+- **Giovana** responsável pelo design do site
+- **Todos** responsáveis pelo desenvolvimento e críticas de melhorias.
+- **Libras** a critério da IA para o melhor modo de ensino e distribuir informação para o usuário.
 
 ### Cronograma de Desenvolvimento
 
 | Período | Atividade | Responsável |
 |---------|-----------|-------------|
-| 29/02 - 07/03 | Planejamento e definição do tema | Todos |
-| 08/03 - 20/03 | Desenvolvimento v1.0 (backend + frontend) | Isaque |
-| 21/03 - 08/04 | Remasterização SDD | Isaque |
-| 09/04 - 28/04 | Remasterização final e deploy | Isaque |
+| 29/02 - 07/03 | Planejamento e definição do tema | Equipe BSFM |
+| 08/03 - 20/03 | Desenvolvimento v1.0 (backend + frontend) | Desenvolvedor |
+| 21/03 - 08/04 | Remasterização SDD | Designer e Desenvolvedor |
+| 09/04 - 28/04 | Remasterização final e deploy | Equipe BSFM |
+| 28/04 - 30/04 | Correções de bugs, implementando APK e Deploy | Desenvolvedor |
+
 
 ### Tecnologias Utilizadas
 
