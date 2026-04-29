@@ -7,8 +7,8 @@ use_directory_urls: false
 theme:
   name: material
   language: pt-BR
-  logo: stylesheets/images/favicon.png
-  favicon: stylesheets/images/favicon.png
+  logo: stylesheets/images/logobsfm.png
+  favicon: stylesheets/images/Iconebsfm.png
   palette:
     - scheme: slate
       primary: black
